@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+}
+
+ng-icon {
+  color: white;
+  width: 0.6em;
+  padding: 0.3em;
+}
+
+.LogoIcon {
+  width: 1em;
+  height: 1em;
+  padding: 0.5em;
+  border-bottom: solid black;
+}
+
+div {
+  flex-direction: column;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=sidebar.component.css.map */

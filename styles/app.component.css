@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+}
+
+div {
+  display: flex;
+  flex-direction: row;
+}
+
+main {
+  width: 80vw;
+}/*# sourceMappingURL=app.component.css.map */

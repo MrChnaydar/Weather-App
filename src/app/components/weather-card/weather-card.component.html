@@ -1,0 +1,54 @@
+<section>
+  <div class="seachIconContainer">
+    <input
+      type="text"
+      #searchInput
+      placeholder="Search"
+      (input)="data.onInputSubmit(searchInput.value)"
+      [ngClass]="{ typing: searchInput.value.length > 0 }"
+    />
+    <button>
+      <ng-icon class="searchIcon" name="hugeSearch01" />
+    </button>
+  </div>
+  <!-- <div class="searchListPopUp">
+    @if (listOfCities()?.length!=0){ @for (item of listOfCities(); track
+    (item.lat+item.lon)){
+    <div class="searchResults" (click)="onSelect(item)">
+      <span
+        >{{ item.name }}, {{ item.country }} @if (item.state!=undefined)
+        {{{", " + item.state}}}
+      </span>
+    </div>
+    } }
+  </div>
+  <div class="weatherBriefContainer">
+    <img src="{{ icon() }}" />
+    <p>{{ temperature() }}&deg;C</p>
+    <p>{{ weather() }}</p>
+  </div>
+  <div class="infoContainer">
+    <p><ng-icon name="hugeLocation01" /> {{ location() }}</p>
+    <p><ng-icon name="hugeCalendar03" /> {{ datetime() }}</p>
+  </div> -->
+  <div class="searchListPopUp">
+    @if (data.getListOfCities().length){ @for (item of data.getListOfCities();
+    track (item.lat+item.lon)){
+    <div class="searchResults" (click)="data.search(item)">
+      <span
+        >{{ item.name }}, {{ item.country }} @if (item.state!=undefined)
+        {{{", " + item.state}}}
+      </span>
+    </div>
+    } }
+  </div>
+  <div class="weatherBriefContainer">
+    <img src="{{ data.getCurrentWeather().weather[0].icon }}" />
+    <p>{{ data.getCurrentWeather().main.temp }}&deg;C</p>
+    <p>{{ data.getCurrentWeather().weather[0].main }}</p>
+  </div>
+  <div class="infoContainer">
+    <p><ng-icon name="hugeLocation01" /> {{ data.getCurrentWeather().name }}</p>
+    <p><ng-icon name="hugeCalendar03" /> {{ datetime() }}</p>
+  </div>
+</section>

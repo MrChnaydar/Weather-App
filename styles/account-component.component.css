@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+}
+
+ng-icon {
+  color: white;
+  width: 0.7em;
+  padding: 0.2em;
+}
+
+.userIcon {
+  padding-block-end: 0.5em;
+  padding-block-start: 0;
+}
+
+div {
+  flex-direction: column;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=account-component.component.css.map */

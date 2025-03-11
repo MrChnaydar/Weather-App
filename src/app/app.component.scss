@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+}
+
+@mixin background-blur {
+  background-image: linear-gradient(to right, #282c26, #274657);
+  // background-size: cover;
+  // background-position: center;
+  // background-attachment: fixed;
+}
+
+div {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+header {
+  width: fit-content;
+}
+
+main {
+  display: block;
+  width: 100%;
+}
+app-home {
+  display: flex;
+  width: 100%;
+}
+
+.loadingScreen {
+}
+// main {
+//   width: 100%;
+//   display: flex;
+//   flex-direction: row;
+// }
+// .left-section {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   width: 30%;
+// }
+
+// app-weather-card,
+// app-forecast-card,
+// app-highlight-card,
+// app-map-card {
+//   padding: 0em;
+//   border-radius: 1em;
+//   //height: 100%;
+//   @include background-blur;
+// }
+
+// app-weather-card,
+// app-forecast-card {
+//   margin: 0.5em;
+//   height: 48%;
+// }
+
+// app-weather-card {
+//   margin-top: 0;
+// }
+
+// app-forecast-card {
+//   margin-bottom: 0;
+// }
+// app-highlight-card,
+// app-map-card {
+//   margin: 0.5em;
+//   height: 48%;
+// }
+
+// app-forecast-card {
+//   padding: 0em;
+// }
+
+// .right-section {
+//   width: 70%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// }
+
+app-header {
+  @include background-blur;
+  width: fit-content;
+}

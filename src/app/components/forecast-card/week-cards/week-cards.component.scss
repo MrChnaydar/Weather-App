@@ -1,0 +1,59 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  // flex-direction: row;
+  // align-items: center;
+  //justify-content: space-evenly;
+  //gap: 3.5em;
+  //justify-content: space-between;
+  //border: 1px white solid;
+  border-radius: 1em;
+  padding: 0.8em 0em;
+  padding-left: 1em;
+  margin: 0.3em 0em;
+}
+
+@mixin primary {
+  color: #fdfcff;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+@mixin secondary {
+  color: #a3aaaf;
+  font-size: 1.2rem;
+  font-weight: 450;
+}
+
+img {
+  //padding-left: 0.8em;
+  width: 4rem;
+  //padding-right: 1em;
+}
+
+.maxTemp {
+  @include primary();
+}
+
+.minTemp {
+  @include secondary();
+}
+
+.maxMinTempDiv {
+  //padding-right: 2em;
+}
+
+.calendarDay {
+  @include secondary();
+  //padding-right: 3em;
+}
+
+.day {
+  @include secondary();
+  font-weight: 500;
+  justify-self: self-end;
+  padding-right: 1.5em;
+}

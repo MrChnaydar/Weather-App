@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+}
+
+ng-icon {
+  color: white;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 1.5em;
+}
+.userIcon {
+  padding-block-end: 1em;
+  padding-block-start: 0;
+}
+
+div {
+  flex-direction: column;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}

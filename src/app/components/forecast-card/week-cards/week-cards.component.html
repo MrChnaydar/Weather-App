@@ -1,0 +1,11 @@
+<div class="main">
+  <img src="{{ icon() }}" alt="" />
+  <div class="maxMinTempDiv">
+    <span class="maxTemp">@if(maxTemp() > 0){+}{{ maxTemp() }}&deg;/</span>
+    <span class="minTemp">@if(minTemp() > 0){+}{{ minTemp() }}</span>
+  </div>
+  <span class="calendarDay">{{
+    getFormattedDateParts().day + " " + getFormattedDateParts().month
+  }}</span>
+  <span class="day">{{ getFormattedDateParts().weekday }}</span>
+</div>

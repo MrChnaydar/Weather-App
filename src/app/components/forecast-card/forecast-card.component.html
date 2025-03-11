@@ -1,0 +1,12 @@
+<section>
+  <p>7 Days Forecast</p>
+  <!-- @for (day of data()?.daily?.slice(1); track day.dt) { -->
+  <app-week-cards
+    *ngFor="let day of data.getTwoWeeks()?.daily?.slice(1)"
+    icon="https://openweathermap.org/img/wn/{{ day.weather[0].icon }}@2x.png"
+    [maxTempInput]="day.temp.max"
+    [minTempInput]="day.temp.min"
+    [dt]="day.dt"
+  />
+  <!-- } -->
+</section>

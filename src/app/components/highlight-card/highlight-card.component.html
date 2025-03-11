@@ -1,0 +1,70 @@
+<section>
+  <p class="header">Today's Highlight</p>
+  <div class="mainContainer">
+    <div class="windHumidityContainer">
+      <div class="wind">
+        <p>Wind Status</p>
+
+        <div>
+          <span
+            >{{ data.getCurrentWeather().wind.speed }}
+            {{ windSpeedUnit() }}</span
+          >
+          <span>{{ currentTime() }}</span>
+        </div>
+      </div>
+      <div class="humidity">
+        <p>Humidity</p>
+        <div>
+          <span>{{ data.getCurrentWeather().main.humidity }}%</span>
+          <span
+            ><ng-icon name="hugeDroplet" /> dew point is {{ dewPoint() }}&deg;
+            right now</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="uVisibilityContainer">
+      <div class="uv">
+        <p>UV Index</p>
+        <h2>GRAPH PLACEHOLDER</h2>
+        <p></p>
+      </div>
+      <div class="visibility">
+        <p>Visibility</p>
+        <div>
+          <span class="visibilityNumber"
+            >{{ data.getCurrentWeather().visibility
+            }}<span class="km"> Km</span></span
+          >
+          <span><ng-icon name="hugeEye" /> {{ visibilityStatus() }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="feelSunCaontainer">
+      <div class="sunset">
+        <p>Sunset & Sunrise</p>
+        <div>
+          <ng-icon name="hugeSunrise" />
+          <span>Sunrise</span>
+          <span>{{ sunriseTime() }}</span>
+        </div>
+        <div>
+          <ng-icon name="hugeSunset" />
+          <span>Sunset</span>
+          <span>{{ sunsetTime() }}</span>
+        </div>
+      </div>
+      <div class="feelsLike">
+        <p>Feels Like</p>
+        <div>
+          <span
+            ><ng-icon name="hugeThermometerWarm" />
+            {{ data.getCurrentWeather().main.feels_like }}</span
+          >
+          <span>{{ humidityStatus() }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
