@@ -12,15 +12,25 @@ import { firstValueFrom } from 'rxjs';
 export class WeatherService {
   http = inject(HttpClient);
 
-  getWeatherDataFromApi(key: string, city: string, country: string) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${key}&units=metric`;
+  getWeatherDataFromApi(
+    key: string,
+    city: string,
+    country: string,
+    unit: string
+  ) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${key}&units=${unit}`;
     console.log(url);
     return this.http.get<WeatherType>(url);
   }
 
   //This function was first used to get the location city name with the provided lat and lon, right now we get that from the auto geo location service
 
-  async getReverseLocationInfo(key: string, lat: number, lon: number) {
+  async getReverseLocationInfo(
+    key: string,
+    lat: number,
+    lon: number,
+    unit: string
+  ) {
     const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${key}`;
     console.log(url);
     let cityname = '';
@@ -44,7 +54,7 @@ export class WeatherService {
     cityname = city[0]?.name;
     countryname = city[0]?.country;
     return firstValueFrom(
-      this.getWeatherDataFromApi(key, cityname, countryname)
+      this.getWeatherDataFromApi(key, cityname, countryname, unit)
     );
   }
 
@@ -54,8 +64,8 @@ export class WeatherService {
     return this.http.get<Array<CitiesType>>(url);
   }
 
-  getTwoWeeksForcast(key: string, lat: number, lon: number) {
-    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=${key}&units=metric`;
+  getTwoWeeksForcast(key: string, lat: number, lon: number, unit: string) {
+    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${key}&units=${unit}`;
 
     return this.http.get<TwoWeeksType>(url);
   }

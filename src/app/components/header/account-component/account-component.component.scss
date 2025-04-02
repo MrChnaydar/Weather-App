@@ -6,10 +6,23 @@ ng-icon {
   color: white;
   width: 2.5em;
   height: 2.5em;
-  padding: 1.5em;
+  //padding: 1.5em;
+  margin: 0.7em 0;
+  border-radius: 5em;
+  &:hover {
+    //font-size: 1.05rem;
+    transition: 0.3s ease-in-out;
+    background-color: rgba(128, 128, 128, 0.52);
+  }
+
+  &:active {
+    background-color: rgba(128, 128, 128, 0.874);
+    transition: 0.1s ease-in-out;
+  }
 }
+
 .userIcon {
-  padding-block-end: 1em;
+  margin-block-end: 1.2em;
   padding-block-start: 0;
 }
 

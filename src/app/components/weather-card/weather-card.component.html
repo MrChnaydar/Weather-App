@@ -40,11 +40,11 @@
         {{{", " + item.state}}}
       </span>
     </div>
-    } }
+    }}
   </div>
   <div class="weatherBriefContainer">
     <img src="{{ data.getCurrentWeather().weather[0].icon }}" />
-    <p>{{ data.getCurrentWeather().main.temp }}&deg;C</p>
+    <p>{{ data.getCurrentWeather().main.temp }}&deg;{{ unit() }}</p>
     <p>{{ data.getCurrentWeather().weather[0].main }}</p>
   </div>
   <div class="infoContainer">

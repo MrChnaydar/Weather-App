@@ -8,7 +8,7 @@ import {
   hugeChartRing,
 } from '@ng-icons/huge-icons';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   imports: [NgIcon, RouterLink],

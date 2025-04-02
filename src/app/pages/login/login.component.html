@@ -1,0 +1,39 @@
+<div id="main">
+  <ng-icon name="saxProfileCircleBold"></ng-icon>
+  <div class="loginContainer">
+    <form
+      action="#"
+      class="loginForm"
+      onsubmit="onFormSubmit(username.value, password.value)"
+    >
+      <label for="username">Username or Email </label>
+      <input
+        #username
+        type="text"
+        name="username"
+        placeholder="Username or Email"
+        maxlength="20"
+        minlength="3"
+      />
+      <label for="password">Password</label>
+      <input
+        #password
+        type="password"
+        name="password"
+        id=""
+        placeholder="Password"
+        minlength="8"
+      />
+      <button
+        type="submit"
+        (onsubmit)="checkForm(username.value, password.value)"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+  <p class="footer">
+    © {{ currentYear }} Weather Angular App | Created by Nizar Mourak using
+    Angular
+  </p>
+</div>

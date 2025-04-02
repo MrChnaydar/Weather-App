@@ -21,6 +21,7 @@ import { CitiesType } from '../../model/cities-type.data';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data.service';
 import { WeatherType } from '../../model/weather-type.data';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-weather-card',
@@ -40,9 +41,18 @@ import { WeatherType } from '../../model/weather-type.data';
 })
 export class WeatherCardComponent {
   data: DataService = inject(DataService);
+  settings: SettingsService = inject(SettingsService);
 
   dateConstructor = new Date();
   datetime = signal(this.dateConstructor.toLocaleDateString());
+
+  unit() {
+    if (this.settings.getSettings().units == 'metric') {
+      return 'C';
+    } else {
+      return 'F';
+    }
+  }
 
   // temperature: any = input();
   // weather: any = input();

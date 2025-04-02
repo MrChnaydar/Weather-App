@@ -1,0 +1,14 @@
+<div id="main">
+  <img class="animatedGif" src="Forming blue sky.gif" alt="" />
+  <button *ngIf="!data.responseStatus()" (click)="refresh()" type="button">
+    Loading...
+  </button>
+
+  <button *ngIf="data.responseStatus()" type="button" [routerLink]="'/home'">
+    Get Started
+  </button>
+  <p class="footer">
+    © {{ currentYear }} Weather Angular App | Created by Nizar Mourak using
+    Angular
+  </p>
+</div>

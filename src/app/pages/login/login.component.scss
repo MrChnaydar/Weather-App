@@ -1,0 +1,73 @@
+* {
+  color: white;
+}
+
+#main {
+  background-image: linear-gradient(to right, #282c26, #274657);
+  margin: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 98%;
+  border-radius: 1em;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+  border-radius: 2em;
+  background-color: rgba(55, 91, 108, 0.2); /* Adjust transparency */
+  backdrop-filter: blur(10px);
+}
+
+.loginForm {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 2.3em;
+  justify-self: end;
+  text-align: center;
+}
+
+label {
+  font-size: 1.4rem;
+}
+
+input {
+  padding: 0.2em;
+  font-size: 1.3rem;
+  margin: 1em;
+  border: none;
+  //border: #274657 1px solid;
+  border-radius: 0.3em;
+  background-color: rgba(55, 91, 108, 0.3);
+}
+
+button {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 1em;
+  border: white 1px solid;
+  border-radius: 0.3em;
+  cursor: pointer;
+  //border: none;
+  background-color: transparent;
+  font-size: 1.3rem;
+  padding: 0.3em 0.7em;
+  text-align: center;
+}
+
+ng-icon {
+  width: 5em;
+  height: 5em;
+  margin-bottom: 1em;
+}

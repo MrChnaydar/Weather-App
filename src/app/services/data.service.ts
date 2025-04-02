@@ -4,11 +4,16 @@ import { TwoWeeksType } from '../model/two-weeks-type.data';
 import { CitiesType } from '../model/cities-type.data';
 import { KeyService } from './key.service';
 import { WeatherService } from './weather.service';
+import { SettingsService } from './settings.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
+  private unit: SettingsService = inject(SettingsService);
+
+  private haveData: boolean = false;
+
   private apikeyservice: KeyService = inject(KeyService);
   private weatherdata: WeatherService = inject(WeatherService);
 
@@ -27,6 +32,8 @@ export class DataService {
     response.main.temp = Math.floor(response.main.temp);
     response.name = `${response.name}, ${response.sys.country}`;
     this.data = response;
+
+    this.haveData = true;
   }
 
   public setTwoWeeksData(response: TwoWeeksType) {
@@ -54,14 +61,20 @@ export class DataService {
       .getWeatherDataFromApi(
         this.apikeyservice.getKey(),
         city.name,
-        city.country
+        city.country,
+        this.unit.getSettings().units
       )
       .subscribe((data) => {
         this.setCurrentWeatherData(data);
       });
 
     this.weatherdata
-      .getTwoWeeksForcast(this.apikeyservice.getKey(), city.lat, city.lon)
+      .getTwoWeeksForcast(
+        this.apikeyservice.getKey(),
+        city.lat,
+        city.lon,
+        this.unit.getSettings().units
+      )
       .subscribe((data) => {
         //console.log(data);
         // this.twoWeeksData.update(() => data);
@@ -95,5 +108,12 @@ export class DataService {
 
   public getListOfCities() {
     return this.listCities;
+  }
+
+  public responseStatus() {
+    if (this.haveData) {
+      return true;
+    }
+    return this.haveData;
   }
 }

@@ -1,10 +1,17 @@
 export interface TwoWeeksType {
+  current: currently;
   daily: dayly[];
   // lat: number;
   // lon: number;
   // timezone: string;
   // timezone_offset: number;
 }
+
+interface currently {
+  dew_point: number;
+  uvi: number;
+}
+
 interface dayly {
   dt: number;
   // sunrise: number;

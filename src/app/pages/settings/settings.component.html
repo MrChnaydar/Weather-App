@@ -1,10 +1,124 @@
-<div>
+<div id="main">
+  <h2>Settings</h2>
   <section>
-    <p>Time format 12H 24H</p>
-    <p>visibility km m mi nmi tf</p>
-    <p>Language</p>
-    <p>Units Metric or Imperial</p>
-    <p>location</p>
-    <p></p>
+    <div class="setting">
+      <p>Units</p>
+      <span>
+        <button
+          type="button"
+          (click)="
+            settingsData.updateSetting('units', 'metric');
+            reload(false, '/home')
+          "
+          [class.active]="settingsData.getSettings().units === 'metric'"
+        >
+          Metric
+        </button>
+        <button
+          type="button"
+          (click)="
+            settingsData.updateSetting('units', 'imperial');
+            reload(false, '/home')
+          "
+          [class.active]="settingsData.getSettings().units === 'imperial'"
+        >
+          Imperial
+        </button>
+      </span>
+    </div>
+    <div class="setting">
+      <p>Time format</p>
+      <span>
+        <button
+          type="button"
+          (click)="
+            settingsData.updateSetting('timeFormat', 12); reload(false, '/home')
+          "
+          [class.active]="settingsData.getSettings().timeFormat === 12"
+        >
+          12H
+        </button>
+        <button
+          type="button"
+          (click)="
+            settingsData.updateSetting('timeFormat', 24); reload(false, '/home')
+          "
+          [class.active]="settingsData.getSettings().timeFormat === 24"
+        >
+          24H
+        </button>
+      </span>
+    </div>
+    <div class="setting">
+      <p>Visibility</p>
+      <span>
+        <button
+          type="button"
+          (click)="
+            settingsData.updateSetting('distanceUnits', 'km');
+            reload(false, '/home')
+          "
+          [class.active]="settingsData.getSettings().distanceUnits === 'km'"
+        >
+          Km
+        </button>
+        <button
+          type="button"
+          (click)="
+            settingsData.updateSetting('distanceUnits', 'm');
+            reload(false, '/home')
+          "
+          [class.active]="settingsData.getSettings().distanceUnits === 'm'"
+        >
+          M
+        </button>
+        <button
+          type="button"
+          (click)="
+            settingsData.updateSetting('distanceUnits', 'mi');
+            reload(false, '/home')
+          "
+          [class.active]="settingsData.getSettings().distanceUnits === 'mi'"
+        >
+          Mi
+        </button>
+      </span>
+    </div>
+    <div class="setting">
+      <p>Language (Work in progress)</p>
+      <span>
+        <button
+          type="button"
+          (click)="
+            settingsData.updateSetting('lang', 'eng'); reload(false, '/home')
+          "
+          [class.active]="settingsData.getSettings().lang === 'eng'"
+        >
+          English
+        </button>
+        <button
+          type="button"
+          (click)="
+            settingsData.updateSetting('lang', 'esp'); reload(false, '/home')
+          "
+          [class.active]="settingsData.getSettings().lang === 'esp'"
+        >
+          Spanish
+        </button>
+        <button
+          type="button"
+          (click)="
+            settingsData.updateSetting('lang', 'fr'); reload(false, '/home')
+          "
+          [class.active]="settingsData.getSettings().lang === 'fr'"
+        >
+          French
+        </button>
+      </span>
+    </div>
   </section>
+  <p class="footer">
+    © {{ currentYear }} Weather Angular App | Created by Nizar Mourak using
+    Angular
+  </p>
 </div>

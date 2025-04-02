@@ -3,66 +3,109 @@
   <div class="mainContainer">
     <div class="windHumidityContainer">
       <div class="wind">
-        <p>Wind Status</p>
-
+        <p class="uppertitle">Wind Status</p>
+        <!-- <img class="windgif" src="windman.gif" alt="" /> -->
+        <!-- <ng-icon name="solarWindBoldDuotone" class="wind-icon" /> -->
+        <ngx-charts-gauge
+          [results]="windGraphData()!"
+          [max]="10"
+          class="chart"
+          [units]="windSpeedUnit()"
+          [animations]="false"
+          [startAngle]="-90"
+          [angleSpan]="180"
+          [view]="[400, 250]"
+          [scheme]="'flame'"
+        >
+        </ngx-charts-gauge>
         <div>
-          <span
+          <span class="bigText"
             >{{ data.getCurrentWeather().wind.speed }}
-            {{ windSpeedUnit() }}</span
+            <span class="smallText">{{ windSpeedUnit() }}</span></span
           >
-          <span>{{ currentTime() }}</span>
+          <span class="smallText">{{ currentTime() }}</span>
         </div>
       </div>
       <div class="humidity">
-        <p>Humidity</p>
+        <p class="lowertitle">Humidity</p>
         <div>
-          <span>{{ data.getCurrentWeather().main.humidity }}%</span>
-          <span
-            ><ng-icon name="hugeDroplet" /> dew point is {{ dewPoint() }}&deg;
-            right now</span
+          <span class="bigText"
+            >{{ data.getCurrentWeather().main.humidity
+            }}<span class="smallText"> %</span></span
+          >
+          <span class="smallText" id="dew"
+            ><ng-icon name="hugeDroplet" style="display: block" /> Dew point is
+            {{ dewPoint() }}&deg; right now</span
           >
         </div>
       </div>
     </div>
     <div class="uVisibilityContainer">
       <div class="uv">
-        <p>UV Index</p>
-        <h2>GRAPH PLACEHOLDER</h2>
+        <p class="uppertitle">UV Index</p>
+        <ngx-charts-linear-gauge
+          class="chart"
+          [max]="12"
+          [min]="0"
+          [view]="[376, 200]"
+          [scheme]="uvGraphColor()"
+          units="UV"
+          [value]="data.getTwoWeeks().current.uvi"
+          [previousValue]="8"
+          style="margin: 0em 0.5em"
+          [animations]="false"
+        >
+        </ngx-charts-linear-gauge>
         <p></p>
       </div>
       <div class="visibility">
-        <p>Visibility</p>
+        <p class="lowertitle">Visibility</p>
         <div>
-          <span class="visibilityNumber"
+          <span class="visibilityNumber" class="bigText"
             >{{ data.getCurrentWeather().visibility
-            }}<span class="km"> Km</span></span
+            }}<span class="smallText"> Km</span></span
           >
-          <span><ng-icon name="hugeEye" /> {{ visibilityStatus() }}</span>
+          <span class="smallText"
+            ><ng-icon name="hugeEye" style="display: block" />{{
+              visibilityStatus(data.getCurrentWeather().visibility)
+            }}</span
+          >
         </div>
       </div>
     </div>
     <div class="feelSunCaontainer">
       <div class="sunset">
-        <p>Sunset & Sunrise</p>
-        <div>
-          <ng-icon name="hugeSunrise" />
-          <span>Sunrise</span>
-          <span>{{ sunriseTime() }}</span>
-        </div>
-        <div>
-          <ng-icon name="hugeSunset" />
-          <span>Sunset</span>
-          <span>{{ sunsetTime() }}</span>
+        <p class="uppertitle">Sunrise & Sunset</p>
+        <div class="sunTimesContainer">
+          <div class="sunriseCard">
+            <ng-icon name="hugeSunrise" class="smallText" />
+            <span class="bigText" style="color: #ebbf4d">Sunrise</span>
+            <span class="bigText" style="font-size: 1.5rem">{{
+              sunriseTime()
+            }}</span>
+          </div>
+          <div class="sunsetCard">
+            <ng-icon name="hugeSunset" class="smallText" />
+            <span class="bigText" style="color: #ebbf4d">Sunset</span>
+            <span class="bigText" style="font-size: 1.5rem">{{
+              sunsetTime()
+            }}</span>
+          </div>
         </div>
       </div>
       <div class="feelsLike">
-        <p>Feels Like</p>
+        <p class="lowertitle">Feels Like</p>
         <div>
-          <span
-            ><ng-icon name="hugeThermometerWarm" />
+          <span class="bigText"
+            ><ng-icon name="hugeThermometerWarm" class="thermometer" />
             {{ data.getCurrentWeather().main.feels_like }}</span
           >
-          <span>{{ humidityStatus() }}</span>
+          <span class="smallText">{{
+            humidityStatus(
+              data.getCurrentWeather().main.feels_like,
+              data.getCurrentWeather().main.humidity
+            )
+          }}</span>
         </div>
       </div>
     </div>

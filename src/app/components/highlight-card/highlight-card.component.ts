@@ -1,6 +1,6 @@
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { WeatherType } from '../../model/weather-type.data';
+
 import {
   hugeDroplet,
   hugeEye,
@@ -8,11 +8,17 @@ import {
   hugeSunset,
   hugeSunrise,
 } from '@ng-icons/huge-icons';
+import { solarWindBoldDuotone } from '@ng-icons/solar-icons/bold-duotone';
+
 import { DataService } from '../../services/data.service';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-highlight-card',
-  imports: [NgIcon],
+  imports: [NgIcon, NgxChartsModule],
+  standalone: true,
   templateUrl: './highlight-card.component.html',
   styleUrl: './highlight-card.component.scss',
   viewProviders: [
@@ -22,29 +28,130 @@ import { DataService } from '../../services/data.service';
       hugeThermometerWarm,
       hugeSunset,
       hugeSunrise,
+      solarWindBoldDuotone,
     }),
   ],
 })
 export class HighlightCardComponent {
   data: DataService = inject(DataService);
 
+  windGraphData() {
+    // if (this.windSpeedObject[0].value != this.windSpeedData) {
+    //   this.windSpeedData = this.data.getCurrentWeather().wind.speed;
+    //   this.windSpeedObject = [
+    //     { name: 'Velocity', value: this.data.getCurrentWeather().wind.speed },
+    //   ];
+    //   return this.windSpeedObject;
+    // }
+    return [
+      { name: 'Velocity', value: this.data.getCurrentWeather().wind.speed },
+    ];
+  }
+
+  uvGraphColor() {
+    if (this.data.getTwoWeeks().current.uvi <= 4) {
+      return 'air';
+    } else if (this.data.getTwoWeeks().current.uvi <= 7) {
+      return 'solar';
+    } else {
+      return 'fire';
+    }
+  }
+
   //data = input<WeatherType | null>();
   sunriseTime() {
-    const dateConstructor = new Date(
-      this.data.getCurrentWeather()?.sys.sunrise ?? 0 * 1000
-    ).getUTCHours();
-    return dateConstructor;
+    return new Date(
+      this.data.getCurrentWeather().sys.sunrise * 1000
+    ).toLocaleTimeString('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true, // Set to true for 12-hour format (AM/PM)
+    });
+    // const dateConstructor = new Date(
+    //   this.data.getCurrentWeather()?.sys.sunrise ?? 0 * 1000
+    // ).getUTCHours();
+    // return dateConstructor;
   }
+
   sunsetTime() {
-    const dateConstructor = new Date(
-      this.data.getCurrentWeather()?.sys.sunset ?? 0 * 1000
-    ).getUTCHours();
-    return dateConstructor;
+    return new Date(
+      this.data.getCurrentWeather().sys.sunset * 1000
+    ).toLocaleTimeString('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true, // Set to true for 12-hour format (AM/PM)
+    });
+    // const dateConstructor = new Date(
+    //   this.data.getCurrentWeather()?.sys.sunset ?? 0 * 1000
+    // ).getUTCHours();
+    // return dateConstructor;
   }
 
-  humidityStatus() {}
+  humidityStatus(feelsLike: number, humidity: number): string {
+    if (feelsLike <= 0) {
+      if (humidity <= 30)
+        return 'Feels even colder due to dry air, risk of frostbite ❄️';
+      if (humidity <= 60)
+        return 'Still freezing, but moisture helps slightly 🌫️';
+      if (humidity <= 80) return 'Cold, but damp air makes it feel heavier 🌧️';
+      return 'Icy and damp, risk of hypothermia ⚠️';
+    } else if (feelsLike <= 10) {
+      if (humidity <= 30) return 'Dry cold, sharp air but tolerable 🌬️';
+      if (humidity <= 60)
+        return 'Cool and fresh, comfortable for most people 🍃';
+      if (humidity <= 80) return 'Feels a little colder due to moisture ❄️';
+      return 'Cold and damp, can feel bone-chilling 🌫️';
+    } else if (feelsLike <= 20) {
+      if (humidity <= 30) return 'Crisp and fresh, ideal weather ☀️';
+      if (humidity <= 60) return 'Comfortable warmth with slight humidity 🌤️';
+      if (humidity <= 80) return 'Slightly humid but still pleasant 🌥️';
+      return 'Sticky coolness, moisture makes it feel cooler 🌧️';
+    } else if (feelsLike <= 25) {
+      if (humidity <= 30) return 'Dry and warm, comfortable for most people ☀️';
+      if (humidity <= 60) return 'Warm with mild humidity, still pleasant 🌤️';
+      if (humidity <= 80) return 'Humidity makes it feel a bit warmer 🌥️';
+      return 'Sticky warmth, slight discomfort starts 🌆';
+    } else if (feelsLike <= 30) {
+      if (humidity <= 30) return 'Dry heat, tolerable but warm 🌞';
+      if (humidity <= 60) return 'Warm and slightly sweaty, but bearable 🌤️';
+      if (humidity <= 80)
+        return 'Feels hotter due to humidity, sweat struggles to evaporate 🌆';
+      return 'Muggy and heavy air, discomfort rising 🥵';
+    } else if (feelsLike <= 35) {
+      if (humidity <= 30) return 'Hot but breathable, stay hydrated 🔥';
+      if (humidity <= 60) return 'Feels hotter, noticeable discomfort 🌇';
+      if (humidity <= 80) return 'Heavy heat, sweating a lot 🌆';
+      return 'Feels oppressive, risk of heat exhaustion 🫠';
+    } else if (feelsLike <= 40) {
+      if (humidity <= 30) return 'Intense dry heat, like a desert 🏜️';
+      if (humidity <= 60) return 'Very hot, uncomfortable for long exposure 🌞';
+      if (humidity <= 80) return 'Dangerous humidity, feels suffocating 🥵';
+      return 'Feels like a sauna, extreme caution needed ⚠️';
+    } else {
+      if (humidity <= 30) return 'Extremely dry heat, risk of dehydration 🚨';
+      if (humidity <= 60) return 'Feels like a furnace, heatstroke risk 🚑';
+      if (humidity <= 80) return 'Almost unbearable, heat stress likely 🫠';
+      return 'Deadly combination, avoid outdoor exposure 🚨';
+    }
+  }
 
-  visibilityStatus() {}
+  visibilityStatus(visibility: number): string {
+    if (visibility >= 10) {
+      return 'Clear visibility';
+    } else if (visibility >= 6) {
+      return 'Slightly reduced, light mist';
+    } else if (visibility >= 3) {
+      return 'Haze is affecting visibility';
+    } else if (visibility >= 1) {
+      return 'Moderate fog, significant visibility reduction';
+    } else if (visibility >= 0.5) {
+      return 'Heavy fog, very limited visibility';
+    } else if (visibility >= 0.1) {
+      return 'Dense fog, extreme visibility reduction';
+    } else {
+      return 'Almost no visibility, dangerous conditions';
+    }
+  }
 
   windSpeedUnit() {
     return 'Km/h';
@@ -65,5 +172,6 @@ export class HighlightCardComponent {
     hour: '2-digit',
     minute: '2-digit',
   });
+
   currentTime = signal(this.date);
 }

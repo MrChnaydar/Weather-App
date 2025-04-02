@@ -1,12 +1,19 @@
-import { Component, inject, input, Input, output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  importProvidersFrom,
+  inject,
+  input,
+  Input,
+  output,
+} from '@angular/core';
 import { WeatherCardComponent } from '../../components/weather-card/weather-card.component';
 import { ForecastCardComponent } from '../../components/forecast-card/forecast-card.component';
 import { MapCardComponent } from '../../components/map-card/map-card.component';
 import { HighlightCardComponent } from '../../components/highlight-card/highlight-card.component';
-import { WeatherType } from '../../model/weather-type.data';
-import { CitiesType } from '../../model/cities-type.data';
-import { TwoWeeksType } from '../../model/two-weeks-type.data';
-import { DataService } from '../../services/data.service';
+import { trigger, transition, style, animate } from '@angular/animations';
+
+import { provideHttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -14,13 +21,14 @@ import { DataService } from '../../services/data.service';
     ForecastCardComponent,
     MapCardComponent,
     HighlightCardComponent,
-    HomeComponent,
     WeatherCardComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  private cdRef!: ChangeDetectorRef;
+
   //data: DataService = inject(DataService);
   // temperature = input();
   // data = input<WeatherType | null>();
@@ -42,4 +50,6 @@ export class HomeComponent {
   //     // console.log(city);
   //     this.citySelected.emit(city);
   //   }
+
+  currentYear: number = new Date().getFullYear();
 }
