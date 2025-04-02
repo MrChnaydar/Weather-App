@@ -99,7 +99,8 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {"baseHref":"https://mrchnaydar.github.io/Weather-App/"}
         }
       }
     }
