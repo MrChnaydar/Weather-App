@@ -31,7 +31,7 @@ export class WeatherService {
     lon: number,
     unit: string
   ) {
-    const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${key}`;
+    const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${key}`;
     console.log(url);
     let cityname = '';
     let countryname = '';
@@ -59,7 +59,7 @@ export class WeatherService {
   }
 
   getLocationInfo(key: string, input: string) {
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${key}`;
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=${key}`;
 
     return this.http.get<Array<CitiesType>>(url);
   }
