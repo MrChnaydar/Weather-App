@@ -21,9 +21,20 @@ export class DataService {
   private twoWeeksData!: TwoWeeksType;
   private listCities: CitiesType[] = [];
   private searchLocation!: string;
+  private visibilityKM!: number;
 
   public setCurrentWeatherData(response: WeatherType) {
-    response.visibility = Math.round(response.visibility / 1000);
+    this.visibilityKM = Math.round(response.visibility / 1000);
+
+    if (this.unit.getSettings().distanceUnits == 'mi') {
+      response.visibility = Math.round(
+        response.visibility * 0.0006213712121212121
+      );
+    } else {
+      response.visibility = Math.round(response.visibility / 1000);
+    }
+    // console.log(response.visibility);
+
     response.main.feels_like = Math.floor(response.main.feels_like);
     response.weather[0].icon =
       'https://openweathermap.org/img/wn/' +
@@ -34,6 +45,10 @@ export class DataService {
     this.data = response;
 
     this.haveData = true;
+  }
+
+  public getVisKm() {
+    return this.visibilityKM;
   }
 
   public setTwoWeeksData(response: TwoWeeksType) {

@@ -8,7 +8,7 @@
         <!-- <ng-icon name="solarWindBoldDuotone" class="wind-icon" /> -->
         <ngx-charts-gauge
           [results]="windGraphData()!"
-          [max]="10"
+          [max]="maxWindSpeed()"
           class="chart"
           [units]="windSpeedUnit()"
           [animations]="false"
@@ -63,11 +63,11 @@
         <div>
           <span class="visibilityNumber" class="bigText"
             >{{ data.getCurrentWeather().visibility
-            }}<span class="smallText"> Km</span></span
+            }}<span class="smallText"> {{ visibilityUnits() }}</span></span
           >
           <span class="smallText"
             ><ng-icon name="hugeEye" style="display: block" />{{
-              visibilityStatus(data.getCurrentWeather().visibility)
+              visibilityStatus()
             }}</span
           >
         </div>
