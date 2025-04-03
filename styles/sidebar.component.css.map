@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../src/app/components/sidebar/sidebar.component.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA","file":"sidebar.component.css"}
+{"version":3,"sourceRoot":"","sources":["../src/app/components/header/sidebar/sidebar.component.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;EAMA;;AAEF;EACE;EACA;;;AAQJ;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA","file":"sidebar.component.css"}

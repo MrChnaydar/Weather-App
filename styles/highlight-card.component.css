@@ -1,1 +1,188 @@
-/*# sourceMappingURL=highlight-card.component.css.map */
+* {
+  margin: 0;
+  color: white;
+}
+
+section {
+  width: 100%;
+  height: 80%;
+}
+
+.header {
+  padding: 1em;
+  border-bottom: 3px #294650 solid;
+  margin-bottom: 0.3em;
+  font-size: calc(0.6vh + 0.7vw);
+  font-weight: 500;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.windHumidityContainer,
+.uVisibilityContainer,
+.feelSunCaontainer {
+  height: 100%;
+  width: 28%;
+  padding: 1em;
+}
+
+ng-icon {
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+  align-self: center;
+}
+
+.wind,
+.uv {
+  border-radius: 1em;
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px white solid;
+  justify-content: space-between;
+}
+.wind div,
+.uv div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.humidity,
+.visibility,
+.feelsLike {
+  margin-top: 0.3em;
+  border-radius: 1em;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  border: 1px white solid;
+  padding: 0em 0em;
+  justify-content: center;
+}
+.humidity div,
+.visibility div,
+.feelsLike div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.humidity div span,
+.visibility div span,
+.feelsLike div span {
+  width: 35%;
+}
+
+.sunset {
+  border-radius: 1em;
+  height: 70%;
+  width: 100%;
+  flex-direction: column;
+  border: 1px white solid;
+  display: flex;
+}
+
+.visibilityNumber {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.chart {
+  position: absolute;
+  top: 3em;
+  left: -1.5em;
+  text-align: center;
+  color: white;
+  fill: white;
+  stroke: white;
+  stroke-width: 0.5px;
+  stroke-opacity: 0.7;
+}
+
+.wind,
+.uv {
+  position: relative;
+}
+
+.uppertitle {
+  font-size: calc(0.7vh + 0.7vw);
+  font-weight: 500;
+  opacity: 0.9;
+  padding-left: 0.7em;
+  padding-top: 0.6em;
+  padding-bottom: 0.5em;
+}
+
+.lowertitle {
+  font-size: calc(0.6vh + 0.7vw);
+  font-weight: 500;
+  opacity: 0.9;
+  padding-left: 0.7em;
+  padding-bottom: 0.5em;
+}
+
+.bigText {
+  align-self: flex-end;
+  font-size: 2.5rem;
+  padding-left: 0.4em;
+  padding-bottom: 0.1em;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-right: 0.4em;
+}
+
+.smallText {
+  text-align: start;
+  align-self: flex-end;
+  padding-bottom: 0.5em;
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.8;
+  flex-grow: 1;
+}
+
+.thermometer {
+  font-size: 1.3rem;
+}
+
+.sunTimesContainer {
+  margin-top: 10%;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.sunriseCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.sunsetCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.sunsetCard span,
+.sunsetCard ng-icon,
+.sunriseCard span,
+.sunriseCard ng-icon {
+  align-self: center;
+}
+.sunsetCard ng-icon,
+.sunriseCard ng-icon {
+  font-size: 1.5rem;
+  padding: 0;
+}/*# sourceMappingURL=highlight-card.component.css.map */

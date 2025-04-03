@@ -4,9 +4,25 @@
 
 div {
   display: flex;
-  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+}
+
+header {
+  width: fit-content;
 }
 
 main {
-  width: 80vw;
+  display: block;
+  width: 100%;
+}
+
+app-home {
+  display: flex;
+  width: 100%;
+}
+
+app-header {
+  background-image: linear-gradient(to right, #282c26, #274657);
+  width: fit-content;
 }/*# sourceMappingURL=app.component.css.map */

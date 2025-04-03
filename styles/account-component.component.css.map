@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../src/app/components/account-component/account-component.component.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACE;EACA;EACA;;;AAGF;EACE;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA","file":"account-component.component.css"}
+{"version":3,"sourceRoot":"","sources":["../src/app/components/header/account-component/account-component.component.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACE;EACA;EACA;EAEA;EACA;;AACA;EAEE;EACA;;AAGF;EACE;EACA;;;AAIJ;EACE;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA","file":"account-component.component.css"}

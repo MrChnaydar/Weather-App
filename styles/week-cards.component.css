@@ -1,0 +1,42 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 1em;
+  padding: 0.8em 0em;
+  padding-left: 1em;
+  margin: 0.3em 0em;
+}
+
+img {
+  width: 4rem;
+}
+
+.maxTemp {
+  color: #fdfcff;
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.minTemp {
+  color: #a3aaaf;
+  font-size: 1.2rem;
+  font-weight: 450;
+}
+
+.calendarDay {
+  color: #a3aaaf;
+  font-size: 1.2rem;
+  font-weight: 450;
+}
+
+.day {
+  color: #a3aaaf;
+  font-size: 1.2rem;
+  font-weight: 450;
+  font-weight: 500;
+  justify-self: self-end;
+  padding-right: 1.5em;
+}/*# sourceMappingURL=week-cards.component.css.map */

@@ -10,7 +10,8 @@ section {
   padding: 1em;
   border-bottom: 3px #294650 solid;
   margin-bottom: 0.3em;
-  font-size: 1.2rem;
+  //font-size: 1.2rem;
+  font-size: calc(0.6vh + 0.7vw);
   font-weight: 500;
 }
 
@@ -111,6 +112,7 @@ ng-icon {
 
 .visibilityNumber {
   font-size: 1.5rem;
+  //font-size: calc(0.6vh + 0.7vw);
   font-weight: 600;
 }
 // .km {
@@ -151,7 +153,8 @@ ng-icon {
 }
 
 .uppertitle {
-  font-size: 1.4rem;
+  //font-size: 1.4rem;
+  font-size: calc(0.7vh + 0.7vw);
   font-weight: 500;
   opacity: 0.9;
   padding-left: 0.7em;
@@ -160,7 +163,8 @@ ng-icon {
 }
 
 .lowertitle {
-  font-size: 1.2rem;
+  font-size: calc(0.6vh + 0.7vw);
+  //font-size: 1.2rem;
   font-weight: 500;
   opacity: 0.9;
   padding-left: 0.7em;
