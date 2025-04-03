@@ -43,8 +43,8 @@ input {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   padding: 0.8em;
-  width: 2em;
-  height: 2em;
+  width: 3vw;
+  height: 3.1vh;
 }
 
 input.typing:focus {

@@ -25,6 +25,7 @@ main {
 app-home {
   display: flex;
   width: 100%;
+  flex-shrink: 1;
 }
 
 .loadingScreen {
