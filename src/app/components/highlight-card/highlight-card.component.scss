@@ -133,18 +133,35 @@ ng-icon {
 // .wind-icon {
 // }
 
-.chart {
+.gaugeChart {
   position: absolute;
-  top: 3em;
-  left: -1.5em;
-  text-align: center;
+  top: 0;
+  //left: -1.5em;
+  // align-self: flex-start;
+  // justify-self: flex-start;
+  //text-align: left;
   color: white;
   fill: white;
-  stroke: white;
+  //stroke: white;
   stroke-width: 0.5px;
   stroke-opacity: 0.7;
-  // width: 1.2em;
-  // height: 1.2em;
+  //width: 80%;
+  //height: 80%;
+  //font-size: 5rem;
+}
+
+.gaugeChartContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .gauge-tick-large text {
+  fill: red !important; // Change number color
+  font-weight: bold; // Make numbers stand out
 }
 
 .wind,
