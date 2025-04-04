@@ -86,8 +86,8 @@ export class AppComponent implements OnInit, OnDestroy {
           this.weatherdata
             .getReverseLocationInfo(
               this.key,
-              this.autoLAT | this.defaultLat,
-              this.autoLON | this.defaultLon,
+              this.autoLAT || this.defaultLat,
+              this.autoLON || this.defaultLon,
               this.settings.getSettings().units
             )
             .then((data: WeatherType) => {
@@ -109,8 +109,8 @@ export class AppComponent implements OnInit, OnDestroy {
           this.weatherdata
             .getTwoWeeksForcast(
               this.key,
-              this.autoLAT | this.defaultLat,
-              this.autoLON | this.defaultLon,
+              this.autoLAT || this.defaultLat,
+              this.autoLON || this.defaultLon,
               this.settings.getSettings().units
             )
             .pipe(takeUntil(this.destroy))
@@ -153,7 +153,7 @@ export class AppComponent implements OnInit, OnDestroy {
         }
       }
     );
-    //this.loaded = true;
+    this.loaded = true;
   }
 
   searchLocations() {
