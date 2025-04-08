@@ -2,12 +2,12 @@
   margin: 0;
 }
 
-@mixin background-blur {
-  background-image: linear-gradient(to right, #282c26, #274657);
-  // background-size: cover;
-  // background-position: center;
-  // background-attachment: fixed;
-}
+// @mixin background-blur {
+//   background-image: linear-gradient(to right, #282c26, #274657);
+//   // background-size: cover;
+//   // background-position: center;
+//   // background-attachment: fixed;
+// }
 
 div {
   display: flex;
@@ -18,10 +18,17 @@ header {
   width: fit-content;
 }
 
+app-header {
+  //@include background-blur;
+  background-image: linear-gradient(to right, #282c26, #274657);
+  width: fit-content;
+}
+
 main {
   display: block;
   width: 100%;
 }
+
 app-home {
   display: flex;
   width: 100%;
@@ -81,8 +88,3 @@ app-home {
 //   flex-direction: column;
 //   justify-content: center;
 // }
-
-app-header {
-  @include background-blur;
-  width: fit-content;
-}

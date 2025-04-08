@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import * as L from 'leaflet';
+import { KeyService } from '../../services/key.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-map-card',
@@ -8,6 +10,10 @@ import * as L from 'leaflet';
   styleUrl: './map-card.component.scss',
 })
 export class MapCardComponent {
+  // private sanitizer!: DomSanitizer;
+  // key: KeyService = inject(KeyService);
+  // url = `https://www.google.com/maps/embed/v1/place?key=${this.key.getMapKey()}&q=Paris+France`;
+  // googleMapUrl = signal(this.sanitizer.bypassSecurityTrustUrl(this.url));
   // private map!: L.Map;
   // initMap() {
   //   L.map('map', {

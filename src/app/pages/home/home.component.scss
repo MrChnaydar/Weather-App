@@ -3,12 +3,12 @@
   box-sizing: border-box;
 }
 
-@mixin background-blur {
-  background-image: linear-gradient(to right, #282c26, #274657);
-  // background-size: cover;
-  // background-position: center;
-  // background-attachment: fixed;
-}
+// @mixin background-blur {
+//   background-image: linear-gradient(to right, #282c26, #274657);
+//   // background-size: cover;
+//   // background-position: center;
+//   // background-attachment: fixed;
+// }
 
 div {
   display: flex;
@@ -32,45 +32,10 @@ main {
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  min-width: 300px;
+  //min-width: 300px;
   max-width: 30%;
   height: 100%;
   //width: 30%;
-}
-
-app-weather-card,
-app-forecast-card,
-app-highlight-card,
-app-map-card {
-  padding: 0em;
-  border-radius: 1em;
-  //height: 100%;
-  @include background-blur;
-  flex: 1;
-  max-height: 48% !important;
-}
-
-app-weather-card,
-app-forecast-card {
-  margin: 0.5em;
-  height: 48%;
-}
-
-app-weather-card {
-  margin-top: 0;
-}
-
-app-forecast-card {
-  margin-bottom: 0;
-}
-app-highlight-card,
-app-map-card {
-  margin: 0.5em;
-  height: 48%;
-}
-
-app-forecast-card {
-  padding: 0em;
 }
 
 .right-section {
@@ -84,6 +49,35 @@ app-forecast-card {
   justify-content: center;
 }
 
-// app-header {
-//   @include background-blur;
-// }
+app-weather-card,
+app-forecast-card,
+app-highlight-card,
+app-map-card {
+  padding: 0em;
+  border-radius: 1em;
+  //height: 100%;
+  //@include background-blur;
+  background-image: linear-gradient(to right, #282c26, #274657);
+  flex: 1;
+  max-height: 48% !important;
+}
+
+app-weather-card,
+app-forecast-card {
+  margin: 0.5em;
+  height: 48%;
+}
+
+app-highlight-card,
+app-map-card {
+  margin: 0.5em;
+  height: 48%;
+}
+
+app-weather-card {
+  margin-top: 0;
+}
+
+app-forecast-card {
+  margin-bottom: 0;
+}
