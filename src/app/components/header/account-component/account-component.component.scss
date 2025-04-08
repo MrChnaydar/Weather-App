@@ -4,10 +4,13 @@
 
 ng-icon {
   color: white;
-  width: 2.5em;
-  height: 2.5em;
+  // width: 2.5em;
+  // height: 2.5em;
+  width: 3vw;
+  height: 3.7vh;
   //padding: 1.5em;
   margin: 0.7em 0;
+  margin: 1.4vh 0;
   border-radius: 5em;
   &:hover {
     //font-size: 1.05rem;
@@ -22,7 +25,7 @@ ng-icon {
 }
 
 .userIcon {
-  margin-block-end: 1.2em;
+  margin-block-end: 1.8vh;
   padding-block-start: 0;
 }
 

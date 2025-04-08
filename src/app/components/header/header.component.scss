@@ -1,11 +1,12 @@
 section {
   background-image: linear-gradient(to right, #282c26, #274657);
   display: flex;
+  flex-shrink: 1;
   flex-direction: column;
   justify-content: space-between;
-  width: 5em;
+  width: 4vw;
   height: 98vh;
-  border-radius: 0.5em;
-  margin-top: 0.5em;
-  margin-left: 0.8em;
+  border-radius: 0.8vh;
+  margin-top: 1.1vh;
+  margin-left: 0.8vw;
 }

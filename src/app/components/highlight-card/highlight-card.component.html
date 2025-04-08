@@ -16,7 +16,6 @@
             [startAngle]="-90"
             [angleSpan]="180"
             [scheme]="'flame'"
-            [view]="[280, 280]"
           >
             <!-- [view]="[280, 280]" -->
           </ngx-charts-gauge>
@@ -46,19 +45,22 @@
     <div class="uVisibilityContainer">
       <div class="uv">
         <p class="uppertitle">UV Index</p>
-        <ngx-charts-linear-gauge
-          class="chart"
-          [max]="12"
-          [min]="0"
-          [view]="[376, 200]"
-          [scheme]="uvGraphColor()"
-          units="UV"
-          [value]="data.getTwoWeeks().current.uvi"
-          [previousValue]="8"
-          style="margin: 0em 0.5em"
-          [animations]="false"
-        >
-        </ngx-charts-linear-gauge>
+        <!-- <div class="gaugeChartContainer">
+          <!-- <ngx-charts-linear-gauge
+            class="linearChart"
+            [max]="12"
+            [min]="0"
+            [scheme]="uvGraphColor()"
+            units="UV"
+            [value]="data.getTwoWeeks().current.uvi"
+            [previousValue]="8"
+            style="margin: 0em 0.5em"
+            [animations]="false"
+            [view]="[250, 180]"
+          >
+            [view]="[376, 200]"
+          </ngx-charts-linear-gauge>
+        </div> -->
         <p></p>
       </div>
       <div class="visibility">
@@ -83,14 +85,14 @@
           <div class="sunriseCard">
             <ng-icon name="hugeSunrise" class="smallText" />
             <span class="bigText" style="color: #ebbf4d">Sunrise</span>
-            <span class="bigText" style="font-size: 1.5rem">{{
+            <span class="bigText" style="font-size: 2.3vh">{{
               sunriseTime()
             }}</span>
           </div>
           <div class="sunsetCard">
             <ng-icon name="hugeSunset" class="smallText" />
             <span class="bigText" style="color: #ebbf4d">Sunset</span>
-            <span class="bigText" style="font-size: 1.5rem">{{
+            <span class="bigText" style="font-size: 2.3vh">{{
               sunsetTime()
             }}</span>
           </div>

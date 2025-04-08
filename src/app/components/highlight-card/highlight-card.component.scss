@@ -11,7 +11,7 @@ section {
   border-bottom: 3px #294650 solid;
   margin-bottom: 0.3em;
   //font-size: 1.2rem;
-  font-size: calc(0.6vh + 0.7vw);
+  font-size: 1.9vh;
   font-weight: 500;
 }
 
@@ -28,19 +28,19 @@ section {
 .feelSunCaontainer {
   height: 100%;
   width: 28%;
-  padding: 1em;
+  padding: 1.5vh;
 }
 
 ng-icon {
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.2vw;
+  height: 2.5vh;
   text-align: center;
   align-self: center;
 }
 
 .wind,
 .uv {
-  border-radius: 1em;
+  border-radius: 1.5vh;
   height: 70%;
   width: 100%;
   display: flex;
@@ -59,8 +59,8 @@ ng-icon {
 .humidity,
 .visibility,
 .feelsLike {
-  margin-top: 0.3em;
-  border-radius: 1em;
+  margin-top: 0.5vh;
+  border-radius: 1.5vh;
   width: 100%;
   height: 30%;
   display: flex;
@@ -112,6 +112,7 @@ ng-icon {
 
 .visibilityNumber {
   font-size: 1.5rem;
+  font-size: 2vh;
   //font-size: calc(0.6vh + 0.7vw);
   font-weight: 600;
 }
@@ -134,12 +135,24 @@ ng-icon {
 // }
 
 .gaugeChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: absolute;
-  top: 0;
-  //left: -1.5em;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  font-size: 2vh !important;
+  width: auto !important;
+  height: auto !important;
+  // width: 10vw;
+  // height: 10vh;
   // align-self: flex-start;
   // justify-self: flex-start;
   //text-align: left;
+
   color: white;
   fill: white;
   //stroke: white;
@@ -148,6 +161,25 @@ ng-icon {
   //width: 80%;
   //height: 80%;
   //font-size: 5rem;
+}
+
+.linearChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  // top: auto;
+  // bottom: auto;
+  // left: auto;
+  // right: auto;
+  //font-size: 1vh !important;
+  width: auto !important;
+  height: auto !important;
+  color: white;
+  fill: white;
+  //stroke: white;
+  stroke-width: 0.5px;
+  stroke-opacity: 0.7;
 }
 
 .gaugeChartContainer {
@@ -192,7 +224,8 @@ ng-icon {
 .bigText {
   //text-align: center;
   align-self: flex-end;
-  font-size: 2.5rem;
+  //font-size: 2.5rem;
+  font-size: 3.3vh;
   padding-left: 0.4em;
   padding-bottom: 0.1em;
   font-weight: 600;
@@ -205,7 +238,8 @@ ng-icon {
   align-self: flex-end;
   padding-bottom: 0.5em;
   //padding-right: 0em;
-  font-size: 1rem;
+  //font-size: 1rem;
+  font-size: 1.4vh;
   font-weight: 400;
   opacity: 0.8;
   flex-grow: 1;
@@ -241,7 +275,7 @@ ng-icon {
     align-self: center;
   }
   ng-icon {
-    font-size: 1.5rem;
+    font-size: 2vh;
     padding: 0;
   }
 }

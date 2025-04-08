@@ -62,6 +62,7 @@ export class HighlightCardComponent {
 
   //data = input<WeatherType | null>();
   sunriseTime() {
+    console.log('sunrise :' + this.data.getCurrentWeather().sys.sunrise);
     return new Date(
       this.data.getCurrentWeather().sys.sunrise * 1000
     ).toLocaleTimeString('en-GB', {
@@ -76,6 +77,7 @@ export class HighlightCardComponent {
   }
 
   sunsetTime() {
+    console.log('sunset :' + this.data.getCurrentWeather().sys.sunset);
     return new Date(
       this.data.getCurrentWeather().sys.sunset * 1000
     ).toLocaleTimeString('en-GB', {

@@ -23,7 +23,7 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  //gap: 1.5rem;
   //padding: 1rem;
 }
 
@@ -54,7 +54,7 @@ app-forecast-card,
 app-highlight-card,
 app-map-card {
   padding: 0em;
-  border-radius: 1em;
+  border-radius: calc(0.5vh + 0.5vw);
   //height: 100%;
   //@include background-blur;
   background-image: linear-gradient(to right, #282c26, #274657);
@@ -64,13 +64,15 @@ app-map-card {
 
 app-weather-card,
 app-forecast-card {
-  margin: 0.5em;
+  //margin: 0.5em;
+  margin: 0.7vh;
   height: 48%;
 }
 
 app-highlight-card,
 app-map-card {
-  margin: 0.5em;
+  //margin: 0.5em;
+  margin: 0.7vh;
   height: 48%;
 }
 
