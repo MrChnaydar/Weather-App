@@ -5,6 +5,7 @@ import { CitiesType } from '../model/cities-type.data';
 import { KeyService } from './key.service';
 import { WeatherService } from './weather.service';
 import { SettingsService } from './settings.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,7 @@ export class DataService {
   private weatherdata: WeatherService = inject(WeatherService);
 
   private data!: WeatherType;
+  private currentWeatherSubject = new BehaviorSubject<any>(null);
   private twoWeeksData!: TwoWeeksType;
   private listCities: CitiesType[] = [];
   private searchLocation!: string;
@@ -43,7 +45,7 @@ export class DataService {
     response.main.temp = Math.floor(response.main.temp);
     response.name = `${response.name}, ${response.sys.country}`;
     this.data = response;
-
+    this.currentWeatherSubject.next(response);
     this.haveData = true;
   }
 
@@ -115,6 +117,10 @@ export class DataService {
 
   public getCurrentWeather() {
     return this.data;
+  }
+
+  public currentWeather$() {
+    return this.currentWeatherSubject.asObservable();
   }
 
   public getTwoWeeks() {

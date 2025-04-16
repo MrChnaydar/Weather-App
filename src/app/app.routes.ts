@@ -1,4 +1,8 @@
 import { Routes } from '@angular/router';
+import {
+  redirectHomeIfAuth,
+  redirectLoginIfNotAuth,
+} from './guards/auth.guards';
 
 export const routes: Routes = [
   {
@@ -31,6 +35,7 @@ export const routes: Routes = [
         (m) => m.LoginComponent
       );
     },
+    canActivate: [redirectHomeIfAuth()],
   },
   {
     path: 'notifications',
@@ -39,6 +44,7 @@ export const routes: Routes = [
         (m) => m.NotificationsComponent
       );
     },
+    canActivate: [redirectLoginIfNotAuth()],
   },
   {
     path: 'map',
@@ -47,6 +53,7 @@ export const routes: Routes = [
         (m) => m.MapPageComponent
       );
     },
+    canActivate: [redirectLoginIfNotAuth()],
   },
   {
     path: 'calendar',
@@ -55,6 +62,7 @@ export const routes: Routes = [
         (m) => m.CalendarComponent
       );
     },
+    canActivate: [redirectLoginIfNotAuth()],
   },
   {
     path: 'stats',

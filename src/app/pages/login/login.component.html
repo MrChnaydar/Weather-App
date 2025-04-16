@@ -1,18 +1,47 @@
 <div id="main">
   <ng-icon name="saxProfileCircleBold"></ng-icon>
+  <p class="small-title">Test Accounts</p>
+  <div class="accountContainer">
+    <div class="accounts">
+      <span
+        ><p class="email-title">Email:</p>
+        <p class="email">juanito&#64;barquillos.es</p></span
+      >
+      <span
+        ><p class="password-title">Password:</p>
+        <p class="password">oléquetapas</p></span
+      >
+    </div>
+    <div class="accounts">
+      <span
+        ><p class="email-title">Email:</p>
+        <p class="email">maria.la.fiestera&#64;feriaflamenca.com</p></span
+      >
+      <span
+        ><p class="password-title">Password:</p>
+        <p class="password">sevillanas123</p></span
+      >
+    </div>
+    <div class="accounts">
+      <span
+        ><p class="email-title">Email:</p>
+        <p class="email">churroslover&#64;mañanas.es</p></span
+      >
+      <span
+        ><p class="password-title">Password:</p>
+        <p class="password">conchocolate99</p></span
+      >
+    </div>
+  </div>
   <div class="loginContainer">
-    <form
-      action="#"
-      class="loginForm"
-      onsubmit="onFormSubmit(username.value, password.value)"
-    >
-      <label for="username">Username or Email </label>
+    <form class="loginForm">
+      <label for="username">Username or Email</label>
       <input
         #username
         type="text"
         name="username"
         placeholder="Username or Email"
-        maxlength="20"
+        maxlength="50"
         minlength="3"
       />
       <label for="password">Password</label>
@@ -23,10 +52,11 @@
         id=""
         placeholder="Password"
         minlength="8"
+        required
       />
       <button
-        type="submit"
-        (onsubmit)="checkForm(username.value, password.value)"
+        type="button"
+        (click)="appStore.login(username.value, password.value)"
       >
         Login
       </button>

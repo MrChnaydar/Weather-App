@@ -1,17 +1,26 @@
+$bg-dark: #1e2a38;
+$bg-light: #253548;
+$primary: #4db5ff;
+$secondary: #ffffff;
+$text-light: #cdd9e5;
+$text-dark: #151b21;
+$accent: #ffb347;
+
 * {
   color: white;
 }
 
 h2 {
   font-size: 3.5vh;
-  padding: 0.4em;
+  padding: 0.3em;
   padding-left: 0.8em;
   font-weight: 600;
   border-bottom: 1px black solid;
 }
 
 #main {
-  background-image: linear-gradient(to right, #282c26, #274657);
+  background: $bg-light;
+  //background-image: linear-gradient(to right, #282c26, #274657);
   margin: 1vh;
   display: flex;
   flex-direction: column;
@@ -22,7 +31,7 @@ h2 {
 section {
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding: 2vh;
 }
 
 .setting {
@@ -54,13 +63,14 @@ button {
   // }
 
   &:hover {
-    background-color: darken($color: #274657, $amount: 3%);
+    background-color: adjust-color($color: #274657, $lightness: -5%);
     //background-color: rgba($color: #132027, $alpha: 0.4);
     transition: background-color 0.2s ease-in-out;
   }
 
   &.active {
-    background-color: darken($color: #274657, $amount: 5%);
+    background-color: adjust-color($color: #274657, $lightness: -8%);
+
     transition: background-color 0.2s ease-in-out;
   }
 }

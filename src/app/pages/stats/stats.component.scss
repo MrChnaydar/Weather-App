@@ -1,6 +1,6 @@
-#main {
+.main {
   color: white;
-  background-image: linear-gradient(to right, #282c26, #274657);
+  background: hsl(213, 32%, 23%);
   margin: 0.5em;
   display: flex;
   flex-direction: column;
@@ -8,4 +8,80 @@
   justify-content: center;
   height: 98%;
   border-radius: 1em;
+  //padding: 2vh;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
+  height: 90%;
+  //gap: 5vh;
+}
+
+.rankCard {
+  width: 28%;
+  height: 60%;
+  padding: 3vh 0vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  border-radius: 2vh;
+  background: hsl(210, 28%, 30%);
+}
+
+.footer {
+  justify-self: flex-end;
+}
+
+.title {
+  font-size: 3.5vh;
+  font-weight: 800;
+}
+
+.price {
+  font-size: 2vh;
+  font-weight: 600;
+  padding: 1vh;
+  text-align: center;
+}
+
+.ftr {
+  font-size: 1.8vh;
+  padding: 1vh 3vh;
+  border-bottom: 0.1vh solid grey;
+}
+
+button {
+  //padding: 1.2vh 3vh;
+  border-radius: 1.5vh;
+  border: none;
+  color: black;
+  cursor: pointer;
+  background-color: hsl(201, 50%, 80%);
+  transition: 0.3s ease;
+  font-size: 2vh;
+  font-weight: 700;
+  &:hover {
+    font-size: 2vh;
+    filter: brightness(90%);
+  }
+  &:active {
+    opacity: 0.8;
+  }
+  border: none;
+  padding: 1vh 2.5vh;
+  margin: 1vh;
+  margin-top: 2vh;
+}
+
+a:active,
+a:hover,
+a:visited,
+a:link {
+  text-decoration: none;
+  color: black;
 }

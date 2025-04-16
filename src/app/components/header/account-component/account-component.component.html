@@ -1,4 +1,9 @@
 <div>
   <ng-icon name="hugeNotification01" routerLink="/notifications" />
+  @if (this.appState.user()) {
+  <ng-icon class="userIcon" name="hugeLogout03" (click)="appState.logout()" />
+
+  } @else {
   <ng-icon class="userIcon" name="hugeUserCircle02" routerLink="/login" />
+  }
 </div>

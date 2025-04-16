@@ -1,3 +1,11 @@
+$bg-dark: #1e2a38;
+$bg-light: #28394d;
+$primary: #4db5ff;
+$secondary: #ffffff;
+$text-light: #cdd9e5;
+$text-dark: #151b21;
+$accent: #ffb347;
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -53,11 +61,17 @@ app-weather-card,
 app-forecast-card,
 app-highlight-card,
 app-map-card {
+  background: $bg-light;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3),
+    -4px -4px 10px rgba(255, 255, 255, 0.05);
+  color: $text-light;
+
   padding: 0em;
-  border-radius: calc(0.5vh + 0.5vw);
+  border-radius: 1vh;
   //height: 100%;
   //@include background-blur;
-  background-image: linear-gradient(to right, #282c26, #274657);
+  //background-image: linear-gradient(to right, #282c26, #274657);
   flex: 1;
   max-height: 48% !important;
 }

@@ -1,5 +1,18 @@
+$bg-dark: #1e2a38;
+$bg-light: #253548;
+$primary: #4db5ff;
+$secondary: #ffffff;
+$text-light: #cdd9e5;
+$text-dark: #151b21;
+$accent: #ffb347;
+
 section {
-  background-image: linear-gradient(to right, #282c26, #274657);
+  background: $bg-light;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3),
+    -4px -4px 10px rgba(255, 255, 255, 0.05);
+  color: $text-light;
+  //background-image: linear-gradient(to right, #282c26, #274657);
   display: flex;
   flex-shrink: 1;
   flex-direction: column;
@@ -8,5 +21,5 @@ section {
   height: 98vh;
   border-radius: 0.8vh;
   margin-top: 1.1vh;
-  margin-left: 0.8vw;
+  margin-left: 0.5vw;
 }

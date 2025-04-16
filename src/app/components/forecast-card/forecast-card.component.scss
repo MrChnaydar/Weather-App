@@ -1,6 +1,10 @@
-* {
-  color: white;
-}
+$bg-dark: #1e2a38;
+$bg-light: #253548;
+$primary: #4db5ff;
+$secondary: #ffffff;
+$text-light: #cdd9e5;
+$text-dark: #151b21;
+$accent: #ffb347;
 
 section {
   display: flex;
@@ -30,7 +34,8 @@ p {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-image: linear-gradient(to right, #282c26, #274657);
+  //background-image: linear-gradient(to right, #282c26, #274657);
+  background: $bg-light;
   font-weight: 500;
   align-self: start;
   width: calc(100% - 1.6em);

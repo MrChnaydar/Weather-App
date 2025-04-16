@@ -1,13 +1,18 @@
 <section>
-  <!-- <div id="map"></div> -->
   <!-- <h2>Aqui el mapa</h2> -->
-  <!-- <iframe
-    width="450"
-    height="250"
+  <iframe
     frameborder="0"
     style="border: 0"
+    loading="lazy"
     referrerpolicy="no-referrer-when-downgrade"
-    src="{{ googleMapUrl() }}"
+    class="blurryMap"
+    [class.blurry]="isBlurred"
+    [style.pointer-events]="isBlurred ? 'none' : 'auto'"
+    [src]="mapUrl"
   >
-  </iframe> -->
+  </iframe>
+  <div class="mapOverlayBlurry" *ngIf="isBlurred">
+    <button class="cta-btn" routerLink="/stats">Show Weather Map</button>
+  </div>
+  <button class="swt-btn" (click)="toggleBlur()">Toggle Blur</button>
 </section>

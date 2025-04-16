@@ -19,7 +19,7 @@ export class WeatherService {
     unit: string
   ) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${key}&units=${unit}`;
-    console.log(url);
+    //console.log(url);
     return this.http.get<WeatherType>(url);
   }
 
@@ -32,7 +32,7 @@ export class WeatherService {
     unit: string
   ) {
     const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${key}`;
-    console.log(url);
+    //console.log(url);
     let cityname = '';
     let countryname = '';
     const city = await firstValueFrom(this.http.get<Array<LocationType>>(url));

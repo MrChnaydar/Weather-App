@@ -103,7 +103,7 @@ export class AppComponent implements OnInit, OnDestroy {
               // this.location.set(data?.name ?? '');
               // this.temperature.set(Math.floor(data?.main.temp ?? 0));
               this.dataService.setCurrentWeatherData(data);
-              console.log(this.dataService.getCurrentWeather());
+              //console.log(this.dataService.getCurrentWeather());
             });
 
           this.weatherdata
@@ -251,7 +251,7 @@ export class AppComponent implements OnInit, OnDestroy {
             )
             .then((data: WeatherType) => {
               this.dataService.setCurrentWeatherData(data);
-              console.log(this.dataService.getCurrentWeather());
+              //console.log(this.dataService.getCurrentWeather());
             });
 
           this.weatherdata
