@@ -1,38 +1,39 @@
-* {
-  margin: 0;
-}
+// * {
+//   margin: 0;
+// }
 
-ng-icon {
-  color: white;
-  // width: 2.5em;
-  // height: 2.5em;
-  width: 1.8vw;
-  height: 3.7vh;
-  padding: 0.7vh;
-  //margin: 0.7em 0;
-  margin: 0.5vh 0;
-  border-radius: 20vh;
-  &:hover {
-    //font-size: 1.05rem;
-    transition: 0.3s ease-in-out;
-    background-color: rgba(128, 128, 128, 0.52);
-  }
+// ng-icon {
+//   color: white;
+//   // width: 2.5em;
+//   // height: 2.5em;
+//   width: 1.8vw;
+//   height: 3.7vh;
+//   padding: 0.7vh;
+//   //margin: 0.7em 0;
+//   margin: 0.5vh 0;
+//   border-radius: 20vh;
 
-  &:active {
-    background-color: rgba(128, 128, 128, 0.874);
-    transition: 0.1s ease-in-out;
-  }
-}
+//   &:hover {
+//     //font-size: 1.05rem;
+//     transition: 0.3s ease-in-out;
+//     background-color: rgba(128, 128, 128, 0.52);
+//   }
 
-.userIcon {
-  margin-block-end: 1.8vh;
-  padding-block-start: 0.7vh;
-}
+//   &:active {
+//     background-color: rgba(128, 128, 128, 0.874);
+//     transition: 0.1s ease-in-out;
+//   }
+// }
 
-div {
-  flex-direction: column;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
+// .userIcon {
+//   margin-block-end: 1.8vh;
+//   padding-block-start: 0.7vh;
+// }
+
+// div {
+//   flex-direction: column;
+//   display: flex;
+//   flex-wrap: nowrap;
+//   justify-content: center;
+//   align-items: center;
+// }

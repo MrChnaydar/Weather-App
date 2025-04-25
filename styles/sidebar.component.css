@@ -10,14 +10,23 @@ ng-icon {
   padding: 0.7em 1.3em;
   margin: 1.1em 0em;
 }
+
 ng-icon:hover {
   border-left: white solid 1px;
-  background-image: linear-gradient(to right, rgba(5, 0, 100, 0.8), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(
+    to right,
+    rgba(5, 0, 100, 0.8),
+    rgba(0, 0, 0, 0)
+  );
   transition: 0.5s ease-in-out;
 }
 ng-icon:focus {
   border-left: white solid 1px;
-  background-image: linear-gradient(to right, rgba(5, 0, 100, 0.8), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(
+    to right,
+    rgba(5, 0, 100, 0.8),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .LogoIcon {
@@ -33,4 +42,4 @@ div {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-}/*# sourceMappingURL=sidebar.component.css.map */
+} /*# sourceMappingURL=sidebar.component.css.map */

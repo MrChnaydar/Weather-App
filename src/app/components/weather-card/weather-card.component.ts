@@ -40,6 +40,8 @@ import { SettingsService } from '../../services/settings.service';
   ],
 })
 export class WeatherCardComponent {
+  active = false;
+
   data: DataService = inject(DataService);
   settings: SettingsService = inject(SettingsService);
 

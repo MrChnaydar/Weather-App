@@ -1,13 +1,29 @@
-<div id="main">
-  <img class="animatedGif" src="Forming blue sky.gif" alt="" />
-  <button *ngIf="!data.responseStatus()" (click)="refresh()" type="button">
+<div
+  id="main"
+  class="absolute z-10 flex h-dvh w-full flex-col items-center justify-center bg-black left-0"
+>
+  <img class="w-28 my-9" src="Forming blue sky.gif" alt="" />
+
+  <button
+    *ngIf="!data.responseStatus()"
+    (click)="refresh()"
+    type="button"
+    class="rounded-3xl border-0 bg-sky-400 px-8 py-3 text-center text-xl font-extrabold text-gray-800 transition-all hover:bg-sky-500 hover:text-2xl animate-bounce"
+  >
     Loading...
   </button>
 
-  <button *ngIf="data.responseStatus()" type="button" [routerLink]="'/home'">
+  <button
+    *ngIf="data.responseStatus()"
+    type="button"
+    [routerLink]="'/home'"
+    class="rounded-3xl border-0 hover:text-2xl bg-sky-400 px-8 py-3 text-center text-xl font-semibold text-gray-800 transition-all hover:bg-sky-500"
+  >
     Get Started
   </button>
-  <p class="footer">
+  <p
+    class="absolute bottom-7 shrink-3 grow-2 justify-self-end text-center text-xs text-white sm:text-xl"
+  >
     © {{ currentYear }} Weather Angular App | Created by Nizar Mourak using
     Angular
   </p>

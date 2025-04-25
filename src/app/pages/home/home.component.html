@@ -1,10 +1,20 @@
-<div>
-  <section class="left-section">
-    <app-weather-card />
-    <app-forecast-card />
+<section
+  class="flex flex-row h-dvh flex-wrap overflow-hidden justify-center items-center"
+>
+  <section class="flex flex-col justify-around flex-1 h-dvh py-3 px-2">
+    <app-weather-card
+      class="rounded-xl shadow-neutral-900 shadow-xl/40 flex-1 bg-slate-800/70 mb-2"
+    />
+    <app-forecast-card
+      class="rounded-xl shadow-neutral-900 shadow-xl/40 flex-1 bg-slate-800/70 mt-2"
+    />
   </section>
-  <section class="right-section">
-    <app-highlight-card />
-    <app-map-card />
+  <section class="flex flex-col justify-around flex-2 h-dvh py-3 px-2">
+    <app-highlight-card
+      class="rounded-xl shadow-neutral-900 shadow-xl/40 flex-1 bg-slate-800/70 mb-2"
+    />
+    <app-map-card
+      class="rounded-xl shadow-neutral-900 shadow-xl/40 flex-1 bg-slate-800/70 mt-2"
+    />
   </section>
-</div>
+</section>

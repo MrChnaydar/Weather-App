@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import {
   hugeMenuCircle,
   hugeMaps,
@@ -25,4 +25,12 @@ import { Router, RouterLink } from '@angular/router';
     }),
   ],
 })
-export class SidebarComponent {}
+export class SidebarComponent {
+  router: Router = inject(Router);
+  actualPage(icon: string) {
+    console.log(this.router.url);
+    // if (icon == this.router.url)
+    //   return 'focus:border-l-1 focus:border-white focus:bg-gradient-to-r focus:from-slate-600 focus:to-transparent';
+    return 'focus:border-l-1 focus:border-white focus:bg-gradient-to-r focus:from-slate-600 focus:to-transparent';
+  }
+}

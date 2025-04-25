@@ -1,13 +1,43 @@
-<div>
+<div class="flex flex-row md:flex-col flex-nowrap justify-center items-center">
   <img
-    class="LogoIcon"
+    class="w-18 h-13 p-0 border-b-2 border-black"
     src="Animated Cloud.gif"
     alt="Website logo icon"
     routerLink="/"
   />
-  <ng-icon name="hugeMenuCircle" routerLink="/home" />
-  <ng-icon name="hugeMaps" routerLink="/map" />
-  <ng-icon name="hugeCalendar03" routerLink="/calendar" />
-  <ng-icon name="hugeChartRing" routerLink="/stats" />
-  <ng-icon name="hugeSettings01" routerLink="/settings" />
+  <span
+    class="flex justify-center items-center cursor-pointer fill-sky-950 w-fit h-fit text-3xl py-3 px-4 hover:border-l-1 hover:border-white transition-all mt-5 hover:bg-gradient-to-r hover:from-slate-600 hover:to-transparent {{
+      actualPage('/home')
+    }}"
+  >
+    <ng-icon name="hugeMenuCircle" routerLink="/home" />
+  </span>
+  <span
+    class="flex justify-center items-center cursor-pointer fill-sky-950 w-fit h-fit text-3xl py-3 px-4 hover:border-l-1 hover:border-white transition-all my-5 hover:bg-gradient-to-r hover:from-slate-600 hover:to-transparent {{
+      actualPage('/map')
+    }}"
+  >
+    <ng-icon name="hugeMaps" routerLink="/map" />
+  </span>
+  <span
+    class="flex justify-center items-center cursor-pointer fill-sky-950 w-fit h-fit text-3xl py-3 px-4 hover:border-l-1 hover:border-white transition-all my-5 hover:bg-gradient-to-r hover:from-slate-600 hover:to-transparent {{
+      actualPage('/calendar')
+    }}"
+  >
+    <ng-icon name="hugeCalendar03" routerLink="/calendar" />
+  </span>
+  <span
+    class="flex justify-center items-center cursor-pointer fill-sky-950 w-fit h-fit text-3xl py-3 px-4 hover:border-l-1 hover:border-white transition-all my-5 hover:bg-gradient-to-r hover:from-slate-600 hover:to-transparent {{
+      actualPage('/stats')
+    }}"
+  >
+    <ng-icon name="hugeChartRing" routerLink="/stats" />
+  </span>
+  <span
+    class="flex justify-center items-center cursor-pointer fill-sky-950 w-fit h-fit text-3xl py-3 px-4 hover:border-l-1 hover:border-white transition-all my-5 hover:bg-gradient-to-r hover:from-slate-600 hover:to-transparent {{
+      actualPage('/settings')
+    }}"
+  >
+    <ng-icon name="hugeSettings01" routerLink="/settings" />
+  </span>
 </div>

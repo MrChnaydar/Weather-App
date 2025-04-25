@@ -67,7 +67,7 @@ export class AppComponent implements OnInit, OnDestroy {
   defaultCountry = 'uk';
   defaultLat = 55.37;
   defaultLon = 3.43;
-  active = true;
+  active = false;
 
   loaded = false;
 

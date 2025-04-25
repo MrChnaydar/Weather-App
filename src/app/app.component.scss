@@ -1,6 +1,6 @@
-* {
-  margin: 0;
-}
+// * {
+//   margin: 0;
+// }
 
 // @mixin background-blur {
 //   background-image: linear-gradient(to right, #282c26, #274657);
@@ -9,34 +9,35 @@
 //   // background-attachment: fixed;
 // }
 
-div {
-  display: flex;
-  height: 100vh;
-  width: 100%;
-}
-header {
-  width: fit-content;
-}
+// div {
+//   display: flex;
+//   height: 100vh;
+//   width: 100%;
+// }
+// header {
+//   width: fit-content;
+// }
 
-app-header {
-  //@include background-blur;
-  background-image: linear-gradient(to right, #282c26, #274657);
-  width: fit-content;
-}
+// app-header {
+//   //@include background-blur;
+//   background-image: linear-gradient(to right, #282c26, #274657);
+//   width: fit-content;
+// }
 
-main {
-  display: block;
-  width: 100%;
-}
+// main {
+//   display: block;
+//   width: 100%;
+// }
 
-app-home {
-  display: flex;
-  width: 100%;
-  flex-shrink: 1;
-}
+// app-home {
+//   display: flex;
+//   width: 100%;
+//   flex-shrink: 1;
+// }
 
-.loadingScreen {
-}
+// .loadingScreen {
+// }
+
 // main {
 //   width: 100%;
 //   display: flex;

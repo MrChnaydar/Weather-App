@@ -1,13 +1,13 @@
-@if (!loaded) {
+<!-- @if (!loaded) {
 <div class="loadingScreen">
   <h1>LOADING</h1>
 </div>
-} @else {
-<div>
+} @else { -->
+<section class="flex flex-col h-dvh w-dvw md:flex-row">
   <header>
     <app-header />
   </header>
-  <main>
+  <main class="block w-dvw">
     <router-outlet />
     <!-- <app-home
         [temperature]="temperature()"
@@ -39,8 +39,8 @@
         <app-highlight-card [data]="data()" />
       </section> -->
   </main>
-</div>
-}
+</section>
+<!-- } -->
 <!-- <div>
   <header>
     <app-header />
