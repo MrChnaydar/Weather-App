@@ -1,11 +1,26 @@
-<div class="main">
-  <img src="{{ icon() }}" alt="" />
-  <div class="maxMinTempDiv">
-    <span class="maxTemp">@if(maxTemp() > 0){+}{{ maxTemp() }}&deg;/</span>
-    <span class="minTemp">@if(minTemp() > 0){+}{{ minTemp() }}</span>
+<div
+  class="grid grid-cols-4 items-center justify-center text-center rounded-xl pl-7 py-0.5 mr-3 my-1"
+>
+  <img src="{{ icon() }}" alt="" class="w-22" />
+  <div class="pr-2">
+    <span class="text-2xl font-bold text-stone-100 justify-self-auto">
+      @if (maxTemp() > 0) {
+        +
+      }
+      {{ maxTemp() }}&deg;/</span
+    >
+    <span class="text-lg font-medium text-stone-300 justify-self-auto">
+      @if (minTemp() > 0) {
+        +
+      }
+      {{ minTemp() }}</span
+    >
   </div>
-  <span class="calendarDay">{{
+  <span class="text-lg font-medium text-stone-300 justify-self-end-safe pr-8">{{
     getFormattedDateParts().day + " " + getFormattedDateParts().month
   }}</span>
-  <span class="day">{{ getFormattedDateParts().weekday }}</span>
+  <span
+    class="text-lg font-semibold text-stone-300 justify-self-end-safe pr-8"
+    >{{ getFormattedDateParts().weekday }}</span
+  >
 </div>

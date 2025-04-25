@@ -67,7 +67,7 @@ export class AppComponent implements OnInit, OnDestroy {
   defaultCountry = 'uk';
   defaultLat = 55.37;
   defaultLon = 3.43;
-  active = false;
+  active = true;
 
   loaded = false;
 
@@ -88,7 +88,7 @@ export class AppComponent implements OnInit, OnDestroy {
               this.key,
               this.autoLAT || this.defaultLat,
               this.autoLON || this.defaultLon,
-              this.settings.getSettings().units
+              this.settings.getSettings().units,
             )
             .then((data: WeatherType) => {
               // console.log(data);
@@ -111,7 +111,7 @@ export class AppComponent implements OnInit, OnDestroy {
               this.key,
               this.autoLAT || this.defaultLat,
               this.autoLON || this.defaultLon,
-              this.settings.getSettings().units
+              this.settings.getSettings().units,
             )
             .pipe(takeUntil(this.destroy))
             .subscribe((data) => {
@@ -151,7 +151,7 @@ export class AppComponent implements OnInit, OnDestroy {
         if (changed) {
           this.refreshApp();
         }
-      }
+      },
     );
     this.loaded = true;
   }
@@ -215,14 +215,14 @@ export class AppComponent implements OnInit, OnDestroy {
       this.key,
       city.name,
       city.country,
-      this.settings.getSettings().units
+      this.settings.getSettings().units,
     );
     //console.log(city);
     this.updateForecast(
       this.key,
       city.lat,
       city.lon,
-      this.settings.getSettings().units
+      this.settings.getSettings().units,
     );
     //console.log(this.twoWeeksData());
     this.dataService.clearSearch();
@@ -247,7 +247,7 @@ export class AppComponent implements OnInit, OnDestroy {
               this.key,
               this.autoLAT,
               this.autoLON,
-              this.settings.getSettings().units
+              this.settings.getSettings().units,
             )
             .then((data: WeatherType) => {
               this.dataService.setCurrentWeatherData(data);
@@ -259,7 +259,7 @@ export class AppComponent implements OnInit, OnDestroy {
               this.key,
               this.autoLAT,
               this.autoLON,
-              this.settings.getSettings().units
+              this.settings.getSettings().units,
             )
             .pipe(takeUntil(this.destroy))
             .subscribe((data) => {

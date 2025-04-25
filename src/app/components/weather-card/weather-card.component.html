@@ -1,15 +1,20 @@
-<section>
-  <div class="searchContainer">
-    <div class="seachIconContainer">
+<section class="flex flex-col w-full h-full text-white">
+  <div class="flex flex-col relative">
+    <div class="flex flex-row items-center p-5 pb-0">
       <input
+        class="text-xl w-full border-none outline-hidden rounded-l-4xl h-13 pl-8 bg-gradient-to-r from-black/60 to-transparent"
         type="text"
         #searchInput
         placeholder="Search"
         (input)="data.onInputSubmit(searchInput.value)"
         [ngClass]="{ typing: searchInput.value.length > 0 }"
       />
-      <button>
-        <ng-icon class="searchIcon" name="hugeSearch01" />
+      <button
+        class="flex justify-center items-center cursor-pointer bg-none m-0 p-0 outline-none border-none rounded-full"
+      >
+        <span class="bg-transparent text-2xl rounded-full w-6 h-6">
+          <ng-icon name="hugeSearch01" />
+        </span>
       </button>
     </div>
     <!-- <div class="searchListPopUp">
@@ -32,25 +37,44 @@
     <p><ng-icon name="hugeLocation01" /> {{ location() }}</p>
     <p><ng-icon name="hugeCalendar03" /> {{ datetime() }}</p>
   </div> -->
-    <div class="searchListPopUp">
-      @if (data.getListOfCities().length){ @for (item of data.getListOfCities();
-      track (item.lat+item.lon)){
-      <div class="searchResults" (click)="data.search(item)">
-        <span
-          >{{ item.name }}, {{ item.country }} @if (item.state!=undefined)
-          {{{", " + item.state}}}
-        </span>
-      </div>
-      }}
+    <div
+      class="absolute w-6/7 left-0 top-full mx-5 my-0 text-xl bg-gradient-to-r from-black/60 to-transparent rounded-bl-4xl"
+    >
+      @if (data.getListOfCities().length) {
+        @for (item of data.getListOfCities(); track item.lat + item.lon) {
+          <div class="p-5 cursor-pointer text-lg" (click)="data.search(item)">
+            <span
+              >{{ item.name }}, {{ item.country }}
+              @if (item.state != undefined) {
+                {{ ", " + item.state }}
+              }
+            </span>
+          </div>
+        }
+      }
     </div>
   </div>
-  <div class="weatherBriefContainer">
-    <img src="{{ data.getCurrentWeather().weather[0].icon }}" />
-    <p>{{ data.getCurrentWeather().main.temp }}&deg;{{ unit() }}</p>
-    <p>{{ data.getCurrentWeather().weather[0].main }}</p>
+
+  <div class="px-6 py-6 h-full flex flex-col justify-center text-4xl">
+    <img class="w-35" src="{{ data.getCurrentWeather().weather[0].icon }}" />
+    <p class="pl-7">
+      {{ data.getCurrentWeather().main.temp }}&deg;{{ unit() }}
+    </p>
+    <p class="pl-7">{{ data.getCurrentWeather().weather[0].main }}</p>
   </div>
-  <div class="infoContainer">
-    <p><ng-icon name="hugeLocation01" /> {{ data.getCurrentWeather().name }}</p>
-    <p><ng-icon name="hugeCalendar03" /> {{ datetime() }}</p>
+
+  <div class="px-8 py-4 border-t-1 border-black justify-self-end text-sm">
+    <p class="mx-1 mt-2">
+      <span class="text-xl text-center pr-2 align-middle"
+        ><ng-icon name="hugeLocation01"
+      /></span>
+      {{ data.getCurrentWeather().name }}
+    </p>
+    <p class="mx-1 my-2">
+      <span class="text-xl text-center pr-2 align-middle"
+        ><ng-icon name="hugeCalendar03"
+      /></span>
+      {{ datetime() }}
+    </p>
   </div>
 </section>

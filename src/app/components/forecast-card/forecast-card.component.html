@@ -1,12 +1,62 @@
-<section>
-  <p>7 Days Forecast</p>
-  <!-- @for (day of data()?.daily?.slice(1); track day.dt) { -->
+<section
+  #scrollContainer
+  (scroll)="checkScroll()"
+  class="relative flex flex-col items-center h-full w-full overflow-scroll no-scrollbar scroll-smooth"
+>
+  <p
+    class="sticky top-0 z-1 bg-slate-700 text-2xl p-4 pl-7 self-start w-full font-semibold text-stone-200 border-b-2 border-black rounded-tl-xl rounded-tr-xl"
+  >
+    7 Days Forecast
+  </p>
+
   <app-week-cards
+    class="w-full z-0"
     *ngFor="let day of data.getTwoWeeks()?.daily?.slice(1)"
     icon="https://openweathermap.org/img/wn/{{ day.weather[0].icon }}@2x.png"
     [maxTempInput]="day.temp.max"
     [minTempInput]="day.temp.min"
     [dt]="day.dt"
   />
-  <!-- } -->
+  <button
+    *ngIf="showScrollDown"
+    (click)="scrollToBottom()"
+    class="absolute z-2 bottom-3 motion-safe:animate-bounce cursor-pointer transition-all"
+    aria-label="Scroll Down"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="none"
+      class="size-10 stroke-stone-200"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+      />
+    </svg>
+  </button>
+  <button
+    *ngIf="!showScrollDown"
+    (click)="scrollToTop()"
+    class="sticky z-3 bottom-3 motion-safe:animate-bounce cursor-pointer transition-all"
+    aria-label="Scroll Down"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="none"
+      class="size-10 stroke-stone-200"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m4.5 15.75 7.5-7.5 7.5 7.5"
+      />
+    </svg>
+  </button>
 </section>
