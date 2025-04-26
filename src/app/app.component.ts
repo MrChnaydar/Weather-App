@@ -6,24 +6,15 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { Data, Router, RouterOutlet } from '@angular/router';
-import { SidebarComponent } from './components/header/sidebar/sidebar.component';
-import { AccountComponentComponent } from './components/header/account-component/account-component.component';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { HomeComponent } from './pages/home/home.component';
-import { WeatherCardComponent } from './components/weather-card/weather-card.component';
-import { ForecastCardComponent } from './components/forecast-card/forecast-card.component';
-import { MapCardComponent } from './components/map-card/map-card.component';
-import { HighlightCardComponent } from './components/highlight-card/highlight-card.component';
 import { WeatherService } from './services/weather.service';
 import { CurrentLocationService } from './services/current-location.service';
 import { WeatherType } from './model/weather-type.data';
-import { LocationType } from './model/location-type.data';
 import { CitiesType } from './model/cities-type.data';
 import { TwoWeeksType } from './model/two-weeks-type.data';
 import { Subject, Subscription, takeUntil } from 'rxjs';
 import { DataService } from './services/data.service';
-import { NgIf } from '@angular/common';
 import { SettingsService } from './services/settings.service';
 
 @Component({
@@ -62,7 +53,7 @@ export class AppComponent implements OnInit, OnDestroy {
   twoWeeksData = signal<TwoWeeksType | undefined>(undefined);
 
   title = 'Weather-App';
-  key = '14165bbcf9dd417ddc8ee87ecd6fbe32';
+
   defaultCITY = 'London';
   defaultCountry = 'uk';
   defaultLat = 55.37;
@@ -85,7 +76,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
           this.weatherdata
             .getReverseLocationInfo(
-              this.key,
               this.autoLAT || this.defaultLat,
               this.autoLON || this.defaultLon,
               this.settings.getSettings().units,
@@ -108,7 +98,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
           this.weatherdata
             .getTwoWeeksForcast(
-              this.key,
               this.autoLAT || this.defaultLat,
               this.autoLON || this.defaultLon,
               this.settings.getSettings().units,
@@ -129,7 +118,7 @@ export class AppComponent implements OnInit, OnDestroy {
       // } else {
       //   this.weatherdata
       //     .getWeatherDataFromApi(
-      //       this.key,
+      //
       //       this.defaultCITY,
       //       this.defaultCountry
       //     )
@@ -158,7 +147,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   searchLocations() {
     this.weatherdata
-      .getLocationInfo(this.key, this.searchedLocation)
+      .getLocationInfo(this.searchedLocation)
       .pipe(takeUntil(this.destroy))
       .subscribe((city) => {
         //this.listCities = city;
@@ -178,9 +167,9 @@ export class AppComponent implements OnInit, OnDestroy {
     //console.log(this.listCities);
   }
 
-  UpdateWeather(key: string, city: string, country: string, unit: string) {
+  UpdateWeather(city: string, country: string, unit: string) {
     this.weatherdata
-      .getWeatherDataFromApi(key, city, country, unit)
+      .getWeatherDataFromApi(city, country, unit)
       .pipe(takeUntil(this.destroy))
       .subscribe((data) => {
         // data.visibility = Math.round(data.visibility / 1000);
@@ -196,9 +185,9 @@ export class AppComponent implements OnInit, OnDestroy {
       });
   }
 
-  updateForecast(key: string, lat: number, lon: number, unit: string) {
+  updateForecast(lat: number, lon: number, unit: string) {
     this.weatherdata
-      .getTwoWeeksForcast(key, lat, lon, unit)
+      .getTwoWeeksForcast(lat, lon, unit)
       .pipe(takeUntil(this.destroy))
       .subscribe((data) => {
         //console.log(data);
@@ -212,18 +201,12 @@ export class AppComponent implements OnInit, OnDestroy {
     //const locationString = `${city.name}, ${city.country}`;
     //this.location.update(() => locationString);
     this.UpdateWeather(
-      this.key,
       city.name,
       city.country,
       this.settings.getSettings().units,
     );
     //console.log(city);
-    this.updateForecast(
-      this.key,
-      city.lat,
-      city.lon,
-      this.settings.getSettings().units,
-    );
+    this.updateForecast(city.lat, city.lon, this.settings.getSettings().units);
     //console.log(this.twoWeeksData());
     this.dataService.clearSearch();
     // this.listCities = [];
@@ -244,7 +227,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
           this.weatherdata
             .getReverseLocationInfo(
-              this.key,
               this.autoLAT,
               this.autoLON,
               this.settings.getSettings().units,
@@ -256,7 +238,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
           this.weatherdata
             .getTwoWeeksForcast(
-              this.key,
               this.autoLAT,
               this.autoLON,
               this.settings.getSettings().units,
