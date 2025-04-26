@@ -15,7 +15,8 @@ export class DataService {
 
   private haveData: boolean = false;
 
-  private apikeyservice: KeyService = inject(KeyService);
+  // private apikeyservice: KeyService = inject(KeyService);
+
   private weatherdata: WeatherService = inject(WeatherService);
 
   private data!: WeatherType;
@@ -30,7 +31,7 @@ export class DataService {
 
     if (this.unit.getSettings().distanceUnits == 'mi') {
       response.visibility = Math.round(
-        response.visibility * 0.0006213712121212121
+        response.visibility * 0.0006213712121212121,
       );
     } else {
       response.visibility = Math.round(response.visibility / 1000);
@@ -76,22 +77,16 @@ export class DataService {
   public search(city: CitiesType) {
     this.weatherdata
       .getWeatherDataFromApi(
-        this.apikeyservice.getKey(),
         city.name,
         city.country,
-        this.unit.getSettings().units
+        this.unit.getSettings().units,
       )
       .subscribe((data) => {
         this.setCurrentWeatherData(data);
       });
 
     this.weatherdata
-      .getTwoWeeksForcast(
-        this.apikeyservice.getKey(),
-        city.lat,
-        city.lon,
-        this.unit.getSettings().units
-      )
+      .getTwoWeeksForcast(city.lat, city.lon, this.unit.getSettings().units)
       .subscribe((data) => {
         //console.log(data);
         // this.twoWeeksData.update(() => data);
@@ -107,11 +102,9 @@ export class DataService {
       return;
     }
     this.setSearchTerm(value);
-    this.weatherdata
-      .getLocationInfo(this.apikeyservice.getKey(), this.searchLocation)
-      .subscribe((city) => {
-        this.setSearch(city);
-      });
+    this.weatherdata.getLocationInfo(this.searchLocation).subscribe((city) => {
+      this.setSearch(city);
+    });
     console.log(this.searchLocation);
   }
 
