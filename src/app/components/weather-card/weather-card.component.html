@@ -17,32 +17,15 @@
         </span>
       </button>
     </div>
-    <!-- <div class="searchListPopUp">
-    @if (listOfCities()?.length!=0){ @for (item of listOfCities(); track
-    (item.lat+item.lon)){
-    <div class="searchResults" (click)="onSelect(item)">
-      <span
-        >{{ item.name }}, {{ item.country }} @if (item.state!=undefined)
-        {{{", " + item.state}}}
-      </span>
-    </div>
-    } }
-  </div>
-  <div class="weatherBriefContainer">
-    <img src="{{ icon() }}" />
-    <p>{{ temperature() }}&deg;C</p>
-    <p>{{ weather() }}</p>
-  </div>
-  <div class="infoContainer">
-    <p><ng-icon name="hugeLocation01" /> {{ location() }}</p>
-    <p><ng-icon name="hugeCalendar03" /> {{ datetime() }}</p>
-  </div> -->
     <div
-      class="absolute w-6/7 left-0 top-full mx-5 my-0 text-xl bg-gradient-to-r from-black/60 to-transparent rounded-bl-4xl"
+      class="absolute w-6/7 left-0 top-full mx-5 my-0 text-xl bg-gradient-to-r from-black/60 to-transparent rounded-bl-4xl transition-all"
     >
       @if (data.getListOfCities().length) {
         @for (item of data.getListOfCities(); track item.lat + item.lon) {
-          <div class="p-5 cursor-pointer text-lg" (click)="data.search(item)">
+          <div
+            class="p-5 cursor-pointer text-lg transition-all"
+            (click)="data.search(item)"
+          >
             <span
               >{{ item.name }}, {{ item.country }}
               @if (item.state != undefined) {

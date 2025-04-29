@@ -110,6 +110,7 @@ export class DataService {
 
   public getCurrentWeather() {
     return this.data;
+    //return this.objData;
   }
 
   public currentWeather$() {

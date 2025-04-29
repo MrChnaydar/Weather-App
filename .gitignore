@@ -41,7 +41,10 @@ testem.log
 .DS_Store
 Thumbs.db
 
-
+#enviroments
+/enviroments
+.env
 
 #tailwind
 /tailwind.config.ts
+.vercel

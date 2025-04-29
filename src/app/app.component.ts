@@ -72,7 +72,7 @@ export class AppComponent implements OnInit, OnDestroy {
           // console.log(coords.longitude);
           this.autoLAT = coords.latitude;
           this.autoLON = coords.longitude;
-          //console.log('autolat: ' + this.autoLAT + ' autolon: ' + this.autoLON);
+          console.log('autolat: ' + this.autoLAT + ' autolon: ' + this.autoLON);
 
           this.weatherdata
             .getReverseLocationInfo(

@@ -1,13 +1,4 @@
-import {
-  Component,
-  input,
-  output,
-  EventEmitter,
-  signal,
-  ElementRef,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { Component, EventEmitter, signal, inject } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 
 import {
@@ -17,10 +8,8 @@ import {
 } from '@ng-icons/huge-icons';
 import { solarCloudStormBold } from '@ng-icons/solar-icons/bold';
 import { solarCloudStormBoldDuotone } from '@ng-icons/solar-icons/bold-duotone';
-import { CitiesType } from '../../model/cities-type.data';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data.service';
-import { WeatherType } from '../../model/weather-type.data';
 import { SettingsService } from '../../services/settings.service';
 
 @Component({
