@@ -7,7 +7,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   console.log(apiKey);
 
   if (!apiKey) {
-    return res
+    res
       .status(500)
       .json({ error: 'API Key not set. or Error with stored API Key' });
   }
@@ -23,7 +23,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   } else if (type === 'forecast') {
     apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=${unit}`;
   } else {
-    return res.status(400).json({ error: 'Invalid request type' });
+    res.status(400).json({ error: 'Invalid request type' });
   }
 
   try {
@@ -31,9 +31,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.log(apiUrl);
     const data = await response.json();
     console.log(data);
-    return res.status(200).json(data);
+    res.status(200).json(data);
   } catch (error) {
-    return res.status(500).json({ error: 'Error fetching weather data.' });
+    res.status(500).json({ error: 'Error fetching weather data.' });
   }
 }
 
