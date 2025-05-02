@@ -49,6 +49,12 @@
             {{ dewPoint() }}&deg; right now</span
           >
         </div>
+        <div class="w-9/10 bg-blue-800 rounded-full h-2 mb-2 self-center">
+          <div
+            class="bg-teal-400 h-2 rounded-full"
+            [style]="'width:' + data.getCurrentWeather().main.humidity + '%'"
+          ></div>
+        </div>
       </div>
     </div>
     <div class="h-full w-xs p-3">
@@ -98,10 +104,10 @@
             class="flex flex-row self-center justify-self-center justify-between w-11/9"
           >
             <span
-              class="text-start justify-self-end-safe self-center text-5xl font-light grow-1 text-white w-1"
+              class="justify-self-end-safe self-center text-5xl font-light grow-1 text-white mr-3 w-8 h-full rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center"
             >
-              <ng-icon name="hugeSunrise"
-            /></span>
+              <ng-icon name="hugeSunrise" />
+            </span>
             <span
               class="flex flex-col text-end self-end-safe text-2xl font-semibold text-amber-400"
               >Sunrise
@@ -113,7 +119,7 @@
           </div>
           <div class="flex flex-row self-center justify-self-center w-11/9">
             <span
-              class="text-start justify-self-end-safe self-center text-5xl font-medium grow-1 text-white"
+              class="justify-self-end-safe self-center text-5xl font-light grow-1 text-white mr-4 w-8 h-full rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center"
             >
               <ng-icon name="hugeSunset"
             /></span>
