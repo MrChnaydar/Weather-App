@@ -1,69 +1,89 @@
-<div id="main">
-  <ng-icon name="saxProfileCircleBold"></ng-icon>
-  <p class="small-title">Test Accounts</p>
-  <div class="accountContainer">
-    <div class="accounts">
-      <span
-        ><p class="email-title">Email:</p>
-        <p class="email">juanito&#64;barquillos.es</p></span
-      >
-      <span
-        ><p class="password-title">Password:</p>
-        <p class="password">oléquetapas</p></span
-      >
+<section class="flex h-full flex-nowrap justify-center items-center py-3 px-2">
+  <div
+    class="bg-slate-800/70 flex flex-col h-full flex-wrap overflow-hidden justify-center items-center text-stone-200 rounded-xl shadow-neutral-900 shadow-xl/40 w-full"
+  >
+    <span class="text-8xl mb-1">
+      <ng-icon name="saxProfileCircleBold"></ng-icon
+    ></span>
+    <p class="text-xl mb-5">Test Accounts</p>
+    <div
+      class="text-xl bg-slate-700 flex flex-row justify-between w-10/12 rounded-xl p-4 gap-3 shadow-neutral-900 shadow-md/40"
+    >
+      <div class="flex flex-col gap-3 w-4/12">
+        <span class="flex flex-row justify-between"
+          ><p>Email:</p>
+          <p class="font-semibold text-white">
+            juanito&#64;barquillos.es
+          </p></span
+        >
+        <span class="flex flex-row justify-between"
+          ><p>Password:</p>
+          <p class="font-semibold text-white">oléquetapas</p></span
+        >
+      </div>
+      <div class="flex flex-col gap-3 w-4/12">
+        <span class="flex flex-row justify-between"
+          ><p>Email:</p>
+          <p class="font-semibold text-white">
+            maria.la.fiestera&#64;feriaflamenca.com
+          </p></span
+        >
+        <span class="flex flex-row justify-between"
+          ><p>Password:</p>
+          <p class="font-semibold text-white">sevillanas123</p></span
+        >
+      </div>
+      <div class="flex flex-col gap-3 w-4/12">
+        <span class="flex flex-row justify-between"
+          ><p>Email:</p>
+          <p class="font-semibold text-white">
+            churroslover&#64;mañanas.es
+          </p></span
+        >
+        <span class="flex flex-row justify-between"
+          ><p>Password:</p>
+          <p class="font-semibold text-white">conchocolate99</p></span
+        >
+      </div>
     </div>
-    <div class="accounts">
-      <span
-        ><p class="email-title">Email:</p>
-        <p class="email">maria.la.fiestera&#64;feriaflamenca.com</p></span
-      >
-      <span
-        ><p class="password-title">Password:</p>
-        <p class="password">sevillanas123</p></span
-      >
+    <div
+      class="flex flex-col items-center p-8 rounded-xl bg-slate-700 my-4 w-3/12 shadow-neutral-900 shadow-xl/40"
+    >
+      <form class="h-full flex flex-col justify-around items-center">
+        <label class="text-2xl mb-4" for="username">Username or Email</label>
+        <input
+          class="px-3 py-2 m-3 rounded-xl bg-slate-600 w-full"
+          #username
+          type="text"
+          name="username"
+          placeholder="Username or Email"
+          maxlength="50"
+          minlength="3"
+        />
+        <label class="text-2xl my-4" for="font-semibold text-white"
+          >Password</label
+        >
+        <input
+          class="px-3 py-2 m-3 rounded-xl bg-slate-600 w-full"
+          #password
+          type="Password"
+          name="Password"
+          placeholder="Password"
+          minlength="8"
+          required
+        />
+        <button
+          class="text-2xl font-medium mt-4 border-1 border-white rounded-xl cursor-pointer bg-transparent px-3 py-1 text-center"
+          type="button"
+          (click)="appStore.login(username.value, password.value)"
+        >
+          Login
+        </button>
+      </form>
     </div>
-    <div class="accounts">
-      <span
-        ><p class="email-title">Email:</p>
-        <p class="email">churroslover&#64;mañanas.es</p></span
-      >
-      <span
-        ><p class="password-title">Password:</p>
-        <p class="password">conchocolate99</p></span
-      >
-    </div>
+    <p class="text-md absolute bottom-5 text-center">
+      © {{ currentYear }} Weather Angular App | Created by Nizar Mourak using
+      Angular
+    </p>
   </div>
-  <div class="loginContainer">
-    <form class="loginForm">
-      <label for="username">Username or Email</label>
-      <input
-        #username
-        type="text"
-        name="username"
-        placeholder="Username or Email"
-        maxlength="50"
-        minlength="3"
-      />
-      <label for="password">Password</label>
-      <input
-        #password
-        type="password"
-        name="password"
-        id=""
-        placeholder="Password"
-        minlength="8"
-        required
-      />
-      <button
-        type="button"
-        (click)="appStore.login(username.value, password.value)"
-      >
-        Login
-      </button>
-    </form>
-  </div>
-  <p class="footer">
-    © {{ currentYear }} Weather Angular App | Created by Nizar Mourak using
-    Angular
-  </p>
-</div>
+</section>

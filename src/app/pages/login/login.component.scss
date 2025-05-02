@@ -1,116 +1,116 @@
-* {
-  color: white;
-}
+// * {
+//   color: white;
+// }
 
-#main {
-  background: #28394d;
-  margin: 1.2vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 98%;
-  border-radius: 1.5vh;
-}
+// #main {
+//   background: #28394d;
+//   margin: 1.2vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   height: 98%;
+//   border-radius: 1.5vh;
+// }
 
-.accountContainer {
-  font-size: 2vh;
-  background-color: rgba(55, 91, 108, 0.2);
-  padding: 2vh;
-  border-radius: 2vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 3vh;
-  width: 75vw;
-}
+// .accountContainer {
+//   font-size: 2vh;
+//   background-color: rgba(55, 91, 108, 0.2);
+//   padding: 2vh;
+//   border-radius: 2vh;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   gap: 3vh;
+//   width: 75vw;
+// }
 
-.accounts {
-  display: flex;
-  flex-direction: column;
-  gap: 1vh;
-  width: 22vw;
-}
+// .accounts {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 1vh;
+//   width: 22vw;
+// }
 
-.password {
-  font-weight: 700;
-  color: hsl(0, 0%, 95%);
-}
+// .password {
+//   font-weight: 700;
+//   color: hsl(0, 0%, 95%);
+// }
 
-.email {
-  font-weight: 700;
-  color: hsl(0, 0%, 95%);
-}
+// .email {
+//   font-weight: 700;
+//   color: hsl(0, 0%, 95%);
+// }
 
-.small-title {
-  margin-bottom: 1vh;
-  font-size: 1.9vh;
-}
+// .small-title {
+//   margin-bottom: 1vh;
+//   font-size: 1.9vh;
+// }
 
-span {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+// span {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+// }
 
-.loginContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 5vh;
-  border-radius: 2vh;
-  background-color: rgba(55, 91, 108, 0.2); /* Adjust transparency */
-  // backdrop-filter: blur(10px);
-  margin: 2vh 0vh;
-}
+// .loginContainer {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   padding: 5vh;
+//   border-radius: 2vh;
+//   background-color: rgba(55, 91, 108, 0.2); /* Adjust transparency */
+//   // backdrop-filter: blur(10px);
+//   margin: 2vh 0vh;
+// }
 
-.loginForm {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
+// .loginForm {
+//   height: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-around;
+//   align-items: center;
+// }
 
-.footer {
-  font-size: 1.7vh;
-  position: absolute;
-  bottom: 2.3em;
-  justify-self: end;
-  text-align: center;
-}
+// .footer {
+//   font-size: 1.7vh;
+//   position: absolute;
+//   bottom: 2.3em;
+//   justify-self: end;
+//   text-align: center;
+// }
 
-label {
-  font-size: 2.5vh;
-  margin: 2vh 0vh;
-}
+// label {
+//   font-size: 2.5vh;
+//   margin: 2vh 0vh;
+// }
 
-input {
-  padding: 1vh 2vh;
-  font-size: 2vh;
-  margin: 1em;
-  border: none;
-  //border: #274657 1px solid;
-  border-radius: 0.3em;
-  background-color: rgba(55, 91, 108, 0.3);
-}
+// input {
+//   padding: 1vh 2vh;
+//   font-size: 2vh;
+//   margin: 1em;
+//   border: none;
+//   //border: #274657 1px solid;
+//   border-radius: 0.3em;
+//   background-color: rgba(55, 91, 108, 0.3);
+// }
 
-button {
-  font-size: 2.2vh;
-  font-weight: 500;
-  margin-top: 1em;
-  border: white 1px solid;
-  border-radius: 0.9vh;
-  cursor: pointer;
-  //border: none;
-  background-color: transparent;
+// button {
+//   font-size: 2.2vh;
+//   font-weight: 500;
+//   margin-top: 1em;
+//   border: white 1px solid;
+//   border-radius: 0.9vh;
+//   cursor: pointer;
+//   //border: none;
+//   background-color: transparent;
 
-  padding: 0.3em 0.7em;
-  text-align: center;
-}
+//   padding: 0.3em 0.7em;
+//   text-align: center;
+// }
 
-ng-icon {
-  width: 10vw;
-  height: 10vh;
-  margin-bottom: 1%;
-}
+// ng-icon {
+//   width: 10vw;
+//   height: 10vh;
+//   margin-bottom: 1%;
+// }

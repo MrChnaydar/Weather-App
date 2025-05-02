@@ -1,18 +1,33 @@
-<section>
+<section
+  class="relative w-full h-full flex justify-center items-center overflow-hidden rounded-xl"
+>
   <!-- <h2>Aqui el mapa</h2> -->
   <iframe
     frameborder="0"
     style="border: 0"
     loading="lazy"
     referrerpolicy="no-referrer-when-downgrade"
-    class="blurryMap"
+    class="w-full h-full rounded-xl filter-none"
     [class.blurry]="isBlurred"
     [style.pointer-events]="isBlurred ? 'none' : 'auto'"
     [src]="mapUrl"
   >
   </iframe>
-  <div class="mapOverlayBlurry" *ngIf="isBlurred">
-    <button class="cta-btn" routerLink="/stats">Show Weather Map</button>
+  <div
+    class="absolute flex justify-center items-center rounded-xl top-0 left-0 w-full h-full bg-grey-950/70 pointer-events-auto z-10"
+    *ngIf="isBlurred"
+  >
+    <button
+      class="px-10 py-3 rounded-full bg-cyan-200 cursor-pointer text-black text-xl font-semibold transition-all hover:text-2xl hover:bg-cyan-300/50 active:opacity-70"
+      routerLink="/stats"
+    >
+      Show Weather Map
+    </button>
   </div>
-  <button class="swt-btn" (click)="toggleBlur()">Toggle Blur</button>
+  <button
+    class="absolute z-10 top-5 -right-50 w-60 bg-cyan-100/40 transition-all rounded-full rounded-r-none text-black text-2xl font-semibold px-10 py-1 cursor-pointer hover:right-0 active:opacity-80"
+    (click)="toggleBlur()"
+  >
+    Toggle Blur
+  </button>
 </section>

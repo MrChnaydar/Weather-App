@@ -1,76 +1,84 @@
-<section>
-  <p class="header">Today's Highlight</p>
-  <div class="mainContainer">
-    <div class="windHumidityContainer">
-      <div class="wind">
-        <p class="uppertitle">Wind Status</p>
-        <!-- <img class="windgif" src="windman.gif" alt="" /> -->
-        <!-- <ng-icon name="solarWindBoldDuotone" class="wind-icon" /> -->
-        <!-- <div class="gaugeChartContainer">
-          <ngx-charts-gauge
-            [results]="windGraphData()!"
-            [max]="maxWindSpeed()"
-            class="gaugeChart"
-            [units]="windSpeedUnit()"
-            [animations]="false"
-            [startAngle]="-90"
-            [angleSpan]="180"
-            [scheme]="'flame'"
-          >
-            <!-- [view]="[280, 280]"
-          </ngx-charts-gauge>
-        </div> -->
-        <div>
-          <span class="bigText"
+<section class="w-full h-full">
+  <p
+    class="bg-slate-700 text-2xl py-3.5 pl-7 self-start w-full font-semibold text-stone-200 border-b-2 border-black rounded-tl-xl rounded-tr-xl"
+  >
+    Today's Highlight
+  </p>
+  <div class="flex flex-row justify-evenly h-full">
+    <div class="h-full w-xs p-3">
+      <div
+        class="rounded-xl border-1 border-white h-6/11 w-full flex flex-col justify-between"
+      >
+        <p class="text-xl font-semibold text-stone-300 pl-4 pt-2 pb-1">
+          Wind Status
+        </p>
+        <div class="flex flex-row justify-between items-center">
+          <span
+            class="self-end-safe text-3xl font-bold text-stone-300 pl-4 pb-3 mr-2"
             >{{ data.getCurrentWeather().wind.speed }}
-            <span class="smallText">{{ windSpeedUnit() }}</span></span
+            <span
+              class="text-start self-end-safe pb-3 text-lg font-light grow-1 text-stone-300"
+              >{{ windSpeedUnit() }}</span
+            ></span
           >
-          <span class="smallText">{{ currentTime() }}</span>
+          <span
+            class="text-end self-end-safe justify-self-end-safe pb-3 pr-5 text-lg font-light grow-1 text-stone-300 w-fit"
+            >{{ currentTime() }}</span
+          >
         </div>
       </div>
-      <div class="humidity">
-        <p class="lowertitle">Humidity</p>
-        <div>
-          <span class="bigText"
+      <div
+        class="rounded-xl border-1 border-white h-3/10 w-full flex flex-col justify-center mt-1.5 pb-1.5"
+      >
+        <p class="text-lg font-medium text-stone-300 pl-4 pt-2 pb-1">
+          Humidity
+        </p>
+        <div
+          class="flex flex-row gap-10 justify-between w-full h-full items-center"
+        >
+          <span class="text-3xl font-bold text-stone-300 pl-5 shrink-0"
             >{{ data.getCurrentWeather().main.humidity
-            }}<span class="smallText"> %</span></span
+            }}<span class="text-start text-lg font-light text-stone-300">
+              %</span
+            ></span
           >
-          <span class="smallText" id="dew"
+          <span
+            class="text-start text-lg font-light text-stone-300 shrink-1 justify-self-end-safe pl-7"
+            id="dew"
             ><ng-icon name="hugeDroplet" style="display: block" /> Dew point is
             {{ dewPoint() }}&deg; right now</span
           >
         </div>
       </div>
     </div>
-    <div class="uVisibilityContainer">
-      <div class="uv">
-        <p class="uppertitle">UV Index</p>
-        <!-- <div class="gaugeChartContainer">
-          <!-- <ngx-charts-linear-gauge
-            class="linearChart"
-            [max]="12"
-            [min]="0"
-            [scheme]="uvGraphColor()"
-            units="UV"
-            [value]="data.getTwoWeeks().current.uvi"
-            [previousValue]="8"
-            style="margin: 0em 0.5em"
-            [animations]="false"
-            [view]="[250, 180]"
-          >
-            [view]="[376, 200]"
-          </ngx-charts-linear-gauge>
-        </div> -->
+    <div class="h-full w-xs p-3">
+      <div
+        class="rounded-xl border-1 border-white h-6/11 w-full flex flex-col justify-between"
+      >
+        <p class="text-xl font-semibold text-stone-300 pl-4 pt-2 pb-1">
+          UV Index
+        </p>
+
         <p></p>
       </div>
-      <div class="visibility">
-        <p class="lowertitle">Visibility</p>
-        <div>
-          <span class="visibilityNumber" class="bigText"
+      <div
+        class="rounded-xl border-1 border-white h-3/10 w-full flex flex-col justify-center mt-1.5 pb-1.5"
+      >
+        <p class="text-lg font-medium text-stone-300 pl-4 pt-2 pb-1">
+          Visibility
+        </p>
+        <div
+          class="flex flex-row gap-10 justify-between w-full h-full items-center"
+        >
+          <span class="text-3xl font-bold text-stone-300 pl-4 pb-3 mr-2"
             >{{ data.getCurrentWeather().visibility
-            }}<span class="smallText"> {{ visibilityUnits() }}</span></span
+            }}<span
+              class="text-start pb-3 text-lg font-light grow-1 text-stone-300"
+            >
+              {{ visibilityUnits() }}</span
+            ></span
           >
-          <span class="smallText"
+          <span class="text-start pb-3 text-lg font-light grow-1 text-stone-300"
             ><ng-icon name="hugeEye" style="display: block" />{{
               visibilityStatus()
             }}</span
@@ -78,39 +86,73 @@
         </div>
       </div>
     </div>
-    <div class="feelSunCaontainer">
-      <div class="sunset">
-        <p class="uppertitle">Sunrise & Sunset</p>
-        <div class="sunTimesContainer">
-          <div class="sunriseCard">
-            <ng-icon name="hugeSunrise" class="smallText" />
-            <span class="bigText" style="color: #ebbf4d">Sunrise</span>
-            <span class="bigText" style="font-size: 2.3vh">{{
-              sunriseTime()
-            }}</span>
+    <div class="h-full w-xs p-3">
+      <div class="rounded-xl border-1 border-white h-6/11 w-full flex flex-col">
+        <p class="text-xl font-semibold text-stone-300 pl-4 pt-2 pb-1">
+          Sunrise & Sunset
+        </p>
+        <div
+          class="flex flex-col items-center justify-evenly self-center h-full"
+        >
+          <div
+            class="flex flex-row self-center justify-self-center justify-between w-11/9"
+          >
+            <span
+              class="text-start justify-self-end-safe self-center text-5xl font-light grow-1 text-white w-1"
+            >
+              <ng-icon name="hugeSunrise"
+            /></span>
+            <span
+              class="flex flex-col text-end self-end-safe text-2xl font-semibold text-amber-400"
+              >Sunrise
+              <span
+                class="self-end-safe text-lg font-medium text-stone-300 text-start"
+                >{{ sunriseTime() }}</span
+              ></span
+            >
           </div>
-          <div class="sunsetCard">
-            <ng-icon name="hugeSunset" class="smallText" />
-            <span class="bigText" style="color: #ebbf4d">Sunset</span>
-            <span class="bigText" style="font-size: 2.3vh">{{
-              sunsetTime()
-            }}</span>
+          <div class="flex flex-row self-center justify-self-center w-11/9">
+            <span
+              class="text-start justify-self-end-safe self-center text-5xl font-medium grow-1 text-white"
+            >
+              <ng-icon name="hugeSunset"
+            /></span>
+            <span
+              class="flex flex-col text-end self-end-safe text-2xl font-semibold text-amber-400"
+              >Sunset
+              <span class="self-end-safe text-lg font-medium text-stone-300">{{
+                sunsetTime()
+              }}</span></span
+            >
           </div>
         </div>
       </div>
-      <div class="feelsLike">
-        <p class="lowertitle">Feels Like</p>
-        <div>
-          <span class="bigText"
-            ><ng-icon name="hugeThermometerWarm" class="thermometer" />
-            {{ data.getCurrentWeather().main.feels_like }}</span
+      <div
+        class="rounded-xl border-1 border-white h-3/10 w-full flex flex-col justify-center mt-1.5 pb-1.5"
+      >
+        <p class="text-lg font-medium text-stone-300 pl-4 pt-2 pb-1">
+          Feels Like
+        </p>
+        <div
+          class="flex flex-row gap-5 justify-between w-full h-full items-center"
+        >
+          <span
+            class="text-3xl font-bold text-stone-300 pl-4 text-center shrink-0"
           >
-          <span class="smallText">{{
-            humidityStatus(
-              data.getCurrentWeather().main.feels_like,
-              data.getCurrentWeather().main.humidity
-            )
-          }}</span>
+            {{ data.getCurrentWeather().main.feels_like }}
+            <span class="text-3xl text-center"
+              ><ng-icon name="hugeThermometerWarm"
+            /></span>
+          </span>
+          <span
+            class="text-start text-lg font-light grow-1 text-stone-300 pl-5"
+            >{{
+              humidityStatus(
+                data.getCurrentWeather().main.feels_like,
+                data.getCurrentWeather().main.humidity
+              )
+            }}</span
+          >
         </div>
       </div>
     </div>
