@@ -37,65 +37,34 @@ export class HighlightCardComponent {
   data: DataService = inject(DataService);
   private setting: SettingsService = inject(SettingsService);
 
-  windGraphData() {
-    // if (this.windSpeedObject[0].value != this.windSpeedData) {
-    //   this.windSpeedData = this.data.getCurrentWeather().wind.speed;
-    //   this.windSpeedObject = [
-    //     { name: 'Velocity', value: this.data.getCurrentWeather().wind.speed },
-    //   ];
-    //   return this.windSpeedObject;
-    // }
-    return [
-      { name: 'Velocity', value: this.data.getCurrentWeather().wind.speed },
-    ];
+  levels = Array.from({ length: 10 }, (_, i) => i + 1);
+
+  getBarColor(level: number): string {
+    if (level > this.data.getTwoWeeks().current.uvi) return 'bg-blue-800';
+    if (level <= 3) return 'bg-green-400';
+    if (level <= 6) return 'bg-amber-400';
+    return 'bg-red-400';
   }
 
-  uvGraphColor() {
-    if (this.data.getTwoWeeks().current.uvi <= 4) {
-      return 'air';
-    } else if (this.data.getTwoWeeks().current.uvi <= 7) {
-      return 'solar';
-    } else {
-      return 'fire';
-    }
-  }
-
-  //data = input<WeatherType | null>();
   sunriseTime() {
-    //console.log('sunrise :' + this.data.getCurrentWeather().sys.sunrise);
     return new Date(
-      this.data.getCurrentWeather().sys.sunrise * 1000
+      this.data.getCurrentWeather().sys.sunrise * 1000,
     ).toLocaleTimeString('en-GB', {
       hour: '2-digit',
       minute: '2-digit',
-      hour12: this.setting.getSettings().timeFormat == 12 ? true : false, // Set to true for 12-hour format (AM/PM)
+      hour12: this.setting.getSettings().timeFormat == 12 ? true : false,
     });
-    // const dateConstructor = new Date(
-    //   this.data.getCurrentWeather()?.sys.sunrise ?? 0 * 1000
-    // ).getUTCHours();
-    // return dateConstructor;
   }
 
   sunsetTime() {
-    //console.log('sunset :' + this.data.getCurrentWeather().sys.sunset);
     return new Date(
-      this.data.getCurrentWeather().sys.sunset * 1000
+      this.data.getCurrentWeather().sys.sunset * 1000,
     ).toLocaleTimeString('en-GB', {
       hour: '2-digit',
       minute: '2-digit',
-      hour12: this.setting.getSettings().timeFormat == 12 ? true : false, // Set to true for 12-hour format (AM/PM)
+      hour12: this.setting.getSettings().timeFormat == 12 ? true : false,
     });
-    // const dateConstructor = new Date(
-    //   this.data.getCurrentWeather()?.sys.sunset ?? 0 * 1000
-    // ).getUTCHours();
-    // return dateConstructor;
   }
-
-  // convertToCelcius(temp: number) {
-  //   if (this.setting.getSettings().units == 'imperial') {
-  //     return (5 / 9) * (temp - 32);
-  //   }
-  // }
 
   humidityStatus(feelsLike: number, humidity: number): string {
     let temp = feelsLike;

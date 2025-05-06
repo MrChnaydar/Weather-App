@@ -7,24 +7,34 @@
   <div class="flex flex-row justify-evenly h-full">
     <div class="h-full w-xs p-3">
       <div
-        class="rounded-xl border-1 border-white h-6/11 w-full flex flex-col justify-between"
+        class="rounded-xl border-1 border-white h-6/11 w-full flex flex-col justify-start"
       >
-        <p class="text-xl font-semibold text-stone-300 pl-4 pt-2 pb-1">
+        <p
+          class="text-xl self-start font-semibold text-stone-300 pl-4 pt-2 pb-1"
+        >
           Wind Status
         </p>
-        <div class="flex flex-row justify-between items-center">
-          <span
-            class="self-end-safe text-3xl font-bold text-stone-300 pl-4 pb-3 mr-2"
-            >{{ data.getCurrentWeather().wind.speed }}
+        <div class="flex flex-col justify-center gap-2 items-center h-full">
+          <div class="flex justify-around w-full">
+            <span class="text-3xl font-bold text-stone-300 pl-4 pb-3 mr-2"
+              >{{ data.getCurrentWeather().wind.speed }}
+              <span
+                class="text-start pb-3 text-lg font-light grow-1 text-stone-300"
+                >{{ windSpeedUnit() }}</span
+              ></span
+            >
             <span
-              class="text-start self-end-safe pb-3 text-lg font-light grow-1 text-stone-300"
-              >{{ windSpeedUnit() }}</span
-            ></span
-          >
-          <span
-            class="text-end self-end-safe justify-self-end-safe pb-3 pr-5 text-lg font-light grow-1 text-stone-300 w-fit"
-            >{{ currentTime() }}</span
-          >
+              class="text-end self-end-safe pb-3 pr-5 text-lg font-light grow-1 text-stone-300 w-fit"
+              >{{ currentTime() }}</span
+            >
+          </div>
+          <div
+            class="h-13 w-10 bg-amber-400 transition-all duration-300"
+            [ngStyle]="{
+              clipPath: 'polygon(50% 0%, 0% 100%, 90% 100%)',
+              transform: 'rotate(' + data.getCurrentWeather().wind.deg + 'deg)',
+            }"
+          ></div>
         </div>
       </div>
       <div
@@ -51,7 +61,7 @@
         </div>
         <div class="w-9/10 bg-blue-800 rounded-full h-2 mb-2 self-center">
           <div
-            class="bg-teal-400 h-2 rounded-full"
+            class="bg-teal-400 h-2 rounded-full transition-all duration-300"
             [style]="'width:' + data.getCurrentWeather().main.humidity + '%'"
           ></div>
         </div>
@@ -64,7 +74,20 @@
         <p class="text-xl font-semibold text-stone-300 pl-4 pt-2 pb-1">
           UV Index
         </p>
-
+        <div class="flex flex-col items-center">
+          <div class="text-3xl font-bold text-stone-300">
+            {{ data.getTwoWeeks().current.uvi }}
+          </div>
+          <div
+            class="flex mt-2 w-9/10 h-2 mb-2 self-center transition-all duration-300"
+          >
+            <div
+              *ngFor="let level of levels"
+              class="h-2 w-full rounded-sm mr-0.5 transition-all duration-300"
+              [ngClass]="getBarColor(level)"
+            ></div>
+          </div>
+        </div>
         <p></p>
       </div>
       <div
