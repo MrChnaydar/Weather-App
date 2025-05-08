@@ -8,6 +8,7 @@
         placeholder="Search"
         (input)="data.onInputSubmit(searchInput.value)"
         [ngClass]="{ typing: searchInput.value.length > 0 }"
+        (click)="data.onInputSubmit(searchInput.value)"
       />
       <button
         class="flex justify-center items-center cursor-pointer bg-none m-0 p-0 outline-none border-none rounded-full"

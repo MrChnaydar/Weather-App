@@ -1,68 +1,88 @@
-<div id="main">
-  <h2>Settings</h2>
-  <section>
-    <div class="setting">
-      <p>Units</p>
-      <span>
-        <button
-          type="button"
-          (click)="
-            settingsData.updateSetting('units', 'metric');
-            reload(false, '/home')
-          "
-          [class.active]="settingsData.getSettings().units === 'metric'"
-        >
-          Metric
-        </button>
-        <button
-          type="button"
-          (click)="
-            settingsData.updateSetting('units', 'imperial');
-            reload(false, '/home')
-          "
-          [class.active]="settingsData.getSettings().units === 'imperial'"
-        >
-          Imperial
-        </button>
-      </span>
-    </div>
-    <div class="setting">
-      <p>Time format</p>
-      <span>
-        <button
-          type="button"
-          (click)="
-            settingsData.updateSetting('timeFormat', 12); reload(false, '/home')
-          "
-          [class.active]="settingsData.getSettings().timeFormat === 12"
-        >
-          12H
-        </button>
-        <button
-          type="button"
-          (click)="
-            settingsData.updateSetting('timeFormat', 24); reload(false, '/home')
-          "
-          [class.active]="settingsData.getSettings().timeFormat === 24"
-        >
-          24H
-        </button>
-      </span>
-    </div>
-    <div class="setting">
-      <p>Visibility</p>
-      <span>
-        <button
-          type="button"
-          (click)="
-            settingsData.updateSetting('distanceUnits', 'km');
-            reload(false, '/home')
-          "
-          [class.active]="settingsData.getSettings().distanceUnits === 'km'"
-        >
-          Km
-        </button>
-        <!-- <button
+<section class="flex h-full flex-nowrap justify-center items-center py-3 px-2">
+  <div
+    class="bg-slate-800/70 flex flex-col h-full flex-wrap overflow-hidden justify-center items-center text-stone-200 rounded-xl shadow-neutral-900 shadow-xl/40 w-full"
+  >
+    <h2
+      class="text-4xl p-5 w-1/2 text-center font-semibold border-b-2 border-black"
+    >
+      Settings
+    </h2>
+    <section class="p-4 w-1/2">
+      <div
+        class="text-2xl font-semibold p-5 flex justify-between items-center rounded-xl mx-0 my-3 bg-slate-700"
+      >
+        <p>Units</p>
+        <span>
+          <button
+            class="cursor-pointer rounded-xl text-lg font-medium px-4 py-1.5 mx-1 my-0 transition-all hover:bg-slate-800/30 active:bg-slate-800/60"
+            type="button"
+            (click)="
+              settingsData.updateSetting('units', 'metric');
+              reload(false, '/home')
+            "
+            [class.active]="settingsData.getSettings().units === 'metric'"
+          >
+            Metric
+          </button>
+          <button
+            class="cursor-pointer rounded-xl text-lg font-medium px-4 py-1.5 mx-1 my-0 transition-all hover:bg-slate-800/30 active:bg-slate-800/60"
+            type="button"
+            (click)="
+              settingsData.updateSetting('units', 'imperial');
+              reload(false, '/home')
+            "
+            [class.active]="settingsData.getSettings().units === 'imperial'"
+          >
+            Imperial
+          </button>
+        </span>
+      </div>
+      <div
+        class="text-2xl font-semibold p-5 flex justify-between items-center rounded-xl mx-0 my-3 bg-slate-700"
+      >
+        <p>Time format</p>
+        <span>
+          <button
+            class="cursor-pointer rounded-xl text-lg font-medium px-4 py-1.5 mx-1 my-0 transition-all hover:bg-slate-800/30 active:bg-slate-800/60"
+            type="button"
+            (click)="
+              settingsData.updateSetting('timeFormat', 12);
+              reload(false, '/home')
+            "
+            [class.active]="settingsData.getSettings().timeFormat === 12"
+          >
+            12H
+          </button>
+          <button
+            class="cursor-pointer rounded-xl text-lg font-medium px-4 py-1.5 mx-1 my-0 transition-all hover:bg-slate-800/30 active:bg-slate-800/60"
+            type="button"
+            (click)="
+              settingsData.updateSetting('timeFormat', 24);
+              reload(false, '/home')
+            "
+            [class.active]="settingsData.getSettings().timeFormat === 24"
+          >
+            24H
+          </button>
+        </span>
+      </div>
+      <div
+        class="text-2xl font-semibold p-5 flex justify-between items-center rounded-xl mx-0 my-3 bg-slate-700"
+      >
+        <p>Visibility</p>
+        <span>
+          <button
+            class="cursor-pointer rounded-xl text-lg font-medium px-4 py-1.5 mx-1 my-0 transition-all hover:bg-slate-800/30 active:bg-slate-800/60"
+            type="button"
+            (click)="
+              settingsData.updateSetting('distanceUnits', 'km');
+              reload(false, '/home')
+            "
+            [class.active]="settingsData.getSettings().distanceUnits === 'km'"
+          >
+            Km
+          </button>
+          <!-- <button
           type="button"
           (click)="
             settingsData.updateSetting('distanceUnits', 'm');
@@ -72,53 +92,55 @@
         >
           M
         </button> -->
-        <button
-          type="button"
-          (click)="
-            settingsData.updateSetting('distanceUnits', 'mi');
-            reload(false, '/home')
-          "
-          [class.active]="settingsData.getSettings().distanceUnits === 'mi'"
-        >
-          Mi
-        </button>
-      </span>
-    </div>
-    <div class="setting">
-      <p>Language (Work in progress) NO FUNCIONA pero se ve bonito</p>
-      <span>
-        <button
-          type="button"
-          (click)="
-            settingsData.updateSetting('lang', 'eng'); reload(false, '/home')
-          "
-          [class.active]="settingsData.getSettings().lang === 'eng'"
-        >
-          English
-        </button>
-        <button
-          type="button"
-          (click)="
-            settingsData.updateSetting('lang', 'esp'); reload(false, '/home')
-          "
-          [class.active]="settingsData.getSettings().lang === 'esp'"
-        >
-          Spanish
-        </button>
-        <button
-          type="button"
-          (click)="
-            settingsData.updateSetting('lang', 'fr'); reload(false, '/home')
-          "
-          [class.active]="settingsData.getSettings().lang === 'fr'"
-        >
-          French
-        </button>
-      </span>
-    </div>
-  </section>
-  <p class="footer">
-    © {{ currentYear }} Weather Angular App | Created by Nizar Mourak using
-    Angular
-  </p>
-</div>
+          <button
+            class="cursor-pointer rounded-xl text-lg font-medium px-4 py-1.5 mx-1 my-0 transition-all hover:bg-slate-800/30 active:bg-slate-800/60"
+            type="button"
+            (click)="
+              settingsData.updateSetting('distanceUnits', 'mi');
+              reload(false, '/home')
+            "
+            [class.active]="settingsData.getSettings().distanceUnits === 'mi'"
+          >
+            Mi
+          </button>
+        </span>
+      </div>
+      <!-- <div class="text-2xl font-semibold p-5 flex justify-between items-center rounded-xl mx-0 my-3 bg-slate-700">
+        <p>Language (Work in progress) NO FUNCIONA pero se ve bonito</p>
+        <span>
+          <button
+            type="button"
+            (click)="
+              settingsData.updateSetting('lang', 'eng'); reload(false, '/home')
+            "
+            [class.active]="settingsData.getSettings().lang === 'eng'"
+          >
+            English
+          </button>
+          <button
+            type="button"
+            (click)="
+              settingsData.updateSetting('lang', 'esp'); reload(false, '/home')
+            "
+            [class.active]="settingsData.getSettings().lang === 'esp'"
+          >
+            Spanish
+          </button>
+          <button
+            type="button"
+            (click)="
+              settingsData.updateSetting('lang', 'fr'); reload(false, '/home')
+            "
+            [class.active]="settingsData.getSettings().lang === 'fr'"
+          >
+            French
+          </button>
+        </span>
+      </div> -->
+    </section>
+    <p class="text-md absolute bottom-5 text-center">
+      © {{ currentYear }} Weather Angular App | Created by Nizar Mourak using
+      Angular
+    </p>
+  </div>
+</section>

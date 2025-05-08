@@ -38,11 +38,6 @@ export class AppComponent implements OnInit, OnDestroy {
   autoLAT!: number;
   autoLON!: number;
 
-  // data = signal<WeatherType | null>(null);
-  // temperature = signal<number>(0);
-  // location = signal<string>('');
-  // icon = signal('');
-
   dateConstructor = new Date();
   date = signal(this.dateConstructor.toLocaleDateString());
 
@@ -67,73 +62,36 @@ export class AppComponent implements OnInit, OnDestroy {
       this.deviceLocation
         .getCurrentLocation()
         .then((coords) => {
-          // console.log(coords);
-          // console.log(coords.latitude);
-          // console.log(coords.longitude);
-          this.autoLAT = coords.latitude;
-          this.autoLON = coords.longitude;
-          console.log('autolat: ' + this.autoLAT + ' autolon: ' + this.autoLON);
+          this.weatherFirstLookup(coords.latitude, coords.longitude);
+        })
+        .catch((error) => {
+          console.log(
+            'This is the error with the geolocation: ' +
+              error +
+              ', initializing app with fallback city info (London)',
+          );
 
           this.weatherdata
-            .getReverseLocationInfo(
-              this.autoLAT || this.defaultLat,
-              this.autoLON || this.defaultLon,
+            .getWeatherDataFromApi(
+              this.defaultCITY,
+              this.defaultCITY,
               this.settings.getSettings().units,
             )
-            .then((data: WeatherType) => {
-              // console.log(data);
-              // data.visibility = Math.round(data.visibility / 1000);
-              // data.main.feels_like = Math.floor(data.main.feels_like);
-              // this.data.set(data);
-              // this.icon.set(
-              //   'https://openweathermap.org/img/wn/' +
-              //     data?.weather[0].icon +
-              //     '@2x.png'
-              // );
-              // this.location.set(data?.name ?? '');
-              // this.temperature.set(Math.floor(data?.main.temp ?? 0));
+            .subscribe((data) => {
               this.dataService.setCurrentWeatherData(data);
-              //console.log(this.dataService.getCurrentWeather());
             });
 
           this.weatherdata
             .getTwoWeeksForcast(
-              this.autoLAT || this.defaultLat,
-              this.autoLON || this.defaultLon,
+              this.defaultLat,
+              this.defaultLon,
               this.settings.getSettings().units,
             )
             .pipe(takeUntil(this.destroy))
             .subscribe((data) => {
-              //console.log(data);
-              // this.twoWeeksData.set(data);
               this.dataService.setTwoWeeksData(data);
             });
-        })
-        .catch((error) => {
-          console.log('This is the error with the geolocation: ' + error);
         });
-      // if (this.autoLAT && this.autoLON) {
-      //console.log('autolat: ' + this.autoLAT + ' autolon: ' + this.autoLON);
-
-      // } else {
-      //   this.weatherdata
-      //     .getWeatherDataFromApi(
-      //
-      //       this.defaultCITY,
-      //       this.defaultCountry
-      //     )
-      //     .pipe(takeUntil(this.destroy))
-      //     .subscribe((data) => {
-      //       this.data.set(data);
-      //       this.icon.set(
-      //         'https://openweathermap.org/img/wn/' +
-      //           data.weather[0].icon +
-      //           '@2x.png'
-      //       );
-      //       this.location.set(this.defaultCITY);
-      //       this.temperature.set(Math.floor(data.main.temp));
-      //     });
-      //   }
     }
     this.settingsChangedSubscription = this.settings.settingsChanged$.subscribe(
       (changed) => {
@@ -145,12 +103,26 @@ export class AppComponent implements OnInit, OnDestroy {
     this.loaded = true;
   }
 
+  weatherFirstLookup(lat: number, lon: number) {
+    this.weatherdata
+      .getReverseLocationInfo(lat, lon, this.settings.getSettings().units)
+      .then((data: WeatherType) => {
+        this.dataService.setCurrentWeatherData(data);
+      });
+
+    this.weatherdata
+      .getTwoWeeksForcast(lat, lon, this.settings.getSettings().units)
+      .pipe(takeUntil(this.destroy))
+      .subscribe((data) => {
+        this.dataService.setTwoWeeksData(data);
+      });
+  }
+
   searchLocations() {
     this.weatherdata
       .getLocationInfo(this.searchedLocation)
       .pipe(takeUntil(this.destroy))
       .subscribe((city) => {
-        //this.listCities = city;
         this.dataService.setSearch(city);
       });
   }
@@ -172,15 +144,6 @@ export class AppComponent implements OnInit, OnDestroy {
       .getWeatherDataFromApi(city, country, unit)
       .pipe(takeUntil(this.destroy))
       .subscribe((data) => {
-        // data.visibility = Math.round(data.visibility / 1000);
-        // data.main.feels_like = Math.floor(data.main.feels_like);
-        // this.data.set(data);
-        // this.icon.set(
-        //   'https://openweathermap.org/img/wn/' +
-        //     data.weather[0].icon +
-        //     '@2x.png'
-        // );
-        // this.temperature.set(Math.floor(data.main.temp));
         this.dataService.setCurrentWeatherData(data);
       });
   }
@@ -190,16 +153,11 @@ export class AppComponent implements OnInit, OnDestroy {
       .getTwoWeeksForcast(lat, lon, unit)
       .pipe(takeUntil(this.destroy))
       .subscribe((data) => {
-        //console.log(data);
-        // this.twoWeeksData.update(() => data);
         this.dataService.setTwoWeeksData(data);
       });
-    // this.cdr.detectChanges();
   }
 
   searchResultClicked(city: CitiesType) {
-    //const locationString = `${city.name}, ${city.country}`;
-    //this.location.update(() => locationString);
     this.UpdateWeather(
       city.name,
       city.country,
@@ -222,33 +180,35 @@ export class AppComponent implements OnInit, OnDestroy {
       this.deviceLocation
         .getCurrentLocation()
         .then((coords) => {
-          this.autoLAT = coords.latitude;
-          this.autoLON = coords.longitude;
+          this.weatherFirstLookup(coords.latitude, coords.longitude);
+        })
+        .catch((error) => {
+          console.log(
+            'This is the error with the geolocation: ' +
+              error +
+              ', initializing app with fallback city info (London)',
+          );
 
           this.weatherdata
-            .getReverseLocationInfo(
-              this.autoLAT,
-              this.autoLON,
+            .getWeatherDataFromApi(
+              this.defaultCITY,
+              this.defaultCITY,
               this.settings.getSettings().units,
             )
-            .then((data: WeatherType) => {
+            .subscribe((data) => {
               this.dataService.setCurrentWeatherData(data);
-              //console.log(this.dataService.getCurrentWeather());
             });
 
           this.weatherdata
             .getTwoWeeksForcast(
-              this.autoLAT,
-              this.autoLON,
+              this.defaultLat,
+              this.defaultLon,
               this.settings.getSettings().units,
             )
             .pipe(takeUntil(this.destroy))
             .subscribe((data) => {
               this.dataService.setTwoWeeksData(data);
             });
-        })
-        .catch((error) => {
-          console.log('This is the error with the geolocation: ' + error);
         });
     }
   }

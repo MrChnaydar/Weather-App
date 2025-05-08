@@ -11,12 +11,6 @@ export class CurrentLocationService {
       if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            // console.log(
-            //   'current location lat:' +
-            //     position.coords.latitude +
-            //     ' and lon: ' +
-            //     position.coords.longitude
-            // );
             resolve({
               latitude: position.coords.latitude,
               longitude: position.coords.longitude,
@@ -24,7 +18,7 @@ export class CurrentLocationService {
           },
           (error) => {
             reject(error.message);
-          }
+          },
         );
       } else {
         reject('geolocation is not available in this browser');

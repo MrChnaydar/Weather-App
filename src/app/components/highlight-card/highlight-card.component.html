@@ -18,6 +18,7 @@
           <div class="flex justify-around w-full">
             <span class="text-3xl font-bold text-stone-300 pl-4 pb-3 mr-2"
               >{{ data.getCurrentWeather().wind.speed }}
+
               <span
                 class="text-start pb-3 text-lg font-light grow-1 text-stone-300"
                 >{{ windSpeedUnit() }}</span
@@ -29,12 +30,17 @@
             >
           </div>
           <div
-            class="h-13 w-10 bg-amber-400 transition-all duration-300"
-            [ngStyle]="{
-              clipPath: 'polygon(50% 0%, 0% 100%, 90% 100%)',
-              transform: 'rotate(' + data.getCurrentWeather().wind.deg + 'deg)',
-            }"
-          ></div>
+            class="h-17 w-17 flex items-center justify-center rounded-full bg-gray-400/40 p-1"
+          >
+            <span
+              class="h-12 w-10 bg-amber-400 transition-all duration-300"
+              [ngStyle]="{
+                clipPath: 'polygon(50% 0%, 0% 100%, 90% 100%)',
+                transform:
+                  'rotate(' + data.getCurrentWeather().wind.deg + 'deg)',
+              }"
+            ></span>
+          </div>
         </div>
       </div>
       <div

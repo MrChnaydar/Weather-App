@@ -10,7 +10,7 @@ export const routes: Routes = [
     pathMatch: 'full',
     loadComponent: () => {
       return import('./pages/welcome/welcome.component').then(
-        (m) => m.WelcomeComponent
+        (m) => m.WelcomeComponent,
       );
     },
   },
@@ -24,7 +24,7 @@ export const routes: Routes = [
     path: 'settings',
     loadComponent: () => {
       return import('./pages/settings/settings.component').then(
-        (m) => m.SettingsComponent
+        (m) => m.SettingsComponent,
       );
     },
   },
@@ -32,7 +32,7 @@ export const routes: Routes = [
     path: 'login',
     loadComponent: () => {
       return import('./pages/login/login.component').then(
-        (m) => m.LoginComponent
+        (m) => m.LoginComponent,
       );
     },
     canActivate: [redirectHomeIfAuth()],
@@ -41,7 +41,7 @@ export const routes: Routes = [
     path: 'notifications',
     loadComponent: () => {
       return import('./pages/notifications/notifications.component').then(
-        (m) => m.NotificationsComponent
+        (m) => m.NotificationsComponent,
       );
     },
     canActivate: [redirectLoginIfNotAuth()],
@@ -50,7 +50,7 @@ export const routes: Routes = [
     path: 'map',
     loadComponent: () => {
       return import('./pages/map-page/map-page.component').then(
-        (m) => m.MapPageComponent
+        (m) => m.MapPageComponent,
       );
     },
     canActivate: [redirectLoginIfNotAuth()],
@@ -59,16 +59,16 @@ export const routes: Routes = [
     path: 'calendar',
     loadComponent: () => {
       return import('./pages/calendar/calendar.component').then(
-        (m) => m.CalendarComponent
+        (m) => m.CalendarComponent,
       );
     },
-    canActivate: [redirectLoginIfNotAuth()],
+    // canActivate: [redirectLoginIfNotAuth()],
   },
   {
     path: 'stats',
     loadComponent: () => {
       return import('./pages/stats/stats.component').then(
-        (m) => m.StatsComponent
+        (m) => m.StatsComponent,
       );
     },
   },
