@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { DayCardComponent } from './day-card/day-card.component';
 import { DataService } from '../../services/data.service';
 import { NgFor } from '@angular/common';
@@ -11,4 +11,17 @@ import { NgFor } from '@angular/common';
 })
 export class CalendarStripComponent {
   data: DataService = inject(DataService);
+
+  todayNumber() {
+    return new Date().getDate();
+  }
+
+  current_day_selected = signal(this.todayNumber());
+
+  sendSelectedDay(day: any) {
+    this.current_day_selected.set(day);
+
+    // console.log(day);
+    // console.log(this.todayNumber());
+  }
 }

@@ -1,4 +1,6 @@
-import { Component, Input, input, signal } from '@angular/core';
+import { Component, inject, input, output, signal } from '@angular/core';
+import { DataService } from '../../../services/data.service';
+import { dayly } from '../../../model/two-weeks-type.data';
 
 @Component({
   selector: 'app-day-card',
@@ -7,6 +9,8 @@ import { Component, Input, input, signal } from '@angular/core';
   styleUrl: './day-card.component.css',
 })
 export class DayCardComponent {
+  data: DataService = inject(DataService);
+  day_data = input<dayly>(this.data.getSelectedDayData());
   dt: any = input<number>();
   icon = input();
   max_temp_input = input<number>();
@@ -57,5 +61,19 @@ export class DayCardComponent {
     const uniXstamp = this.dt();
     // console.log(uniXstamp);
     return this.transformDateParts(uniXstamp);
+  }
+  current_selected_day = input();
+  day_selected = output();
+
+  setCurrentSelectedDay(day: any): void {
+    this.day_selected.emit(day);
+    this.data.setSelectedDay(this.day_data());
+  }
+
+  isSelected(day: any) {
+    if (day === this.current_selected_day()) {
+      return true;
+    }
+    return false;
   }
 }

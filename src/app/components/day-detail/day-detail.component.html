@@ -1,1 +1,28 @@
-<p>day-detail works!</p>
+<section class="flex flex-col w-full h-full justify-between items-center">
+  <div
+    class="bg-slate-700 text-2xl py-3.5 pl-7 self-start w-full font-semibold text-stone-200 border-b-2 border-black rounded-tl-xl rounded-tr-xl flex flex-row justify-between"
+  >
+    <div class="">
+      <p class="">
+        {{ getFormattedDateParts().weekday }},
+        {{ getFormattedDateParts().month }} {{ getFormattedDateParts().day }},
+        {{ currentYear }}
+      </p>
+      <p class="text-xl font-light">{{ data.getSelectedDayData().summary }}</p>
+    </div>
+    <div class="flex flex-row pr-7">
+      <img
+        src="{{ getIcon(this.data.getSelectedDayData().weather[0].icon) }}"
+        class="w-15"
+      />
+      <span class="flex flex-col">
+        <p class="text-2xl font-semibold">
+          {{ floorTemp(this.data.getSelectedDayData().temp.max) }}&deg;
+        </p>
+        <p class="text-xl font-light">
+          {{ floorTemp(this.data.getSelectedDayData().temp.min) }}&deg;
+        </p>
+      </span>
+    </div>
+  </div>
+</section>

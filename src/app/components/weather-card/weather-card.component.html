@@ -39,7 +39,9 @@
     </div>
   </div>
 
-  <div class="px-6 py-6 h-full flex flex-col justify-center text-4xl">
+  <div
+    class="px-6 py-6 h-full flex flex-col justify-center text-4xl transition-all duration-300"
+  >
     <img class="w-35" src="{{ data.getCurrentWeather().weather[0].icon }}" />
     <p class="pl-7">
       {{ data.getCurrentWeather().main.temp }}&deg;{{ unit() }}

@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { WeatherType } from '../model/weather-type.data';
-import { TwoWeeksType } from '../model/two-weeks-type.data';
+import { dayly, TwoWeeksType } from '../model/two-weeks-type.data';
 import { CitiesType } from '../model/cities-type.data';
 import { KeyService } from './key.service';
 import { WeatherService } from './weather.service';
@@ -25,6 +25,7 @@ export class DataService {
   private listCities: CitiesType[] = [];
   private searchLocation!: string;
   private visibilityKM!: number;
+  private specificDay!: dayly;
 
   public setCurrentWeatherData(response: WeatherType) {
     this.visibilityKM = Math.round(response.visibility / 1000);
@@ -56,6 +57,15 @@ export class DataService {
 
   public setTwoWeeksData(response: TwoWeeksType) {
     this.twoWeeksData = response;
+    this.specificDay = response.daily[0];
+  }
+
+  public setSelectedDay(response: dayly) {
+    this.specificDay = response;
+  }
+
+  public getSelectedDayData() {
+    return this.specificDay;
   }
 
   public setSearch(cityList: CitiesType[]) {

@@ -35,6 +35,8 @@ export class MapCardComponent implements AfterViewInit {
 
   private map: any;
   private weatherLayer: any;
+  private precipitationLayer: any;
+  private cloudsLayer: any;
 
   private lyr_streets = L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -85,8 +87,9 @@ export class MapCardComponent implements AfterViewInit {
       streets: this.lyr_streets,
       satellite: this.lyr_satellite,
     };
+
     //Adds the layer controls button and uses the base layer obj that has multiple layers
-    L.control.layers(baseLayers).addTo(this.map);
+    // L.control.layers(baseLayers).addTo(this.map);
     //Call the updateMapLocation function that adds the weather layers to the weatherLayer
     this.updateMapLocation(
       this.data.getCurrentWeather().coord.lat,
@@ -98,20 +101,25 @@ export class MapCardComponent implements AfterViewInit {
 
   updateMapLocation(lat: number, lon: number) {
     this.weatherLayer.clearLayers();
-    const precipitationLayer = L.tileLayer(
+    this.precipitationLayer = L.tileLayer(
       `https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${this.key.api}`,
       { attribution: '© OpenWeatherMap' },
     );
 
-    const cloudsLayer = L.tileLayer(
+    this.cloudsLayer = L.tileLayer(
       `https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=${this.key.api}`,
       {
         attribution: '© OpenWeatherMap',
       },
     );
-
-    precipitationLayer.addTo(this.weatherLayer);
-    cloudsLayer.addTo(this.weatherLayer);
+    this.precipitationLayer.addTo(this.weatherLayer);
+    this.cloudsLayer.addTo(this.weatherLayer);
+    const weatherLayers = {
+      Clouds: this.cloudsLayer,
+      Rain: this.precipitationLayer,
+      All: this.weatherLayer,
+    };
+    L.control.layers(weatherLayers).addTo(this.map);
   }
 
   ngAfterViewInit(): void {
