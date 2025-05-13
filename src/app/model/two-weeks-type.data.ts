@@ -1,6 +1,7 @@
 export interface TwoWeeksType {
   current: currently;
   daily: dayly[];
+  hourly: hourly[];
   lat: number;
   lon: number;
   timezone: string;
@@ -33,6 +34,23 @@ export interface dayly {
   pop: number;
   rain: number;
   uvi: number;
+}
+
+interface hourly {
+  dt: number;
+  temp: number;
+  feels_like: number;
+  pressure: number;
+  humidity: number;
+  dew_point: number;
+  uvi: number;
+  clouds: number;
+  visibility: number;
+  wind_speed: number;
+  wind_gust: number;
+  wind_deg: number;
+  pop: number;
+  weather: Weather[];
 }
 
 interface Temperature {

@@ -1,9 +1,16 @@
 import { Component, inject, signal } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { TemperatureTrendComponent } from './temperature-trend/temperature-trend.component';
+import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
+import { PrecipitationChanceComponent } from './precipitation-chance/precipitation-chance.component';
 
 @Component({
   selector: 'app-day-detail',
-  imports: [],
+  imports: [
+    TemperatureTrendComponent,
+    HourlyForecastComponent,
+    PrecipitationChanceComponent,
+  ],
   templateUrl: './day-detail.component.html',
   styleUrl: './day-detail.component.css',
 })

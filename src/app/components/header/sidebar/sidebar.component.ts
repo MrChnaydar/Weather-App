@@ -9,6 +9,7 @@ import {
 } from '@ng-icons/huge-icons';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { Router, RouterLink } from '@angular/router';
+import { DataService } from '../../../services/data.service';
 @Component({
   selector: 'app-sidebar',
   imports: [NgIcon, RouterLink],
@@ -27,10 +28,11 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class SidebarComponent {
   router: Router = inject(Router);
-  actualPage(icon: string) {
-    console.log(this.router.url);
-    // if (icon == this.router.url)
-    //   return 'focus:border-l-1 focus:border-white focus:bg-gradient-to-r focus:from-slate-600 focus:to-transparent';
-    return 'focus:border-l-1 focus:border-white focus:bg-gradient-to-r focus:from-slate-600 focus:to-transparent';
+  data: DataService = inject(DataService);
+  actualPage(page: string) {
+    if (page == this.data.getActualPage()) {
+      return 'border-l-1 border-white bg-gradient-to-r from-slate-600 to-transparent';
+    }
+    return '';
   }
 }

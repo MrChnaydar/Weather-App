@@ -8,6 +8,7 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { RouterLink } from '@angular/router';
 import { AppStore } from '../../../app.store';
 import { AuthService } from '../../../services/auth.service';
+import { DataService } from '../../../services/data.service';
 
 @Component({
   selector: 'app-account-component',
@@ -20,4 +21,9 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class AccountComponentComponent {
   appState = inject(AppStore);
+  data: DataService = inject(DataService);
+
+  clearActualPage() {
+    this.data.setActualPage('');
+  }
 }

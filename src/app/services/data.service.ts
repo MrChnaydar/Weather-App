@@ -26,6 +26,7 @@ export class DataService {
   private searchLocation!: string;
   private visibilityKM!: number;
   private specificDay!: dayly;
+  private actualPage: string = 'home';
 
   public setCurrentWeatherData(response: WeatherType) {
     this.visibilityKM = Math.round(response.visibility / 1000);
@@ -140,5 +141,13 @@ export class DataService {
       return true;
     }
     return this.haveData;
+  }
+
+  public setActualPage(page: string) {
+    this.actualPage = page;
+  }
+
+  public getActualPage() {
+    return this.actualPage;
   }
 }

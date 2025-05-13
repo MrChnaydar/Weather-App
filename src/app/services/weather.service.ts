@@ -55,7 +55,7 @@ export class WeatherService {
 
   getTwoWeeksForcast(lat: number, lon: number, unit: string) {
     // const url = `${environment.api.weather}/weather?type=forecast&lat=${lat}&lon=${lon}&unit=${unit}`;
-    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${this.key.api}&units=${unit}`;
+    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&appid=${this.key.api}&units=${unit}`;
 
     return this.http.get<TwoWeeksType>(url);
   }

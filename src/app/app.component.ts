@@ -89,6 +89,7 @@ export class AppComponent implements OnInit, OnDestroy {
             )
             .pipe(takeUntil(this.destroy))
             .subscribe((data) => {
+              console.log(data);
               this.dataService.setTwoWeeksData(data);
             });
         });
@@ -114,6 +115,7 @@ export class AppComponent implements OnInit, OnDestroy {
       .getTwoWeeksForcast(lat, lon, this.settings.getSettings().units)
       .pipe(takeUntil(this.destroy))
       .subscribe((data) => {
+        console.log(data);
         this.dataService.setTwoWeeksData(data);
       });
   }

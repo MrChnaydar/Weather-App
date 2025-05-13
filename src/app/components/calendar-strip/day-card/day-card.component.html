@@ -1,7 +1,7 @@
 <div
   class="flex flex-col items-center justify-center justify-self-center self-center text-center rounded-xl text-white py-3 cursor-pointer w-8/10 shrink-1 grow-1 flex-wrap {{
     isSelected(getFormattedDateParts().day)
-      ? 'bg-gradient-to-br from-teal-600 to-teal-700 shadow-lg shadow-teal-900/30 border border-teal-500/50 w-9/10 py-5'
+      ? 'bg-gradient-to-br from-teal-600 to-teal-700 shadow-lg shadow-teal-900/30  w-9/10 py-5'
       : 'bg-slate-800/90 hover:bg-blue-800/70'
   }} transition-all duration-300 outline-none"
   (click)="setCurrentSelectedDay(getFormattedDateParts().day)"

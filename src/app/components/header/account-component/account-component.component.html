@@ -1,21 +1,29 @@
 <div class="flex flex-row md:flex-col flex-nowrap justify-center items-center">
   <span
     class="flex justify-center items-center cursor-pointer fill-sky-950 w-fit h-fit text-3xl py-1 px-1 mb-3 rounded-full hover:bg-slate-600"
+    (click)="clearActualPage()"
+    routerLink="/notifications"
   >
     <ng-icon name="hugeNotification01" routerLink="/notifications" />
   </span>
   @if (this.appState.user()) {
-  <span
-    class="flex justify-center items-center cursor-pointer fill-sky-950 w-fit h-fit text-3xl py-1 px-1 my-3 mb-4 rounded-full hover:bg-slate-600"
-  >
-    <ng-icon class="userIcon" name="hugeLogout03" (click)="appState.logout()" />
-  </span>
-
+    <span
+      class="flex justify-center items-center cursor-pointer fill-sky-950 w-fit h-fit text-3xl py-1 px-1 my-3 mb-4 rounded-full hover:bg-slate-600"
+      (click)="appState.logout()"
+    >
+      <ng-icon
+        class="userIcon"
+        name="hugeLogout03"
+        (click)="appState.logout()"
+      />
+    </span>
   } @else {
-  <span
-    class="flex justify-center items-center cursor-pointer fill-sky-950 w-fit h-fit text-3xl py-1 px-1 mb-4 rounded-full hover:bg-slate-600"
-  >
-    <ng-icon class="userIcon" name="hugeUserCircle02" routerLink="/login" />
-  </span>
+    <span
+      class="flex justify-center items-center cursor-pointer fill-sky-950 w-fit h-fit text-3xl py-1 px-1 mb-4 rounded-full hover:bg-slate-600"
+      (click)="clearActualPage()"
+      routerLink="/login"
+    >
+      <ng-icon class="userIcon" name="hugeUserCircle02" routerLink="/login" />
+    </span>
   }
 </div>
