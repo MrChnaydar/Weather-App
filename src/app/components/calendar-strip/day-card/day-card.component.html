@@ -1,5 +1,10 @@
 <div
-  class="flex flex-col items-center justify-center justify-self-center self-center text-center rounded-xl text-white py-3 cursor-pointer w-8/10 shrink-1 grow-1 flex-wrap {{
+  class="flex flex-col items-center justify-center justify-self-center self-center text-center rounded-xl text-white py-3 {{
+    getFormattedDateParts().day == today ||
+    getFormattedDateParts().day == today + 1
+      ? 'cursor-pointer'
+      : 'cursor-not-allowed pointer-events-none blur-xs grayscale'
+  }} w-8/10 shrink-1 grow-1 flex-wrap {{
     isSelected(getFormattedDateParts().day)
       ? 'bg-gradient-to-br from-teal-600 to-teal-700 shadow-lg shadow-teal-900/30  w-9/10 py-5'
       : 'bg-slate-800/90 hover:bg-blue-800/70'

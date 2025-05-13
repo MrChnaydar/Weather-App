@@ -21,6 +21,7 @@ export class DayCardComponent {
   dateConstructor: any = new Date(this.dt * 1000);
   calendarDay = signal('');
   day = signal('');
+  today = new Date().getDate();
 
   ngOnInit(): void {
     const day = this.dateConstructor.getDate();

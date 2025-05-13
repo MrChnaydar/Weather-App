@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* // @import "tailwindcss/preflight.css"; */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 @import "tailwindcss";
 @import "tailwindcss/utilities.css";
 @tailwind utilities;
@@ -9,7 +10,6 @@
 // // @tailwind utilities;
 // // @tailwind theme; */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 /* $bg-dark: hsl(219, 32%, 32%);
 $bg-light: #253548;
 $primary: #4db5ff;
