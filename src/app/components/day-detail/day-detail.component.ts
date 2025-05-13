@@ -20,6 +20,9 @@ export class DayDetailComponent {
   calendarDay = signal('');
   day = signal('');
   currentYear: number = new Date().getFullYear();
+  today = new Date().getDate();
+  firstDayData = this.data.getTwoWeeks().hourly.slice(0, 24);
+  secondDayData = this.data.getTwoWeeks().hourly.slice(24, 48);
 
   transformDateParts(unixTimestamp: number): {
     day: number;
@@ -28,7 +31,6 @@ export class DayDetailComponent {
   } {
     // Create a new Date object from the Unix timestamp (milliseconds)
     const date = new Date(unixTimestamp * 1000);
-
     // Extract the formatted date parts
     const weekday = date.toLocaleDateString('en-GB', { weekday: 'long' }); // "Monday"
     const month = date.toLocaleDateString('en-GB', { month: 'long' }); // "July"
@@ -54,5 +56,11 @@ export class DayDetailComponent {
 
   floorTemp(temp: number) {
     return Math.floor(temp);
+  }
+  getList() {
+    if ((this.today = this.getFormattedDateParts().day)) {
+      return this.firstDayData;
+    }
+    return this.secondDayData;
   }
 }

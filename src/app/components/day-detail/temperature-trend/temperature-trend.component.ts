@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { DataService } from '../../../services/data.service';
+import { hourly } from '../../../model/two-weeks-type.data';
 
 @Component({
   selector: 'app-temperature-trend',
@@ -9,8 +10,9 @@ import { DataService } from '../../../services/data.service';
 })
 export class TemperatureTrendComponent {
   data: DataService = inject(DataService);
+  hourList = input<Array<hourly>>();
 
   calculateHeight() {
-    const minTemp = this.data.getTwoWeeks().hourly;
+    const minTemp = this.hourList;
   }
 }

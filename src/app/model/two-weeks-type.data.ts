@@ -36,7 +36,7 @@ export interface dayly {
   uvi: number;
 }
 
-interface hourly {
+export interface hourly {
   dt: number;
   temp: number;
   feels_like: number;
