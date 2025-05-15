@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { WeatherType } from '../model/weather-type.data';
-import { dayly, TwoWeeksType } from '../model/two-weeks-type.data';
+import { dayly, hourly, TwoWeeksType } from '../model/two-weeks-type.data';
 import { CitiesType } from '../model/cities-type.data';
 import { KeyService } from './key.service';
 import { WeatherService } from './weather.service';
@@ -26,6 +26,7 @@ export class DataService {
   private searchLocation!: string;
   private visibilityKM!: number;
   private specificDay!: dayly;
+  private specificDayHourlyData!: hourly[];
   private actualPage: string = 'home';
 
   public setCurrentWeatherData(response: WeatherType) {
@@ -59,10 +60,24 @@ export class DataService {
   public setTwoWeeksData(response: TwoWeeksType) {
     this.twoWeeksData = response;
     this.specificDay = response.daily[0];
+    this.specificDayHourlyData = response.hourly.slice(0, 24);
+  }
+
+  private setHourlyData() {
+    if (this.getTwoWeeks().daily[0].dt === this.getSelectedDayData().dt) {
+      this.specificDayHourlyData = this.getTwoWeeks().hourly.slice(0, 24);
+    } else {
+      this.specificDayHourlyData = this.getTwoWeeks().hourly.slice(24, 48);
+    }
   }
 
   public setSelectedDay(response: dayly) {
     this.specificDay = response;
+    this.setHourlyData();
+  }
+
+  public getHourlyData() {
+    return this.specificDayHourlyData;
   }
 
   public getSelectedDayData() {

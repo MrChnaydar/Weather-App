@@ -21,8 +21,8 @@ export class DayDetailComponent {
   day = signal('');
   currentYear: number = new Date().getFullYear();
   today = new Date().getDate();
-  firstDayData = this.data.getTwoWeeks().hourly.slice(0, 24);
-  secondDayData = this.data.getTwoWeeks().hourly.slice(24, 48);
+  // firstDayData = this.data.getTwoWeeks().hourly.slice(0, 24);
+  // secondDayData = this.data.getTwoWeeks().hourly.slice(24, 48);
 
   transformDateParts(unixTimestamp: number): {
     day: number;
@@ -57,10 +57,10 @@ export class DayDetailComponent {
   floorTemp(temp: number) {
     return Math.floor(temp);
   }
-  getList() {
-    if ((this.today = this.getFormattedDateParts().day)) {
-      return this.firstDayData;
-    }
-    return this.secondDayData;
-  }
+  // getList() {
+  //   if ((this.today = this.getFormattedDateParts().day)) {
+  //     return this.firstDayData;
+  //   }
+  //   return this.secondDayData;
+  // }
 }
