@@ -3,6 +3,7 @@ import { DataService } from '../../services/data.service';
 import { TemperatureTrendComponent } from './temperature-trend/temperature-trend.component';
 import { HourlyForecastComponent } from './hourly-forecast/hourly-forecast.component';
 import { PrecipitationChanceComponent } from './precipitation-chance/precipitation-chance.component';
+import { WeatherDetailsComponent } from './weather-details/weather-details.component';
 
 @Component({
   selector: 'app-day-detail',
@@ -10,6 +11,7 @@ import { PrecipitationChanceComponent } from './precipitation-chance/precipitati
     TemperatureTrendComponent,
     HourlyForecastComponent,
     PrecipitationChanceComponent,
+    WeatherDetailsComponent,
   ],
   templateUrl: './day-detail.component.html',
   styleUrl: './day-detail.component.css',
@@ -23,6 +25,7 @@ export class DayDetailComponent {
   today = new Date().getDate();
   // firstDayData = this.data.getTwoWeeks().hourly.slice(0, 24);
   // secondDayData = this.data.getTwoWeeks().hourly.slice(24, 48);
+  panel: string = 'temperature_trend';
 
   transformDateParts(unixTimestamp: number): {
     day: number;
@@ -57,10 +60,10 @@ export class DayDetailComponent {
   floorTemp(temp: number) {
     return Math.floor(temp);
   }
-  // getList() {
-  //   if ((this.today = this.getFormattedDateParts().day)) {
-  //     return this.firstDayData;
-  //   }
-  //   return this.secondDayData;
-  // }
+
+  scrollToSection(id: string) {
+    const target = document.getElementById(id);
+    target?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+    this.panel = id;
+  }
 }

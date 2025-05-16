@@ -25,14 +25,53 @@
       </span>
     </div>
   </div>
+  <div class="flex flex-row self-start">
+    <p
+      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 cursor-pointer rounded-t-xl px-3 py-1 transition-all duration-500 origin-bottom relative overflow-hidden"
+      [class.active]="panel == 'temperature_trend'"
+      (click)="scrollToSection('temperature_trend')"
+    >
+      Temperature Trend
+    </p>
+    <p
+      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 cursor-pointer rounded-t-xl px-3 py-1 transition-all duration-500 origin-bottom relative overflow-hidden"
+      [class.active]="panel == 'hourly_forecast'"
+      (click)="scrollToSection('hourly_forecast')"
+    >
+      Hourly Forecast
+    </p>
+    <p
+      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 cursor-pointer rounded-t-xl px-3 py-1 transition-all duration-500 origin-bottom relative overflow-hidden"
+      [class.active]="panel == 'precipitation_chance'"
+      (click)="scrollToSection('precipitation_chance')"
+    >
+      Precipitation Chance
+    </p>
+    <p
+      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 cursor-pointer rounded-t-xl px-3 py-1 transition-all duration-500 origin-bottom relative overflow-hidden"
+      [class.active]="panel == 'weather_details'"
+      (click)="scrollToSection('weather_details')"
+    >
+      Weather Details
+    </p>
+  </div>
   <div
-    class="self-start w-full h-full text-stone-200 rounded-tl-xl rounded-tr-xl flex flex-row justify-between overflow-x-scroll snap-x snap-mandatory scroll-smooth no-scrollbar"
+    class="self-start w-full h-full text-stone-200 rounded-tl-xl rounded-tr-xl flex flex-row justify-between overflow-hidden"
+    id="scroll-container"
   >
-    <div class="w-full h-full shrink-0 snap-start">
+    <div class="w-full h-full shrink-0 snap-start" id="temperature_trend">
       <app-temperature-trend class="w-full h-full"></app-temperature-trend>
     </div>
-    <div class="w-full h-full shrink-0 snap-start">
-      <app-hourly-forecast></app-hourly-forecast>
+    <div class="w-full h-full shrink-0 snap-start" id="hourly_forecast">
+      <app-hourly-forecast class="w-full h-full"></app-hourly-forecast>
+    </div>
+    <div class="w-full h-full shrink-0 snap-start" id="precipitation_chance">
+      <app-precipitation-chance
+        class="w-full h-full"
+      ></app-precipitation-chance>
+    </div>
+    <div class="w-full h-full shrink-0 snap-start" id="weather_details">
+      <app-weather-details class="w-full h-full"></app-weather-details>
     </div>
   </div>
 </section>
