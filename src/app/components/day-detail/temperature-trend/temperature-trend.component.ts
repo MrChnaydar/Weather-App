@@ -54,4 +54,46 @@ export class TemperatureTrendComponent {
   floorNumber(number: number) {
     return Math.floor(number);
   }
+
+  getTempColor(temp: number): string {
+    // Clamp temperature to range
+    const clamped = Math.max(-20, Math.min(40, temp));
+
+    // Define temperature gradient stops
+    const gradient = [
+      { temp: -10, color: [0, 0, 128] }, // Navy
+      { temp: 0, color: [0, 0, 255] }, // Blue
+      { temp: 10, color: [0, 200, 255] }, // Cyan
+      { temp: 13, color: [0, 255, 128] }, // Aqua-green
+      { temp: 17, color: [255, 255, 0] }, // Yellow
+      { temp: 20, color: [255, 165, 0] }, // Orange
+      { temp: 25, color: [255, 100, 0] }, // Deep Orange
+      { temp: 30, color: [255, 50, 0] }, // Reddish
+      { temp: 32, color: [255, 0, 0] }, // Red
+    ];
+
+    // Find the two gradient points this temp falls between
+    for (let i = 0; i < gradient.length - 1; i++) {
+      const curr = gradient[i];
+      const next = gradient[i + 1];
+
+      if (clamped >= curr.temp && clamped <= next.temp) {
+        const ratio = (clamped - curr.temp) / (next.temp - curr.temp);
+
+        const r = Math.round(
+          curr.color[0] + ratio * (next.color[0] - curr.color[0]),
+        );
+        const g = Math.round(
+          curr.color[1] + ratio * (next.color[1] - curr.color[1]),
+        );
+        const b = Math.round(
+          curr.color[2] + ratio * (next.color[2] - curr.color[2]),
+        );
+
+        return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+      }
+    }
+
+    return '#ffffff'; // fallback (shouldn't happen)
+  }
 }

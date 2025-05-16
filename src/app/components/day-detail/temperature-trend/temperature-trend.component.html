@@ -12,8 +12,9 @@
           {{ floorNumber(hour.temp) }}°
         </p>
         <div
-          class="w-3/4 bg-blue-500 rounded-xl transition-all duration-300 hover:bg-blue-600 mb-1"
+          class="w-3/4 rounded-xl transition-all duration-300 hover:bg-blue-600 mb-1"
           [style.height.%]="calculateHeight(hour.temp)"
+          [style.background]="getTempColor(floorNumber(hour.temp))"
         ></div>
         <div class="text-2xs text-white">
           {{ transformDateParts(hour.dt).hour }}:00
