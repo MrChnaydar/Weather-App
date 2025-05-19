@@ -1,4 +1,4 @@
-<section class="flex flex-col w-full h-full pb-3.5 px-7">
+<section class="flex flex-col w-full h-full shrink-1">
   <!-- <p class="text-2xl font-semibold text-stone-200 mb-2 pl-2">
     Temperature Trend
   </p> -->
@@ -12,7 +12,7 @@
           {{ floorNumber(hour.temp) }}°
         </p>
         <div
-          class="w-3/4 rounded-xl transition-all duration-300 hover:bg-blue-600 mb-1"
+          class="w-3/4 rounded-xl transition-all duration-300 mb-1"
           [style.height.%]="calculateHeight(hour.temp)"
           [style.background]="getTempColor(floorNumber(hour.temp))"
         ></div>

@@ -1,80 +1,8 @@
-<!-- @if (!loaded) {
-<div class="loadingScreen">
-  <h1>LOADING</h1>
-</div>
-} @else { -->
 <section class="flex flex-col h-dvh w-dvw md:flex-row">
   <header>
     <app-header />
   </header>
-  <main class="block w-dvw">
+  <main class="block w-dvw overflow-hidden">
     <router-outlet />
-    <!-- <app-home
-        [temperature]="temperature()"
-        [data]="data()"
-        [weather]="data()?.weather?.[0]?.main"
-        [location]="location()"
-        [datetime]="date()"
-        [icon]="icon()" 
-        [listOfCities]="listCities"
-        (searched)="onSearchLocationSubmit($event)"
-        (citySelected)="searchResultClicked($event)"
-        [twoWeeksData]="twoWeeksData()"
-      /> -->
-    <!-- <section class="left-section">
-        <app-weather-card
-          [temperature]="temperature()"
-          [weather]="data()?.weather?.[0]?.main"
-          [location]="location()"
-          [datetime]="date()"
-          [icon]="icon()"
-          (searched)="onSearchLocationSubmit($event)"
-          [listOfCities]="listCities"
-          (citySelected)="searchResultClicked($event)"
-        />
-        <app-forecast-card [data]="twoWeeksData()" />
-      </section>
-      <section class="right-section">
-        <app-highlight-card [data]="data()" />
-        <app-highlight-card [data]="data()" />
-      </section> -->
   </main>
 </section>
-<!-- } -->
-<!-- <div>
-  <header>
-    <app-header />
-  </header>
-  <main>
-    <router-outlet />
-    <!-- <app-home
-      [temperature]="temperature()"
-      [data]="data()"
-      [weather]="data()?.weather?.[0]?.main"
-      [location]="location()"
-      [datetime]="date()"
-      [icon]="icon()" 
-      [listOfCities]="listCities"
-      (searched)="onSearchLocationSubmit($event)"
-      (citySelected)="searchResultClicked($event)"
-      [twoWeeksData]="twoWeeksData()"
-    /> -->
-<!-- <section class="left-section">
-      <app-weather-card
-        [temperature]="temperature()"
-        [weather]="data()?.weather?.[0]?.main"
-        [location]="location()"
-        [datetime]="date()"
-        [icon]="icon()"
-        (searched)="onSearchLocationSubmit($event)"
-        [listOfCities]="listCities"
-        (citySelected)="searchResultClicked($event)"
-      />
-      <app-forecast-card [data]="twoWeeksData()" />
-    </section>
-    <section class="right-section">
-      <app-highlight-card [data]="data()" />
-      <app-highlight-card [data]="data()" />
-    </section> 
-  </main>
-</div> -->

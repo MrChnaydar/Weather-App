@@ -1,4 +1,6 @@
-<section class="flex flex-col w-full h-full justify-between items-center">
+<section
+  class="flex flex-col w-full h-full justify-between items-center overflow-hidden"
+>
   <div
     class="bg-slate-700 text-2xl py-3.5 pl-7 self-start w-full font-semibold text-stone-200 border-b-2 border-black rounded-tl-xl rounded-tr-xl flex flex-row justify-between"
   >
@@ -56,22 +58,34 @@
     </p>
   </div>
   <div
-    class="self-start w-full h-full text-stone-200 rounded-tl-xl rounded-tr-xl flex flex-row justify-between overflow-hidden"
+    class="flex h-full w-full text-stone-200 rounded-tl-xl rounded-tr-xl flex-row items-start overflow-hidden"
     id="scroll-container"
   >
-    <div class="w-full h-full shrink-0 snap-start" id="temperature_trend">
-      <app-temperature-trend class="w-full h-full"></app-temperature-trend>
+    <div
+      class="w-full h-full shrink-0 snap-start pb-3.5 px-7 overflow-hidden"
+      id="temperature_trend"
+    >
+      <app-temperature-trend></app-temperature-trend>
     </div>
-    <div class="w-full h-full shrink-0 snap-start" id="hourly_forecast">
+    <div
+      class="w-full h-full shrink-0 snap-start pb-3.5 px-7"
+      id="hourly_forecast"
+    >
       <app-hourly-forecast class="w-full h-full"></app-hourly-forecast>
     </div>
-    <div class="w-full h-full shrink-0 snap-start" id="precipitation_chance">
-      <app-precipitation-chance
-        class="w-full h-full"
-      ></app-precipitation-chance>
+
+    <div
+      class="w-full h-full shrink-0 snap-start pb-3.5 px-7"
+      id="precipitation_chance"
+    >
+      <app-precipitation-chance class=""></app-precipitation-chance>
     </div>
-    <div class="w-full h-full shrink-0 snap-start" id="weather_details">
-      <app-weather-details class="w-full h-full"></app-weather-details>
+
+    <div
+      class="w-full h-full shrink-0 snap-start pb-3.5 px-7"
+      id="weather_details"
+    >
+      <app-weather-details class=""></app-weather-details>
     </div>
   </div>
 </section>
