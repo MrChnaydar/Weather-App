@@ -66,4 +66,14 @@ export class DayDetailComponent {
     target?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
     this.panel = id;
   }
+
+  displayStatus() {
+    if (!this.data.getIsThereHourlyData()) {
+      console.log('returned hidden');
+      return 'none';
+    } else {
+      console.log('returned visible');
+      return '';
+    }
+  }
 }

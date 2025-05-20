@@ -27,55 +27,69 @@
       </span>
     </div>
   </div>
-  <div class="flex flex-row self-start">
-    <p
-      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 cursor-pointer rounded-t-xl px-3 py-1 transition-all duration-500 origin-bottom relative overflow-hidden"
+  <div
+    class="flex flex-row self-start border-b-1 border-slate-600 ml-8 pt-1 mb-2"
+  >
+    <button
+      class="tab self-start text-xl font-semibold text-stone-200 mt-2 px-2 cursor-pointer rounded-xl  hover:bg-gray-50/20 transition-all  origin-bottom relative overflow-hidden {{
+        !data.getIsThereHourlyData() ? 'hidden' : ''
+      }} active:bg-neutral-300/50"
       [class.active]="panel == 'temperature_trend'"
       (click)="scrollToSection('temperature_trend')"
     >
       Temperature Trend
-    </p>
-    <p
-      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 cursor-pointer rounded-t-xl px-3 py-1 transition-all duration-500 origin-bottom relative overflow-hidden"
+    </button>
+    <button
+      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 px-2 cursor-pointer rounded-xl  hover:bg-gray-50/20 transition-all  origin-bottom relative overflow-hidden  {{
+        !data.getIsThereHourlyData() ? 'hidden' : ''
+      }} active:bg-neutral-300/50"
       [class.active]="panel == 'hourly_forecast'"
       (click)="scrollToSection('hourly_forecast')"
     >
       Hourly Forecast
-    </p>
-    <p
-      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 cursor-pointer rounded-t-xl px-3 py-1 transition-all duration-500 origin-bottom relative overflow-hidden"
+    </button>
+    <button
+      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 mr-7 px-2 cursor-pointer rounded-xl  hover:bg-gray-50/20 transition-all  origin-bottom relative overflow-hidden  {{
+        !data.getIsThereHourlyData() ? 'hidden' : ''
+      }} active:bg-neutral-300/50 "
       [class.active]="panel == 'precipitation_chance'"
       (click)="scrollToSection('precipitation_chance')"
     >
       Precipitation Chance
-    </p>
-    <p
-      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 cursor-pointer rounded-t-xl px-3 py-1 transition-all duration-500 origin-bottom relative overflow-hidden"
+    </button>
+    <button
+      class="tab self-start text-xl font-semibold text-stone-200 mt-2 px-2 cursor-pointer rounded-xl hover:bg-gray-50/20 transition-all origin-bottom relative overflow-hidden active:bg-neutral-300/50"
       [class.active]="panel == 'weather_details'"
       (click)="scrollToSection('weather_details')"
     >
       Weather Details
-    </p>
+    </button>
   </div>
   <div
     class="flex h-full w-full text-stone-200 rounded-tl-xl rounded-tr-xl flex-row items-start overflow-hidden"
     id="scroll-container"
   >
     <div
-      class="w-full h-full shrink-0 snap-start pb-3.5 px-7 overflow-hidden"
+      class="w-full h-full shrink-0 snap-start pb-3.5 px-7 overflow-hidden {{
+        !data.getIsThereHourlyData() ? 'hidden' : ''
+      }}"
       id="temperature_trend"
     >
       <app-temperature-trend></app-temperature-trend>
     </div>
     <div
-      class="w-full h-full shrink-0 snap-start pb-3.5 px-7"
+      class="w-full h-full shrink-0 snap-start pb-3.5 px-7  {{
+        !data.getIsThereHourlyData() ? 'hidden' : ''
+      }}"
       id="hourly_forecast"
     >
       <app-hourly-forecast class="w-full h-full"></app-hourly-forecast>
     </div>
 
     <div
-      class="w-full h-full shrink-0 snap-start pb-3.5 px-7"
+      class="w-full h-full shrink-0 snap-start pb-3.5 px-7  {{
+        !data.getIsThereHourlyData() ? 'hidden' : ''
+      }}"
       id="precipitation_chance"
     >
       <app-precipitation-chance class=""></app-precipitation-chance>

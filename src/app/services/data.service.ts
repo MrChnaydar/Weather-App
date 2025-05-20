@@ -27,6 +27,7 @@ export class DataService {
   private visibilityKM!: number;
   private specificDay!: dayly;
   private specificDayHourlyData!: hourly[];
+  private isThereHourlyData: any = true;
   private actualPage: string = 'home';
 
   public setCurrentWeatherData(response: WeatherType) {
@@ -66,9 +67,22 @@ export class DataService {
   private setHourlyData() {
     if (this.getTwoWeeks().daily[0].dt === this.getSelectedDayData().dt) {
       this.specificDayHourlyData = this.getTwoWeeks().hourly.slice(0, 24);
-    } else {
-      this.specificDayHourlyData = this.getTwoWeeks().hourly.slice(24, 48);
+      this.isThereHourlyData = true;
     }
+    if (this.getTwoWeeks().daily[1].dt === this.getSelectedDayData().dt) {
+      this.specificDayHourlyData = this.getTwoWeeks().hourly.slice(24, 48);
+      this.isThereHourlyData = true;
+    }
+    if (
+      this.getTwoWeeks().daily[1].dt !== this.getSelectedDayData().dt &&
+      this.getTwoWeeks().daily[0].dt !== this.getSelectedDayData().dt
+    ) {
+      this.isThereHourlyData = false;
+    }
+  }
+
+  getIsThereHourlyData() {
+    return this.isThereHourlyData;
   }
 
   public setSelectedDay(response: dayly) {
