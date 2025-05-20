@@ -33,6 +33,7 @@ export interface dayly {
   clouds: number;
   pop: number;
   rain: number;
+  snow: number;
   uvi: number;
 }
 

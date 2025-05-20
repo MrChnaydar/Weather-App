@@ -1,4 +1,21 @@
 <section class="flex flex-col w-full h-full">
-  <!-- <p class="text-2xl font-semibold text-stone-200 mb-2 pl-2">Hourly Forecast</p> -->
-  <div class="flex w-full h-full bg-teal-600/20 rounded-xl"></div>
+  <div class="flex w-full h-full bg-teal-600/20 rounded-xl">
+    <div class="flex w-full h-full flex-row transition-all">
+      <div
+        *ngFor="let hour of getFilteredHourlyData(); let i = index"
+        class="flex-1 flex flex-col items-center justify-end h-full w-fit transition-all"
+      >
+        <p class="text-md font-semibold mb-1 transition-all">
+          {{ floorNumber(hour.pop * 100) }} %
+        </p>
+        <div
+          class="w-3/4 transition-all duration-300 mb-1 bg-gradient-to-t from-blue-500/70 to-blue-400"
+          [style.height.%]="hour.pop == 0 ? 1 : floorNumber(hour.pop * 100)"
+        ></div>
+        <div class="text-2xs text-white">
+          {{ transformDateParts(hour.dt).hour }}:00
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
