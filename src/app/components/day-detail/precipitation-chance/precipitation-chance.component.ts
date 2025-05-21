@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { provideIcons } from '@ng-icons/core';
 import { solarWindBold } from '@ng-icons/solar-icons/bold';
 import { DataService } from '../../../services/data.service';
+import { SettingsService } from '../../../services/settings.service';
 
 @Component({
   selector: 'app-precipitation-chance',
@@ -13,6 +14,7 @@ import { DataService } from '../../../services/data.service';
 })
 export class PrecipitationChanceComponent {
   data: DataService = inject(DataService);
+  setting: SettingsService = inject(SettingsService);
 
   transformDateParts(unixTimestamp: number): {
     day: number;
@@ -23,7 +25,11 @@ export class PrecipitationChanceComponent {
     // Create a new Date object from the Unix timestamp (milliseconds)
     const date = new Date(unixTimestamp * 1000);
     // Extract the formatted date parts
-    const hour = String(date.getHours()).padStart(2, '0');
+    const hour = date.toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: this.setting.getSettings().timeFormat == 12 ? true : false,
+    });
     const weekday = date.toLocaleDateString('en-GB', { weekday: 'long' }); // "Monday"
     const month = date.toLocaleDateString('en-GB', { month: 'long' }); // "July"
     const day = date.getDate(); // "25"

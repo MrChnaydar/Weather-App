@@ -1,6 +1,7 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
 import { NgFor, NgStyle } from '@angular/common';
+import { SettingsService } from '../../../services/settings.service';
 
 @Component({
   selector: 'app-temperature-trend',
@@ -10,6 +11,7 @@ import { NgFor, NgStyle } from '@angular/common';
 })
 export class TemperatureTrendComponent {
   data: DataService = inject(DataService);
+  setting: SettingsService = inject(SettingsService);
 
   transformDateParts(unixTimestamp: number): {
     day: number;
@@ -20,7 +22,11 @@ export class TemperatureTrendComponent {
     // Create a new Date object from the Unix timestamp (milliseconds)
     const date = new Date(unixTimestamp * 1000);
     // Extract the formatted date parts
-    const hour = String(date.getHours()).padStart(2, '0');
+    const hour = date.toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: this.setting.getSettings().timeFormat == 12 ? true : false,
+    });
     const weekday = date.toLocaleDateString('en-GB', { weekday: 'long' }); // "Monday"
     const month = date.toLocaleDateString('en-GB', { month: 'long' }); // "July"
     const day = date.getDate(); // "25"
@@ -56,8 +62,12 @@ export class TemperatureTrendComponent {
   }
 
   getTempColor(temp: number): string {
+    let celcius = temp;
     // Clamp temperature to range
-    const clamped = Math.max(-20, Math.min(40, temp));
+    if (this.setting.getSettings().units == 'imperial') {
+      celcius = ((temp - 32) * 5) / 9;
+    }
+    const clamped = Math.max(-20, Math.min(40, celcius));
 
     // Define temperature gradient stops
     const gradient = [
@@ -96,4 +106,6 @@ export class TemperatureTrendComponent {
 
     return '#ffffff'; // fallback (shouldn't happen)
   }
+
+  formatTime() {}
 }
