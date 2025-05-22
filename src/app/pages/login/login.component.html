@@ -1,58 +1,62 @@
 <section class="flex h-full flex-nowrap justify-center items-center py-3 px-2">
   <div
-    class="bg-slate-800/70 flex flex-col h-full flex-wrap overflow-hidden justify-center items-center text-stone-200 rounded-xl shadow-neutral-900 shadow-xl/40 w-full"
+    class="bg-slate-800/70 flex flex-row md:flex-col h-full flex-wrap overflow-hidden justify-center items-center text-stone-200 rounded-xl shadow-neutral-900 shadow-xl/40 w-full"
   >
-    <span class="text-8xl mb-1">
-      <ng-icon name="saxProfileCircleBold"></ng-icon
-    ></span>
-    <p class="text-xl mb-5">Test Accounts</p>
+    <span class="text-4xl px-2 pt-2 align-middle md:text-8xl md:mb-1">
+      <ng-icon name="saxProfileCircleBold"></ng-icon>
+    </span>
+    <p class="text-md md:text-xl md:mb-5 text-center align-middle">
+      Test Accounts
+    </p>
+
+    <!-- Responsive Test Accounts -->
     <div
-      class="text-xl bg-slate-700 flex flex-row justify-between w-10/12 rounded-xl p-4 gap-3 shadow-neutral-900 shadow-md/40"
+      class="text-lg md:text-xl bg-slate-700 flex flex-col md:flex-row justify-between w-11/12 rounded-xl p-4 gap-4 shadow-neutral-900 shadow-md/40"
     >
-      <div class="flex flex-col gap-3 w-4/12">
-        <span class="flex flex-row justify-between"
-          ><p>Email:</p>
-          <p class="font-semibold text-white">
-            juanito&#64;barquillos.es
-          </p></span
-        >
-        <span class="flex flex-row justify-between"
-          ><p>Password:</p>
-          <p class="font-semibold text-white">oléquetapas</p></span
-        >
+      <div class="flex flex-col gap-3 w-full md:w-4/12 text-xs md:text-lg">
+        <span class="flex flex-row justify-between">
+          <p>Email:</p>
+          <p class="font-semibold text-white">juanito&#64;barquillos.es</p>
+        </span>
+        <span class="flex flex-row justify-between">
+          <p>Password:</p>
+          <p class="font-semibold text-white">oléquetapas</p>
+        </span>
       </div>
-      <div class="flex flex-col gap-3 w-4/12">
-        <span class="flex flex-row justify-between"
-          ><p>Email:</p>
+      <div class="flex flex-col gap-3 w-full md:w-4/12 text-xs md:text-lg">
+        <span class="flex flex-row justify-between">
+          <p>Email:</p>
           <p class="font-semibold text-white">
             maria.la.fiestera&#64;feriaflamenca.com
-          </p></span
-        >
-        <span class="flex flex-row justify-between"
-          ><p>Password:</p>
-          <p class="font-semibold text-white">sevillanas123</p></span
-        >
+          </p>
+        </span>
+        <span class="flex flex-row justify-between">
+          <p>Password:</p>
+          <p class="font-semibold text-white">sevillanas123</p>
+        </span>
       </div>
-      <div class="flex flex-col gap-3 w-4/12">
-        <span class="flex flex-row justify-between"
-          ><p>Email:</p>
-          <p class="font-semibold text-white">
-            churroslover&#64;mañanas.es
-          </p></span
-        >
-        <span class="flex flex-row justify-between"
-          ><p>Password:</p>
-          <p class="font-semibold text-white">conchocolate99</p></span
-        >
+      <div class="flex flex-col gap-3 w-full md:w-4/12 text-xs md:text-lg">
+        <span class="flex flex-row justify-between">
+          <p>Email:</p>
+          <p class="font-semibold text-white">churroslover&#64;mañanas.es</p>
+        </span>
+        <span class="flex flex-row justify-between">
+          <p>Password:</p>
+          <p class="font-semibold text-white">conchocolate99</p>
+        </span>
       </div>
     </div>
+
+    <!-- Responsive Login Form -->
     <div
-      class="flex flex-col items-center p-8 rounded-xl bg-slate-700 my-4 w-3/12 shadow-neutral-900 shadow-xl/40"
+      class="flex flex-col items-center md:p-8 p-4 rounded-xl bg-slate-700 md:my-4 my-2 w-10/12 md:w-3/12 shadow-neutral-900 shadow-xl/40"
     >
-      <form class="h-full flex flex-col justify-around items-center">
-        <label class="text-2xl mb-4" for="username">Username or Email</label>
+      <form class="h-full flex flex-col justify-around items-center w-full">
+        <label class="text-lg md:text-2xl md:mb-2" for="username"
+          >Username or Email</label
+        >
         <input
-          class="px-3 py-2 m-3 rounded-xl bg-slate-600 w-full"
+          class="px-3 md:py-2 py-1 md:m-3 m-1 rounded-xl bg-slate-600 w-full"
           #username
           type="text"
           name="username"
@@ -60,20 +64,20 @@
           maxlength="50"
           minlength="3"
         />
-        <label class="text-2xl my-4" for="font-semibold text-white"
+        <label class="text-lg md:text-2xl md:my-2" for="password"
           >Password</label
         >
         <input
-          class="px-3 py-2 m-3 rounded-xl bg-slate-600 w-full"
+          class="px-3 md:py-2 py-1 md:m-3 m-1 rounded-xl bg-slate-600 w-full"
           #password
-          type="Password"
-          name="Password"
+          type="password"
+          name="password"
           placeholder="Password"
           minlength="8"
           required
         />
         <button
-          class="text-2xl font-medium mt-4 border-1 border-white rounded-xl cursor-pointer bg-transparent px-3 py-1 text-center"
+          class="text-lg md:text-2xl font-medium md:mt-4 mt-2 border border-white rounded-xl cursor-pointer bg-transparent px-3 py-1 text-center"
           type="button"
           (click)="appStore.login(username.value, password.value)"
         >
@@ -81,9 +85,9 @@
         </button>
       </form>
     </div>
-    <p
-      class="absolute bottom-7 shrink-3 grow-2 justify-self-end text-center text-xs text-white sm:text-xl"
-    >
+
+    <!-- Footer -->
+    <p class="text-2xs md:text-md md:text-lg text-center py-5 px-2">
       © {{ currentYear }} Weather Angular App | Created by Nizar Mourak using
       Angular
     </p>
