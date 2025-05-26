@@ -1,18 +1,23 @@
 <div
-  class="flex flex-col items-center justify-center justify-self-center self-center text-center rounded-xl text-white py-3 cursor-pointer w-8/10 shrink-1 grow-1 flex-wrap {{
+  class="flex flex-col items-center justify-center justify-self-center self-center text-center rounded-xl text-white 2xl:py-3 xl:py-1 cursor-pointer w-8/10 shrink-1 grow-1 flex-wrap {{
     isSelected(getFormattedDateParts().day)
-      ? 'bg-gradient-to-br from-teal-600 to-teal-700 shadow-lg shadow-teal-900/30  w-9/10 py-5'
+      ? 'bg-gradient-to-br from-teal-600 to-teal-700 shadow-lg shadow-teal-900/30 w-9/10 2xl:py-5 xl:py-3'
       : 'bg-slate-800/90 hover:bg-blue-800/70'
   }} transition-all duration-300 outline-none"
   (click)="setCurrentSelectedDay(getFormattedDateParts().day)"
 >
-  <span class="text-lg font-bold text-amber-300">{{
+  <span class="2xl:text-lg xl:text-base font-bold text-amber-300">{{
     getFormattedDateParts().weekday.substr(0, 3)
   }}</span
-  ><span class="text-xl font-extrabold">{{ getFormattedDateParts().day }}</span
-  ><span class="text-md font-light">{{ getFormattedDateParts().month }}</span>
-  <img class="w-20" src="{{ icon() }}" /><span class="text-xl font-extrabold"
+  ><span class="2xl:text-xl xl:text-lg font-extrabold">{{
+    getFormattedDateParts().day
+  }}</span
+  ><span class="2xl:text-base xl:text-sm font-light">{{
+    getFormattedDateParts().month
+  }}</span>
+  <img class="2xl:w-20 xl:w-16" src="{{ icon() }}" /><span
+    class="2xl:text-xl xl:text-lg font-extrabold"
     >{{ max_temp() }}&deg;</span
-  ><span class="text-md font-light">{{ min_temp() }}&deg;</span
-  ><span class="wrap grow-1 text-xs">{{ temp_comment() }}</span>
+  ><span class="2xl:text-base xl:text-sm font-light">{{ min_temp() }}&deg;</span
+  ><span class="wrap grow-1 2xl:text-2xs xl:text-xs">{{ temp_comment() }}</span>
 </div>

@@ -1,26 +1,33 @@
 <div
-  class="flex flex-col items-center justify-start transition-all bg-slate-800/90 rounded-2xl justify-self-center self-end h-full w-full text-stone-200 py-3 hover:bg-slate-800/10"
+  class="flex flex-col items-center justify-start transition-all bg-slate-800/90 rounded-2xl justify-self-center self-end h-full w-full text-stone-200 2xl:py-3 xl:py-2 hover:bg-slate-800/10"
 >
   <p
-    class="text-xl font-semibold border-b-6 border-teal-600/30 w-full text-center pb-2"
+    class="2xl:text-xl xl:text-lg font-semibold border-b-6 border-teal-600/30 w-full text-center 2xl:pb-2 xl:pb-1"
   >
     {{ hour() }}
   </p>
-  <img src="{{ icon() }}" class="w-15" />
-  <p class="text-2xl font-medium mb-1 transition-all">{{ temp() }}°</p>
-  <p *ngIf="pop() != 0" class="text-xl font-semibold text-blue-300">
-    <span class="align-middle text-lg"
+  <img src="{{ icon() }}" class="2xl:w-15 xl:w-10" />
+  <p
+    class="2xl:text-2xl xl:text-xl font-medium 2xl:mb-1 xl:mb-0 transition-all"
+  >
+    {{ temp() }}°
+  </p>
+  <p
+    *ngIf="pop() != 0"
+    class="2xl:text-xl xl:text-lg font-semibold text-blue-300"
+  >
+    <span class="align-middle 2xl:text-lg xl:text-base"
       ><ng-icon name="solarUmbrellaBold"></ng-icon
     ></span>
     {{ chances() }}%
   </p>
-  <!-- <p class="text-xl font-semibold text-blue-300">
+  <!-- <p class="2xl:text-lg xl:text-base font-semibold text-blue-300">
     <span class="align-middle text-lg"
       ><ng-icon name="solarUmbrellaBold"></ng-icon
     ></span>
     {{ chances() }}%
   </p> -->
-  <p class="text-lg font-medium">
+  <p class="2xl:text-lg xl:text-base font-medium">
     <span class="align-middle"><ng-icon name="solarWindBold"></ng-icon></span>
     {{ wind() }} {{ getMetricSystem() }}
   </p>

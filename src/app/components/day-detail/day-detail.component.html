@@ -2,7 +2,7 @@
   class="flex flex-col w-full h-full justify-between items-center overflow-hidden"
 >
   <div
-    class="bg-slate-700 text-2xl py-3.5 pl-7 self-start w-full font-semibold text-stone-200 border-b-2 border-black rounded-tl-xl rounded-tr-xl flex flex-row justify-between"
+    class="bg-slate-700 2xl:text-2xl xl:text-xl xl:pb-1 2xl:py-3.5 2xl:pl-7 xl:py-2 xl:pl-5 self-start w-full font-semibold text-stone-200 border-b-2 border-black rounded-tl-xl rounded-tr-xl flex flex-row justify-between"
   >
     <div class="">
       <p class="">
@@ -10,28 +10,30 @@
         {{ getFormattedDateParts().month }} {{ getFormattedDateParts().day }},
         {{ currentYear }}
       </p>
-      <p class="text-xl font-light">{{ data.getSelectedDayData().summary }}</p>
+      <p class="2xl:text-xl xl:text-lg font-light">
+        {{ data.getSelectedDayData().summary }}
+      </p>
     </div>
-    <div class="flex flex-row pr-7">
+    <div class="flex flex-row 2xl:pr-7 xl:pr-5">
       <img
         src="{{ getIcon(this.data.getSelectedDayData().weather[0].icon) }}"
         class="w-15"
       />
       <span class="flex flex-col">
-        <p class="text-2xl font-semibold">
+        <p class="2xl:text-2xl xl:text-xl font-semibold">
           {{ floorTemp(this.data.getSelectedDayData().temp.max) }}&deg;
         </p>
-        <p class="text-xl font-light">
+        <p class="2xl:text-xl xl:text-lg font-light">
           {{ floorTemp(this.data.getSelectedDayData().temp.min) }}&deg;
         </p>
       </span>
     </div>
   </div>
   <div
-    class="flex flex-row self-start border-b-1 border-slate-600 ml-8 pt-1 mb-2"
+    class="flex flex-row self-start border-b-1 border-slate-600 2xl:ml-8 xl:ml-6 2xl:pt-1 xl:pt-0 2xl:mb-2 xl:mb-1"
   >
     <button
-      class="tab self-start text-xl font-semibold text-stone-200 mt-2 px-2 cursor-pointer rounded-xl  hover:bg-gray-50/20 transition-all  origin-bottom relative overflow-hidden {{
+      class="tab self-start 2xl:text-xl xl:text-lg font-semibold text-stone-200 2xl:mt-2 xl:mt-1 px-2 cursor-pointer rounded-xl  hover:bg-gray-50/20 transition-all  origin-bottom relative overflow-hidden {{
         !data.getIsThereHourlyData() ? 'hidden' : ''
       }} active:bg-neutral-300/50"
       [class.active]="panel == 'temperature_trend'"
@@ -40,7 +42,7 @@
       Temperature Trend
     </button>
     <button
-      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 px-2 cursor-pointer rounded-xl  hover:bg-gray-50/20 transition-all  origin-bottom relative overflow-hidden  {{
+      class="tab self-start 2xl:text-xl xl:text-lg font-semibold text-stone-200 2xl:mt-2 xl:mt-1 ml-7 px-2 cursor-pointer rounded-xl  hover:bg-gray-50/20 transition-all  origin-bottom relative overflow-hidden  {{
         !data.getIsThereHourlyData() ? 'hidden' : ''
       }} active:bg-neutral-300/50"
       [class.active]="panel == 'hourly_forecast'"
@@ -49,7 +51,7 @@
       Hourly Forecast
     </button>
     <button
-      class="tab self-start text-xl font-semibold text-stone-200 mt-2 ml-7 mr-7 px-2 cursor-pointer rounded-xl  hover:bg-gray-50/20 transition-all  origin-bottom relative overflow-hidden  {{
+      class="tab self-start 2xl:text-xl xl:text-lg font-semibold text-stone-200 2xl:mt-2 xl:mt-1 ml-7 mr-7 px-2 cursor-pointer rounded-xl  hover:bg-gray-50/20 transition-all  origin-bottom relative overflow-hidden  {{
         !data.getIsThereHourlyData() ? 'hidden' : ''
       }} active:bg-neutral-300/50 "
       [class.active]="panel == 'precipitation_chance'"
@@ -58,7 +60,7 @@
       Precipitation Chance
     </button>
     <button
-      class="tab self-start text-xl font-semibold text-stone-200 mt-2 px-2 cursor-pointer rounded-xl hover:bg-gray-50/20 transition-all origin-bottom relative overflow-hidden active:bg-neutral-300/50"
+      class="tab self-start 2xl:text-xl xl:text-lg font-semibold text-stone-200 2xl:mt-2 xl:mt-1 px-2 cursor-pointer rounded-xl hover:bg-gray-50/20 transition-all origin-bottom relative overflow-hidden active:bg-neutral-300/50"
       [class.active]="panel == 'weather_details'"
       (click)="scrollToSection('weather_details')"
     >
@@ -70,7 +72,7 @@
     id="scroll-container"
   >
     <div
-      class="w-full h-full shrink-0 snap-start pb-3.5 px-7 overflow-hidden {{
+      class="w-full h-full shrink-0 snap-start 2xl:pb-3.5 2xl:px-7 xl:px-5 xl:pb-2 overflow-hidden {{
         !data.getIsThereHourlyData() ? 'hidden' : ''
       }}"
       id="temperature_trend"
@@ -78,7 +80,7 @@
       <app-temperature-trend></app-temperature-trend>
     </div>
     <div
-      class="w-full h-full shrink-0 snap-start pb-3.5 px-7  {{
+      class="w-full h-full shrink-0 snap-start 2xl:pb-3.5 2xl:px-7 xl:px-5 xl:pb-2  {{
         !data.getIsThereHourlyData() ? 'hidden' : ''
       }}"
       id="hourly_forecast"
@@ -87,7 +89,7 @@
     </div>
 
     <div
-      class="w-full h-full shrink-0 snap-start pb-3.5 px-7  {{
+      class="w-full h-full shrink-0 snap-start 2xl:pb-3.5 2xl:px-7 xl:px-5 xl:pb-2  {{
         !data.getIsThereHourlyData() ? 'hidden' : ''
       }}"
       id="precipitation_chance"
@@ -96,7 +98,7 @@
     </div>
 
     <div
-      class="w-full h-full shrink-0 snap-start pb-3.5 px-7"
+      class="w-full h-full shrink-0 snap-start 2xl:pb-3.5 2xl:px-7 xl:px-5 xl:pb-2 overflow-scroll no-scrollbar scroll-smooth"
       id="weather_details"
     >
       <app-weather-details class=""></app-weather-details>

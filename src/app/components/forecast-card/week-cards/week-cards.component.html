@@ -1,26 +1,33 @@
 <div
-  class="grid grid-cols-4 items-center justify-center text-center rounded-xl pl-7 py-0.5 mr-3 my-1"
+  class="grid grid-cols-4 items-center justify-center text-center rounded-xl 2xl:pl-7 2xl:py-0.5 2xl:mr-3 2xl:my-1 xl:pl-5 xl:py-0.5 xl:mr-2 xl:my-1"
 >
-  <img src="{{ icon() }}" alt="" class="w-22" />
+  <img src="{{ icon() }}" alt="" class="2xl:w-22 xl:w-17" />
   <div class="pr-2">
-    <span class="text-2xl font-bold text-stone-100 justify-self-auto">
+    <span
+      class="2xl:text-2xl xl:text-lg font-bold text-stone-100 justify-self-auto"
+    >
       @if (maxTemp() > 0) {
         +
       }
       {{ maxTemp() }}&deg;/</span
     >
-    <span class="text-lg font-medium text-stone-300 justify-self-auto">
+    <span
+      class="2xl:text-lg xl:text-base font-medium text-stone-300 justify-self-auto"
+    >
       @if (minTemp() > 0) {
         +
       }
       {{ minTemp() }}</span
     >
   </div>
-  <span class="text-lg font-medium text-stone-300 justify-self-end-safe pr-8">{{
-    getFormattedDateParts().day + " " + getFormattedDateParts().month
-  }}</span>
   <span
-    class="text-lg font-semibold text-stone-300 justify-self-end-safe pr-8"
+    class="2xl:text-lg xl:text-base font-medium text-stone-300 justify-self-end-safe 2xl:pr-8 xl:pr-6"
+    >{{
+      getFormattedDateParts().day + " " + getFormattedDateParts().month
+    }}</span
+  >
+  <span
+    class="2xl:text-lg xl:text-base font-semibold text-stone-300 justify-self-end-safe 2xl:pr-8 xl:pr-6"
     >{{ getFormattedDateParts().weekday }}</span
   >
 </div>

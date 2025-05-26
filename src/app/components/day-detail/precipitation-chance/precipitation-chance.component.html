@@ -5,14 +5,14 @@
         *ngFor="let hour of getFilteredHourlyData(); let i = index"
         class="flex-1 flex flex-col items-center justify-end h-full w-fit transition-all"
       >
-        <p class="text-md font-semibold mb-1 transition-all">
+        <p class="2xl:text-base xl:text-xs font-semibold mb-1 transition-all">
           {{ floorNumber(hour.pop * 100) }} %
         </p>
         <div
           class="w-3/4 transition-all duration-300 mb-1 bg-gradient-to-t from-blue-500/70 to-blue-400"
           [style.height.%]="hour.pop == 0 ? 1 : floorNumber(hour.pop * 100)"
         ></div>
-        <div class="text-2xs text-white">
+        <div class="2xl:text-2xs xl:text-2xs text-white">
           {{ transformDateParts(hour.dt).hour }}
         </div>
       </div>

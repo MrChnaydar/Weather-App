@@ -2,7 +2,7 @@
   class="flex flex-row md:flex-col justify-center items-center w-full md:w-auto flex-nowrap transition-all shrink-1"
 >
   <span
-    class="flex justify-center items-center cursor-pointer fill-sky-950 text-2xl md:text-3xl py-1 px-1 rounded-full hover:bg-slate-600 md:mb-3 mr-2 shrink-1"
+    class="flex justify-center items-center cursor-pointer fill-sky-950 text-2xl md:text-3xl py-1 px-1 rounded-full hover:bg-slate-600 md:mb-3 mr-2 md:mr-0 shrink-1"
     (click)="clearActualPage()"
     routerLink="/notifications"
   >
@@ -10,7 +10,7 @@
   </span>
   @if (this.appState.user()) {
     <span
-      class="flex justify-center items-center cursor-pointer fill-sky-950 text-2xl md:text-3xl py-1 px-1 rounded-full hover:bg-slate-600 md:mb-4 mr-3 shrink-1"
+      class="flex justify-center items-center cursor-pointer fill-sky-950 text-2xl md:text-3xl py-1 px-1 rounded-full hover:bg-slate-600 mr-3 md:mb-4 md:mr-0 shrink-1"
       (click)="appState.logout()"
     >
       <ng-icon
@@ -21,7 +21,7 @@
     </span>
   } @else {
     <span
-      class="flex justify-center items-center cursor-pointer fill-sky-950 text-2xl md:text-3xl py-1 px-1 rounded-full hover:bg-slate-600 md:mb-4 mr-3 shrink-1"
+      class="flex justify-center items-center cursor-pointer fill-sky-950 text-2xl md:text-3xl py-1 px-1 rounded-full hover:bg-slate-600 md:mb-4 mr-3 md:mr-0 shrink-1"
       (click)="clearActualPage()"
       routerLink="/login"
     >

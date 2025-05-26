@@ -31,7 +31,7 @@ export class SidebarComponent {
   data: DataService = inject(DataService);
   actualPage(page: string) {
     if (page == this.data.getActualPage()) {
-      return 'md:border-l-1 md:border-white md:bg-gradient-to-r md:from-slate-600 md:to-transparent border-t-1 border-white bg-gradient-to-b from-slate-600 to-transparent md:border-t-0';
+      return 'md:border-l-1 md:border-white md:bg-gradient-to-r md:from-slate-600 md:to-transparent border-t-1 border-white bg-gradient-to-b from-slate-600 to-transparent md:border-t-0 ';
     }
     return '';
   }

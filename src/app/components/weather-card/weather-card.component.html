@@ -1,8 +1,10 @@
 <section class="flex flex-col w-full h-full text-white">
   <div class="flex flex-col relative">
-    <div class="flex flex-row items-center p-5 pb-0">
+    <div
+      class="flex flex-row items-center 2xl:p-5 2xl:pb-0 xl:p-3 xl:pb-0 lg:p-2 lg:pb-0 md:p-1 md:pb-0 xs:p-1 xs:pb-0"
+    >
       <input
-        class="text-xl w-full border-none outline-hidden rounded-l-4xl h-13 pl-8 bg-gradient-to-r from-black/60 to-transparent"
+        class="2xl:text-xl xl:text-lg lg:text-base md:text-sm xs:text-xs w-full border-none outline-hidden rounded-l-4xl h-13 2xl:pl-8 xl:pl-5 bg-gradient-to-r from-black/60 to-transparent"
         type="text"
         #searchInput
         placeholder="Search"
@@ -13,18 +15,20 @@
       <button
         class="flex justify-center items-center cursor-pointer bg-none m-0 p-0 outline-none border-none rounded-full"
       >
-        <span class="bg-transparent text-2xl rounded-full w-6 h-6">
+        <span
+          class="bg-transparent 2xl:text-2xl xl:text-xl lg:text-lg md:text-base xs:text-sm rounded-full w-6 h-6"
+        >
           <ng-icon name="hugeSearch01" />
         </span>
       </button>
     </div>
     <div
-      class="absolute w-6/7 left-0 top-full mx-5 my-0 text-xl bg-gradient-to-r from-black/60 to-transparent rounded-bl-4xl transition-all"
+      class="absolute w-6/7 left-0 top-full 2xl:mx-5 xl:mx-3 lg:mx-2 md:mx-1 xs:mx-0 my-0 2xl:text-xl xl:text-lg lg:text-base md:text-sm xs:text-xs bg-gradient-to-r from-black/60 to-transparent rounded-bl-4xl transition-all"
     >
       @if (data.getListOfCities().length) {
         @for (item of data.getListOfCities(); track item.lat + item.lon) {
           <div
-            class="p-5 cursor-pointer text-lg transition-all"
+            class="2xl:p-5 xl:p-4 lg:p-3 md:p-2 xs:p-1 cursor-pointer 2xl:text-lg xl:text-base lg:text-sm md:text-xs xs:text-xs transition-all"
             (click)="data.search(item)"
           >
             <span
@@ -40,23 +44,30 @@
   </div>
 
   <div
-    class="px-6 py-6 h-full flex flex-col justify-center text-4xl transition-all duration-300"
+    class="2xl:p-6 xl:p-3 xl:pt-0 lg:p-2 md:p-1 xs:p-1 h-full flex flex-col justify-center 2xl:text-4xl xl:text-3xl lg:text-2xl md:text-xl xs:text-lg transition-all duration-300"
   >
-    <img class="w-35" src="{{ data.getCurrentWeather().weather[0].icon }}" />
-    <p class="pl-7">
+    <img
+      class="2xl:w-35 xl:w-25 lg:w-20 md:w-16 xs:w-12"
+      src="{{ data.getCurrentWeather().weather[0].icon }}"
+    />
+    <p class="2xl:pl-7 xl:pl-5 lg:pl-4 md:pl-3 xs:pl-2">
       {{ data.getCurrentWeather().main.temp }}&deg;{{ unit() }}
     </p>
-    <p class="pl-7">{{ data.getCurrentWeather().weather[0].main }}</p>
+    <p class="2xl:pl-7 xl:pl-5 lg:pl-4 md:pl-3 xs:pl-2">
+      {{ data.getCurrentWeather().weather[0].main }}
+    </p>
   </div>
 
-  <div class="px-8 py-4 border-t-1 border-black justify-self-end text-sm">
-    <p class="mx-1 mt-2">
+  <div
+    class="2xl:px-8 2xl:py-4 xl:px-4 xl:py-2 lg:px-3 lg:py-2 md:px-2 md:py-1 xs:px-1 xs:py-1 border-t-1 border-black justify-self-end text-sm"
+  >
+    <p class="2xl:mx-1 mt-2 xl:mx-4 lg:mx-3 md:mx-2 xs:mx-1">
       <span class="text-xl text-center pr-2 align-middle"
         ><ng-icon name="hugeLocation01"
       /></span>
       {{ data.getCurrentWeather().name }}
     </p>
-    <p class="mx-1 my-2">
+    <p class="2xl:mx-1 my-2 xl:mx-4 lg:mx-3 md:mx-2 xs:mx-1">
       <span class="text-xl text-center pr-2 align-middle"
         ><ng-icon name="hugeCalendar03"
       /></span>

@@ -1,39 +1,40 @@
 <section class="w-full h-full">
   <p
-    class="bg-slate-700 text-2xl py-3.5 pl-7 self-start w-full font-semibold text-stone-200 border-b-2 border-black rounded-tl-xl rounded-tr-xl"
+    class="bg-slate-700 2xl:text-2xl xl:text-xl 2xl:py-3.5 2xl:pl-7 xl:py-2 xl:pl-5 self-start w-full font-semibold text-stone-200 border-b-2 border-black rounded-tl-xl rounded-tr-xl"
   >
     Today's Highlight
   </p>
   <div class="flex flex-row justify-evenly h-full">
-    <div class="h-full w-xs p-3">
+    <div class="h-full 2xl:w-xs 2xl:p-3 xl:p-2 xl:w-xs">
       <div
         class="rounded-xl border-1 border-white h-6/11 w-full flex flex-col justify-start"
       >
         <p
-          class="text-xl self-start font-semibold text-stone-300 pl-4 pt-2 pb-1"
+          class="2xl:text-xl xl:text-lg self-start font-semibold text-stone-300 2xl:pl-4 2xl:pt-2 2xl:pb-1 xl:pl-3 xl:pt-1 xl:pb-0.5"
         >
           Wind Status
         </p>
         <div class="flex flex-col justify-center gap-2 items-center h-full">
           <div class="flex justify-around w-full">
-            <span class="text-3xl font-bold text-stone-300 pl-4 pb-3 mr-2"
+            <span
+              class="2xl:text-3xl xl:text-xl font-bold text-stone-300 2xl:pl-4 2xl:pb-3 2xl:mr-2 xl:pl-3 xl:pb-2 xl:mr-1"
               >{{ data.getCurrentWeather().wind.speed }}
 
               <span
-                class="text-start pb-3 text-lg font-light grow-1 text-stone-300"
+                class="text-start 2xl:pb-3 xl:pb-2 2xl:text-lg xl:text-base font-light grow-1 text-stone-300"
                 >{{ windSpeedUnit() }}</span
               ></span
             >
             <span
-              class="text-end self-end-safe pb-3 pr-5 text-lg font-light grow-1 text-stone-300 w-fit"
+              class="text-end self-end-safe 2xl:pb-3 xl:pb-2 2xl:pr-5 xl:pr-3 2xl:text-lg xl:text-base font-light grow-1 text-stone-300 w-fit"
               >{{ currentTime() }}</span
             >
           </div>
           <div
-            class="h-17 w-17 flex items-center justify-center rounded-full bg-gray-400/40 p-1"
+            class="2xl:h-17 2xl:w-17 xl:h-15 xl:w-15 flex items-center justify-center rounded-full bg-gray-400/40 p-1"
           >
             <span
-              class="h-12 w-10 bg-amber-400 transition-all duration-300"
+              class="2xl:h-12 2xl:w-10 xl:h-10 xl:w-8 bg-amber-400 transition-all duration-300"
               [ngStyle]="{
                 clipPath: 'polygon(50% 0%, 0% 100%, 90% 100%)',
                 transform:
@@ -46,20 +47,25 @@
       <div
         class="rounded-xl border-1 border-white h-3/10 w-full flex flex-col justify-center mt-1.5 pb-1.5"
       >
-        <p class="text-lg font-medium text-stone-300 pl-4 pt-2 pb-1">
+        <p
+          class="2xl:text-lg xl:text-base font-medium text-stone-300 2xl:pl-4 2xl:pt-2 xl:pl-3 xl:pt-1"
+        >
           Humidity
         </p>
         <div
-          class="flex flex-row gap-10 justify-between w-full h-full items-center"
+          class="flex flex-row 2xl:gap-10 xl:gap-0 justify-between w-full h-full items-center"
         >
-          <span class="text-3xl font-bold text-stone-300 pl-5 shrink-0"
+          <span
+            class="2xl:text-3xl xl:text-xl font-bold text-stone-300 2xl:pl-5 xl:pl-3 shrink-0"
             >{{ data.getCurrentWeather().main.humidity
-            }}<span class="text-start text-lg font-light text-stone-300">
+            }}<span
+              class="text-start 2xl:text-lg xl:text-lg font-light text-stone-300"
+            >
               %</span
             ></span
           >
           <span
-            class="text-start text-lg font-light text-stone-300 shrink-1 justify-self-end-safe pl-7"
+            class="text-start 2xl:text-lg xl:text-base font-light text-stone-300 shrink-1 justify-self-end-safe 2xl:pl-7 xl:pl-3 xl:pr-4"
             id="dew"
             ><ng-icon name="hugeDroplet" style="display: block" /> Dew point is
             {{ dewPoint() }}&deg; right now</span
@@ -73,15 +79,17 @@
         </div>
       </div>
     </div>
-    <div class="h-full w-xs p-3">
+    <div class="hh-full 2xl:w-xs 2xl:p-3 xl:p-2 xl:w-xs">
       <div
         class="rounded-xl border-1 border-white h-6/11 w-full flex flex-col justify-between"
       >
-        <p class="text-xl font-semibold text-stone-300 pl-4 pt-2 pb-1">
+        <p
+          class="2xl:text-xl xl:text-lg self-start font-semibold text-stone-300 2xl:pl-4 2xl:pt-2 2xl:pb-1 xl:pl-3 xl:pt-1 xl:pb-0.5"
+        >
           UV Index
         </p>
         <div class="flex flex-col items-center">
-          <div class="text-3xl font-bold text-stone-300">
+          <div class="2xl:text-3xl xl:text-2xl font-bold text-stone-300">
             {{ data.getTwoWeeks().current.uvi }}
           </div>
           <div
@@ -99,21 +107,25 @@
       <div
         class="rounded-xl border-1 border-white h-3/10 w-full flex flex-col justify-center mt-1.5 pb-1.5"
       >
-        <p class="text-lg font-medium text-stone-300 pl-4 pt-2 pb-1">
+        <p
+          class="2xl:text-lg xl:text-base font-medium text-stone-300 2xl:pl-4 2xl:pt-2 xl:pl-3 xl:pt-1"
+        >
           Visibility
         </p>
         <div
           class="flex flex-row gap-10 justify-between w-full h-full items-center"
         >
-          <span class="text-3xl font-bold text-stone-300 pl-4 pb-3 mr-2"
+          <span
+            class="2xl:text-3xl xl:text-xl font-bold text-stone-300 pl-4 pb-3 mr-2"
             >{{ data.getCurrentWeather().visibility
             }}<span
-              class="text-start pb-3 text-lg font-light grow-1 text-stone-300"
+              class="text-start pb-3 2xl:text-lg xl:text-base font-light grow-1 text-stone-300"
             >
               {{ visibilityUnits() }}</span
             ></span
           >
-          <span class="text-start pb-3 text-lg font-light grow-1 text-stone-300"
+          <span
+            class="text-start pb-3 2xl:text-lg xl:text-base font-light grow-1 text-stone-300"
             ><ng-icon name="hugeEye" style="display: block" />{{
               visibilityStatus()
             }}</span
@@ -121,9 +133,11 @@
         </div>
       </div>
     </div>
-    <div class="h-full w-xs p-3">
+    <div class="h-full 2xl:w-xs 2xl:p-3 xl:p-2 xl:w-xs">
       <div class="rounded-xl border-1 border-white h-6/11 w-full flex flex-col">
-        <p class="text-xl font-semibold text-stone-300 pl-4 pt-2 pb-1">
+        <p
+          class="2xl:text-xl xl:text-lg self-start font-semibold text-stone-300 2xl:pl-4 2xl:pt-2 2xl:pb-1 xl:pl-3 xl:pt-1 xl:pb-0.5"
+        >
           Sunrise & Sunset
         </p>
         <div
@@ -165,29 +179,31 @@
       <div
         class="rounded-xl border-1 border-white h-3/10 w-full flex flex-col justify-center mt-1.5 pb-1.5"
       >
-        <p class="text-lg font-medium text-stone-300 pl-4 pt-2 pb-1">
+        <p
+          class="2xl:text-lg xl:text-base font-medium text-stone-300 2xl:pl-4 2xl:pt-2 xl:pl-3 xl:pt-1"
+        >
           Feels Like
         </p>
         <div
-          class="flex flex-row gap-5 justify-between w-full h-full items-center"
+          class="flex flex-row 2xl:gap-5 xl:gap-0 justify-between w-full h-full items-center"
         >
           <span
-            class="text-3xl font-bold text-stone-300 pl-4 text-center shrink-0"
+            class="2xl:text-3xl xl:text-xl font-bold text-stone-300 pl-4 text-center shrink-0"
           >
             {{ data.getCurrentWeather().main.feels_like }}
-            <span class="text-3xl text-center"
+            <span class="2xl:text-3xl xl:text-xl text-center"
               ><ng-icon name="hugeThermometerWarm"
             /></span>
           </span>
           <span
-            class="text-start text-lg font-light grow-1 text-stone-300 pl-5"
+            class="text-start 2xl:text-lg xl:text-base font-light grow-1 text-stone-300 2xl:pl-5 xl:pl-2"
             >{{
               humidityStatus(
                 data.getCurrentWeather().main.feels_like,
                 data.getCurrentWeather().main.humidity
               )
-            }}</span
-          >
+            }}
+          </span>
         </div>
       </div>
     </div>

@@ -1,15 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  inject,
-  input,
-  OnInit,
-  signal,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { WeekCardsComponent } from './week-cards/week-cards.component';
-import { TwoWeeksType } from '../../model/two-weeks-type.data';
-import { formatDate, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { NgFor } from '@angular/common';
 import { DataService } from '../../services/data.service';
 @Component({
