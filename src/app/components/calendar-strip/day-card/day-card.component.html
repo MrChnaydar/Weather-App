@@ -1,23 +1,32 @@
 <div
-  class="flex flex-col items-center justify-center justify-self-center self-center text-center rounded-xl text-white 2xl:py-3 xl:py-1 cursor-pointer w-8/10 shrink-1 grow-1 flex-wrap {{
+  class="flex flex-col items-center justify-center justify-self-center self-center text-center rounded-xl text-white lg:py-0.5 xl:py-1 2xl:py-2 3xl:py-3 4xl:py-4  cursor-pointer w-8/10 shrink-1 grow-1 flex-wrap transition-all duration-300 outline-none {{
     isSelected(getFormattedDateParts().day)
-      ? 'bg-gradient-to-br from-teal-600 to-teal-700 shadow-lg shadow-teal-900/30 w-9/10 2xl:py-5 xl:py-3'
+      ? 'bg-gradient-to-br from-teal-600 to-teal-700 shadow-lg shadow-teal-900/30 w-9/10 lg:py-1 xl:py-3 2xl:py-4 3xl:py-5 4xl:py-6'
       : 'bg-slate-800/90 hover:bg-blue-800/70'
-  }} transition-all duration-300 outline-none"
+  }}"
   (click)="setCurrentSelectedDay(getFormattedDateParts().day)"
 >
-  <span class="2xl:text-lg xl:text-base font-bold text-amber-300">{{
-    getFormattedDateParts().weekday.substr(0, 3)
-  }}</span
-  ><span class="2xl:text-xl xl:text-lg font-extrabold">{{
-    getFormattedDateParts().day
-  }}</span
-  ><span class="2xl:text-base xl:text-sm font-light">{{
-    getFormattedDateParts().month
-  }}</span>
-  <img class="2xl:w-20 xl:w-16" src="{{ icon() }}" /><span
-    class="2xl:text-xl xl:text-lg font-extrabold"
+  <span
+    class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl font-bold text-amber-300"
+    >{{ getFormattedDateParts().weekday.substr(0, 3) }}</span
+  ><span
+    class="lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl font-extrabold"
+    >{{ getFormattedDateParts().day }}</span
+  ><span
+    class="lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg 4xl:text-xl font-light"
+    >{{ getFormattedDateParts().month }}</span
+  >
+  <img
+    class="lg:w-10 xl:w-16 2xl:w-20 3xl:w-25 4xl:w-30"
+    src="{{ icon() }}"
+  /><span
+    class="lg:text-base xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl font-extrabold"
     >{{ max_temp() }}&deg;</span
-  ><span class="2xl:text-base xl:text-sm font-light">{{ min_temp() }}&deg;</span
-  ><span class="wrap grow-1 2xl:text-2xs xl:text-xs">{{ temp_comment() }}</span>
+  ><span
+    class="lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg 4xl:text-xl font-light"
+    >{{ min_temp() }}&deg;</span
+  ><span
+    class="wrap grow-1 lg:text-xs xl:text-sm 2xl:text-base 3xl:text-lg 4xl:text-xl"
+    >{{ temp_comment() }}</span
+  >
 </div>

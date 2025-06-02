@@ -1,11 +1,15 @@
 <section class="flex h-full flex-nowrap justify-center items-center py-3 px-2">
   <div
-    class="bg-slate-800/70 flex flex-row xl:flex-col h-full flex-nowrap overflow-hidden justify-center items-center text-stone-200 rounded-xl shadow-neutral-900 shadow-xl/40 w-full"
+    class="bg-slate-800/70 flex flex-row lg:flex-col h-full flex-nowrap overflow-hidden justify-center items-center text-stone-200 rounded-xl shadow-neutral-900 shadow-xl/40 w-full"
   >
-    <span class="text-4xl px-2 pt-2 align-middle md:text-8xl md:mb-1">
+    <span
+      class="lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl px-2 pt-2 align-middle md:text-8xl md:mb-1"
+    >
       <ng-icon name="saxProfileCircleBold"></ng-icon>
     </span>
-    <p class="text-md md:text-xl md:mb-5 text-center align-middle">
+    <p
+      class="lg:text-lg xl:text-xl 2xl:text-2xl 3xl:text-3xl 4xl:text-4xl text-md md:text-xl md:mb-5 text-center align-middle"
+    >
       Test Accounts
     </p>
 
@@ -13,7 +17,9 @@
     <div
       class="text-lg md:text-xl bg-slate-700 flex flex-col md:flex-row justify-between w-11/12 rounded-xl p-4 gap-4 shadow-neutral-900 shadow-md/40"
     >
-      <div class="flex flex-col gap-3 w-full md:w-4/12 text-xs md:text-lg">
+      <div
+        class="flex flex-col gap-3 w-full md:w-4/12 lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl"
+      >
         <span class="flex flex-row justify-between">
           <p>Email:</p>
           <p class="font-semibold text-white">juanito&#64;barquillos.es</p>
@@ -23,7 +29,9 @@
           <p class="font-semibold text-white">oléquetapas</p>
         </span>
       </div>
-      <div class="flex flex-col gap-3 w-full md:w-4/12 text-xs md:text-lg">
+      <div
+        class="flex flex-col gap-3 w-full md:w-4/12 lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl"
+      >
         <span class="flex flex-row justify-between">
           <p>Email:</p>
           <p class="font-semibold text-white">
@@ -35,7 +43,9 @@
           <p class="font-semibold text-white">sevillanas123</p>
         </span>
       </div>
-      <div class="flex flex-col gap-3 w-full md:w-4/12 text-xs md:text-lg">
+      <div
+        class="flex flex-col gap-3 w-full md:w-4/12 lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl"
+      >
         <span class="flex flex-row justify-between">
           <p>Email:</p>
           <p class="font-semibold text-white">churroslover&#64;mañanas.es</p>
@@ -49,10 +59,12 @@
 
     <!-- Responsive Login Form -->
     <div
-      class="flex flex-col items-center md:p-8 p-4 rounded-xl bg-slate-700 md:my-4 my-2 w-10/12 md:w-3/12 shadow-neutral-900 shadow-xl/40"
+      class="flex flex-col items-center lg:p-4 xl:p-5 2xl:p-6 3xl:p-7 4xl:p-8 md:p-8 p-4 rounded-xl bg-slate-700 md:my-4 my-2 w-10/12 md:w-3/12 shadow-neutral-900 shadow-xl/40"
     >
       <form class="h-full flex flex-col justify-around items-center w-full">
-        <label class="text-lg md:text-2xl md:mb-2" for="username"
+        <label
+          class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl text-lg md:text-2xl md:mb-2"
+          for="username"
           >Username or Email</label
         >
         <input
@@ -64,7 +76,9 @@
           maxlength="50"
           minlength="3"
         />
-        <label class="text-lg md:text-2xl md:my-2" for="password"
+        <label
+          class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl text-lg md:text-2xl md:my-2"
+          for="password"
           >Password</label
         >
         <input
@@ -77,7 +91,7 @@
           required
         />
         <button
-          class="text-lg 2xl:text-2xl xl:text-xl font-medium md:mt-4 mt-2 border border-white rounded-xl cursor-pointer bg-transparent px-3 md:py-1 py-0 text-center active:bg-neutral-300/50 duration-500 ease-in-out"
+          class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl font-medium md:mt-4 mt-2 border border-white rounded-xl cursor-pointer bg-transparent px-3 md:py-1 py-0 text-center active:bg-neutral-300/50 duration-500 ease-in-out"
           type="button"
           (click)="appStore.login(username.value, password.value)"
         >
@@ -87,7 +101,9 @@
     </div>
 
     <!-- Footer -->
-    <p class="text-2xs xl:text-lg text-center py-5 px-2">
+    <p
+      class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-2xl text-center py-5 px-2"
+    >
       © {{ currentYear }} Weather Angular App | Created by Nizar Mourak using
       Angular
     </p>

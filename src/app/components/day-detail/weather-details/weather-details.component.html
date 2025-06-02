@@ -9,7 +9,9 @@
           class="flex flex-col h-fit bg-teal-500/30 rounded-xl pt-1 px-1 flex-1"
         >
           <!-- // first Card -->
-          <h3 class="2xl:text-2xl xl:text-lg font-semibold">
+          <h3
+            class="lg:text-sm xl:text-lg 2xl:text-2xl 3xl:text-3xl 4xl:text-3xl font-semibold"
+          >
             <span class="align-middle 2xl:text-3xl xl:text-xl text-teal-400"
               ><ng-icon name="solarTemperatureBold" /></span
             >Temperature
@@ -17,38 +19,68 @@
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Morning</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Morning
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ floorNumber(getMydata().temp.morn) }}&deg;
             </p>
           </div>
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">day</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              day
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ floorNumber(getMydata().temp.day) }}&deg;
             </p>
           </div>
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Evening</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Evening
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ floorNumber(getMydata().temp.eve) }}&deg;
             </p>
           </div>
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Night</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Night
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ floorNumber(getMydata().temp.night) }}&deg;
             </p>
           </div>
           <div class="flex flex-row justify-between px-3">
-            <p class="2xl:text-lg xl:text-base">Feels Like</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Feels Like
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ floorNumber(getMydata().feels_like.day) }}&deg;
             </p>
           </div>
@@ -57,7 +89,9 @@
         <section
           class="flex flex-col h-fit bg-teal-500/30 rounded-xl pt-1 px-1 flex-1"
         >
-          <h3 class="2xl:text-2xl xl:text-lg font-semibold">
+          <h3
+            class="lg:text-sm xl:text-lg 2xl:text-2xl 3xl:text-3xl 4xl:text-3xl font-semibold"
+          >
             <span class="align-middle 2xl:text-3xl xl:text-xl text-blue-500"
               ><ng-icon name="solarUmbrellaBold"
             /></span>
@@ -66,8 +100,14 @@
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Chance</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Chance
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ floorNumber(getMydata().pop * 100) }}%
             </p>
           </div>
@@ -75,8 +115,14 @@
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
             *ngIf="getMydata().snow"
           >
-            <p class="2xl:text-lg xl:text-base">Amount</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Amount
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().snow ? floorNumber(getMydata().snow) : 0 }} mm
             </p>
           </div>
@@ -84,22 +130,40 @@
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
             *ngIf="!getMydata().snow"
           >
-            <p class="2xl:text-lg xl:text-base">Amount</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Amount
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().rain ? floorNumber(getMydata().rain) : 0 }} mm
             </p>
           </div>
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Type</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Type
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().snow ? "Snow" : "Rain" }}
             </p>
           </div>
           <div class="flex flex-row justify-between px-3">
-            <p class="2xl:text-lg xl:text-base">Humidity</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Humidity
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().humidity }}%
             </p>
           </div>
@@ -111,7 +175,9 @@
           class="flex flex-col h-fit bg-teal-500/30 rounded-xl pt-1 px-1 flex-1"
         >
           <!-- //Third Card -->
-          <h3 class="2xl:text-2xl xl:text-lg font-semibold">
+          <h3
+            class="lg:text-sm xl:text-lg 2xl:text-2xl 3xl:text-3xl 4xl:text-3xl font-semibold"
+          >
             <span class="align-middle 2xl:text-3xl xl:text-xl text-amber-500"
               ><ng-icon name="solarWindBold"
             /></span>
@@ -120,16 +186,28 @@
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Speed</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Speed
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().wind_speed }} {{ getMetricSystem() }}
             </p>
           </div>
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Gusts</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Gusts
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().wind_gust ? getMydata().wind_gust : 0 }}
               {{ getMetricSystem() }}
             </p>
@@ -137,14 +215,26 @@
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Direction</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Direction
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getWindDirection(getMydata().wind_deg) }}
             </p>
           </div>
           <div class="flex flex-row justify-between px-3">
-            <p class="2xl:text-lg xl:text-base">Pressure</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Pressure
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().pressure }} hPa
             </p>
           </div>
@@ -153,7 +243,9 @@
           class="flex flex-col h-fit bg-teal-500/30 rounded-xl pt-1 px-1 flex-1"
         >
           <!-- //Fourth Card -->
-          <h3 class="2xl:text-2xl xl:text-lg font-semibold">
+          <h3
+            class="lg:text-sm xl:text-lg 2xl:text-2xl 3xl:text-3xl 4xl:text-3xl font-semibold"
+          >
             <span class="align-middle 2xl:text-3xl xl:text-xl text-yellow-400"
               ><ng-icon name="solarSunBold"
             /></span>
@@ -162,30 +254,54 @@
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Sunrise</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Sunrise
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ sunriseTime() }}
             </p>
           </div>
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Sunset</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Sunset
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ sunsetTime() }}
             </p>
           </div>
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">UV Index</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              UV Index
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().uvi }}
             </p>
           </div>
           <div class="flex flex-row justify-between px-3">
-            <p class="2xl:text-lg xl:text-base">Moon Phase</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Moon Phase
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMoonPhase(getMydata().moon_phase) }}
             </p>
           </div>
@@ -197,7 +313,9 @@
           class="flex flex-col h-fit bg-teal-500/30 rounded-xl pt-1 px-1 flex-1"
         >
           <!-- //Fifth Card -->
-          <h3 class="2xl:text-2xl xl:text-lg font-semibold">
+          <h3
+            class="lg:text-sm xl:text-lg 2xl:text-2xl 3xl:text-3xl 4xl:text-3xl font-semibold"
+          >
             <span class="align-middle 2xl:text-3xl xl:text-xl text-sky-500"
               ><ng-icon name="solarCloudSun2Bold"
             /></span>
@@ -206,39 +324,67 @@
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Cloud Cover</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Cloud Cover
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().clouds }}%
             </p>
           </div>
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Dew point</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Dew point
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ dewPoint() }}&deg;
             </p>
           </div>
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">General Condition</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              General Condition
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().weather[0].main }}
             </p>
           </div>
           <div
             class="flex flex-row justify-between px-3 border-b-1 border-teal-600"
           >
-            <p class="2xl:text-lg xl:text-base">Condition</p>
-            <p class="2xl:text-xl xl:text-lg text-white font-semibold">
+            <p
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Condition
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold"
+            >
               {{ getMydata().weather[0].description }}
             </p>
           </div>
           <div class="flex flex-row justify-between px-3">
-            <p class="2xl:text-lg xl:text-base">Summary</p>
             <p
-              class="2xl:text-xl xl:text-lg text-white font-semibold text-right shrink-1 w-3/4"
+              class="lg:text-sm xl:text-base 2xl:text-lg 3xl:text-xl 4xl:text-3xl"
+            >
+              Summary
+            </p>
+            <p
+              class="lg:text-sm xl:text-lg 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-white font-semibold text-right shrink-1 w-3/4"
             >
               {{ getMydata().summary }}
             </p>

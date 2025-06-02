@@ -1,33 +1,36 @@
 <div
-  class="flex flex-col items-center justify-start transition-all bg-slate-800/90 rounded-2xl justify-self-center self-end h-full w-full text-stone-200 2xl:py-3 xl:py-2 hover:bg-slate-800/10"
+  class="flex flex-col items-center justify-start transition-all bg-slate-800/90 rounded-2xl justify-self-center self-end h-full w-full text-stone-200 hover:bg-slate-800/10 lg:py-1 xl:py-2 2xl:py-3 3xl:py-4 4xl:py-5"
 >
   <p
-    class="2xl:text-xl xl:text-lg font-semibold border-b-6 border-teal-600/30 w-full text-center 2xl:pb-2 xl:pb-1"
+    class="lg:text-xs xl:text-lg 2xl:text-base 3xl:text-2xl 4xl:text-3xl font-semibold border-b-6 border-teal-600/30 w-full text-center lg:pb-0.5 xl:pb-1 2xl:pb-2 3xl:pb-3 4xl:pb-4"
   >
     {{ hour() }}
   </p>
-  <img src="{{ icon() }}" class="2xl:w-15 xl:w-10" />
+  <img src="{{ icon() }}" class="lg:w-10 xl:w-15 2xl:w-15 3xl:w-22 4xl:w-29" />
   <p
-    class="2xl:text-2xl xl:text-xl font-medium 2xl:mb-1 xl:mb-0 transition-all"
+    class="lg:text-sm xl:text-lg 2xl:text-lg 3xl:text-2xl 4xl:text-5xl font-medium lg:mb-0 xl:mb-0 2xl:mb-1 3xl:mb-2 4xl:mb-3 transition-all"
   >
     {{ temp() }}°
   </p>
   <p
     *ngIf="pop() != 0"
-    class="2xl:text-xl xl:text-lg font-semibold text-blue-300"
+    class="lg:text-xs xl:text-lg 2xl:text-base 3xl:text-2xl 4xl:text-3xl font-semibold text-blue-300"
   >
-    <span class="align-middle 2xl:text-lg xl:text-base"
+    <span
+      class="align-middle lg:text-sm xl:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-5xl"
       ><ng-icon name="solarUmbrellaBold"></ng-icon
     ></span>
     {{ chances() }}%
   </p>
-  <!-- <p class="2xl:text-lg xl:text-base font-semibold text-blue-300">
+  <!-- <p class="2xl:text-lg xl:text-lg font-semibold text-blue-300">
     <span class="align-middle text-lg"
       ><ng-icon name="solarUmbrellaBold"></ng-icon
     ></span>
     {{ chances() }}%
   </p> -->
-  <p class="2xl:text-lg xl:text-base font-medium">
+  <p
+    class="lg:text-xs xl:text-lg 2xl:text-base 3xl:text-2xl 4xl:text-3xl font-medium"
+  >
     <span class="align-middle"><ng-icon name="solarWindBold"></ng-icon></span>
     {{ wind() }} {{ getMetricSystem() }}
   </p>
