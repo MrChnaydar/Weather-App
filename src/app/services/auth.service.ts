@@ -23,14 +23,14 @@ export class AuthService {
     onAuthStateChanged(this.firebaseService.auth, async (authUser) => {
       if (!authUser) {
         this.user.set(null);
-        console.log('Just set user to null');
+        //console.log('Just set user to null');
         return;
       }
-      console.log(authUser.uid);
+      //console.log(authUser.uid);
       const user = await this.getUserInfo(authUser.uid);
 
       this.user.set(user);
-      console.log('Just set user to user');
+      //console.log('Just set user to user');
     });
   }
 
@@ -40,15 +40,15 @@ export class AuthService {
   }
 
   async getUserInfo(uid: string): Promise<User | null> {
-    console.log('we are in getUserInfo');
+    //console.log('we are in getUserInfo');
     const userRef = doc(this.firebaseService.db, 'users', uid);
     const userDoc = await getDoc(userRef);
 
     if (!userDoc.exists()) {
-      console.log('User doc does not exist');
+      //console.log('User doc does not exist');
       return null;
     }
-    console.log('User doc data:', userDoc.data());
+    //console.log('User doc data:', userDoc.data());
     return userDoc.data() as User;
   }
 
@@ -56,7 +56,7 @@ export class AuthService {
     return signInWithEmailAndPassword(
       this.firebaseService.auth,
       email,
-      password
+      password,
     );
   }
 

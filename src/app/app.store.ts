@@ -25,16 +25,16 @@ export const AppStore = signalStore(
       login: async (email: string, password: string) => {
         await authService.login(email, password);
 
-        console.log('logged in');
+        //console.log('logged in');
 
         router.navigate(['/home']);
 
-        console.log('router reached');
+        //console.log('router reached');
       },
       logout: async () => {
         await authService.logout();
         router.navigate(['/login']);
       },
-    })
-  )
+    }),
+  ),
 );

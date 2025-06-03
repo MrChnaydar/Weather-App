@@ -145,7 +145,7 @@ export class DataService {
     this.weatherdata.getLocationInfo(this.searchLocation).subscribe((city) => {
       this.setSearch(city);
     });
-    console.log(this.searchLocation);
+    //console.log(this.searchLocation);
   }
 
   public getCurrentWeather() {
